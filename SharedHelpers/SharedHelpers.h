@@ -1,10 +1,9 @@
-//
-//  SharedHelpers.h
-//  SharedHelpers
-//
-//  Created by Ben Norris on 6/23/16.
-//  Copyright © 2016 BSN Design. All rights reserved.
-//
+/*
+ |  _   ____   ____   _
+ | ⎛ |‾|  ⚈ |-| ⚈  |‾| ⎞
+ | ⎝ |  ‾‾‾‾| |‾‾‾‾  | ⎠
+ |  ‾        ‾        ‾
+ */
 
 #import <UIKit/UIKit.h>
 

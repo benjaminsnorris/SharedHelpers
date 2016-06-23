@@ -10,6 +10,15 @@
 		7063F6801D1C32FC006D8A58 /* SharedHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7063F67F1D1C32FC006D8A58 /* SharedHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
 		7063F68C1D1C32FC006D8A58 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */; };
+		7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6961D1C3340006D8A58 /* RotatingViewController.swift */; };
+		7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6981D1C3347006D8A58 /* RoundedViews.swift */; };
+		7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69A1D1C334D006D8A58 /* GradientView.swift */; };
+		7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */; };
+		7063F69F1D1C335B006D8A58 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69E1D1C335B006D8A58 /* SegueHandlerType.swift */; };
+		7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A01D1C3368006D8A58 /* DateSortable.swift */; };
+		7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */; };
+		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
+		7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +38,15 @@
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpersTests.swift; sourceTree = "<group>"; };
 		7063F68D1D1C32FC006D8A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7063F6961D1C3340006D8A58 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
+		7063F6981D1C3347006D8A58 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		7063F69A1D1C334D006D8A58 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		7063F69E1D1C335B006D8A58 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		7063F6A01D1C3368006D8A58 /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
+		7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
+		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
+		7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				7063F67F1D1C32FC006D8A58 /* SharedHelpers.h */,
+				7063F6A81D1C34BB006D8A58 /* UI */,
+				7063F6A91D1C34C9006D8A58 /* Protocols */,
+				7063F6AA1D1C34D1006D8A58 /* Extensions */,
 				7063F6811D1C32FC006D8A58 /* Info.plist */,
 			);
 			path = SharedHelpers;
@@ -84,6 +105,36 @@
 				7063F68D1D1C32FC006D8A58 /* Info.plist */,
 			);
 			path = SharedHelpersTests;
+			sourceTree = "<group>";
+		};
+		7063F6A81D1C34BB006D8A58 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7063F69A1D1C334D006D8A58 /* GradientView.swift */,
+				7063F6981D1C3347006D8A58 /* RoundedViews.swift */,
+				7063F6961D1C3340006D8A58 /* RotatingViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		7063F6A91D1C34C9006D8A58 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */,
+				7063F69E1D1C335B006D8A58 /* SegueHandlerType.swift */,
+				7063F6A01D1C3368006D8A58 /* DateSortable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		7063F6AA1D1C34D1006D8A58 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */,
+				7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */,
+				7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */,
+				7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */,
+				7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */,
+				7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */,
+				7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */,
+				7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */,
+				7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */,
+				7063F69F1D1C335B006D8A58 /* SegueHandlerType.swift in Sources */,
+				7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +370,7 @@
 		7063F6911D1C32FC006D8A58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +381,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7063F6921D1C32FC006D8A58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -378,6 +441,7 @@
 				7063F6921D1C32FC006D8A58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7063F6931D1C32FC006D8A58 /* Build configuration list for PBXNativeTarget "SharedHelpersTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +450,7 @@
 				7063F6951D1C32FC006D8A58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
