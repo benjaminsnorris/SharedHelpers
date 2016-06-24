@@ -36,6 +36,21 @@ import UIKit
         }
     }
 
+    @IBInspectable public var circular: Bool = false {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if circular {
+            let minSideSize = min(frame.size.width, frame.size.height)
+            layer.cornerRadius = minSideSize / 2.0
+        }
+    }
+
 }
 
 
