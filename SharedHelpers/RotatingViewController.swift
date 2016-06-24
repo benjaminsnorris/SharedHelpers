@@ -14,3 +14,11 @@ public class RotatingViewController: UIViewController {
     }
     
 }
+
+public class RotatingNavController: UINavigationController {
+    
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .All
+    }
+    
+}
