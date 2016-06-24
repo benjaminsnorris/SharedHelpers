@@ -9,9 +9,9 @@ import UIKit
 
 // MARK: - Button
 
-@IBDesignable class RoundedButton: UIButton {
+@IBDesignable public class RoundedButton: UIButton {
     
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -25,9 +25,9 @@ import UIKit
 
 // MARK: - ImageView
 
-@IBDesignable class RoundedImageView: UIImageView {
+@IBDesignable public class RoundedImageView: UIImageView {
     
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -41,9 +41,9 @@ import UIKit
 
 // MARK: - View
 
-@IBDesignable class RoundedView: UIView {
+@IBDesignable public class RoundedView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -52,7 +52,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
             return UIColor(CGColor: CGColor)
@@ -62,7 +62,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }

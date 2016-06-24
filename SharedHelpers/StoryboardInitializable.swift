@@ -7,22 +7,22 @@
 
 import UIKit
 
-protocol StoryboardInitializable {
+public protocol StoryboardInitializable {
     static var storyboardName: String { get }
     static var viewControllerIdentifier: String { get }
 }
 
-extension StoryboardInitializable where Self: UIViewController {
+public extension StoryboardInitializable where Self: UIViewController {
     
-    static var storyboardName: String {
+    public static var storyboardName: String {
         return String(Self)
     }
     
-    static var viewControllerIdentifier: String {
+    public static var viewControllerIdentifier: String {
         return String(Self)
     }
     
-    static func initializeFromStoryboard() -> Self {
+    public static func initializeFromStoryboard() -> Self {
         let bundle = NSBundle(forClass: Self.self)
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         guard let vc = storyboard.instantiateViewControllerWithIdentifier(viewControllerIdentifier) as? Self else { fatalError("Error instantiating \(self) from storyboard") }

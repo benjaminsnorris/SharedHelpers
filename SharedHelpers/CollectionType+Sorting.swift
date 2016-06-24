@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension CollectionType {
+public extension CollectionType {
     
-    func sort(ascending ascending: Bool, @noescape _ isOrderedBefore: (Self.Generator.Element, Self.Generator.Element) -> Bool) -> [Self.Generator.Element] {
+    public func sort(ascending ascending: Bool, @noescape _ isOrderedBefore: (Self.Generator.Element, Self.Generator.Element) -> Bool) -> [Self.Generator.Element] {
         return sort({ ascending == isOrderedBefore($0, $1) })
     }
     

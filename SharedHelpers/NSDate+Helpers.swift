@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension NSDate {
+public extension NSDate {
     
     // MARK: - Formatters
     
@@ -48,7 +48,7 @@ extension NSDate {
     
     static private let parsingFormatters = [ISO8601MillisecondFormatter, ISO8601SecondFormatter, ISO8601YearMonthDayFormatter]
     
-    static func fromISO8601String(dateString:String) -> NSDate? {
+    static public func fromISO8601String(dateString:String) -> NSDate? {
         for formatter in parsingFormatters {
             if let date = formatter.dateFromString(dateString) {
                 return date
@@ -57,7 +57,7 @@ extension NSDate {
         return .None
     }
     
-    static func fromMillisecondsSince1970(milliseconds: Double) -> NSDate {
+    static public func fromMillisecondsSince1970(milliseconds: Double) -> NSDate {
         let dateSeconds = milliseconds / 1000.0
         let dateInterval = NSTimeInterval(dateSeconds)
         let date = NSDate(timeIntervalSince1970: dateInterval)
@@ -67,34 +67,34 @@ extension NSDate {
     
     // MARK: - Formatted computed vars
     
-    var dateAndTimeString: String {
+    public var dateAndTimeString: String {
         return NSDate.dateAndTimeFormatter.stringFromDate(self)
     }
     
-    var iso8601DateAndTimeString: String {
+    public var iso8601DateAndTimeString: String {
         return NSDate.ISO8601SecondFormatter.stringFromDate(self)
     }
     
-    var iso8601MillisecondString: String {
+    public var iso8601MillisecondString: String {
         return NSDate.ISO8601MillisecondFormatter.stringFromDate(self)
     }
     
-    var iso8601DateString: String {
+    public var iso8601DateString: String {
         return NSDate.ISO8601YearMonthDayFormatter.stringFromDate(self)
     }
     
-    var millisecondsSince1970: NSTimeInterval {
+    public var millisecondsSince1970: NSTimeInterval {
         return round(self.timeIntervalSince1970 * 1000)
     }
     
-    var dayAndMonthString: String {
+    public var dayAndMonthString: String {
         return NSDate.dayAndMonthFormatter.stringFromDate(self)
     }
     
     
     // MARK: - Helper computed vars
     
-    var isToday: Bool {
+    public var isToday: Bool {
         let now = NSDate()
         let calender = NSCalendar.currentCalendar()
         let flags: NSCalendarUnit = [.Day, .Month, .Year]
@@ -103,14 +103,14 @@ extension NSDate {
         return (componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year)
     }
     
-    var startOfDay: NSDate {
+    public var startOfDay: NSDate {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Era, .Year, .Month, .Day], fromDate: self)
         let startOfDate = calendar.dateFromComponents(components)!
         return startOfDate
     }
     
-    var endOfDay: NSDate {
+    public var endOfDay: NSDate {
         let calendar = NSCalendar.currentCalendar()
         let nextDay = calendar.dateByAddingUnit(.Day, value: 1, toDate: self, options: [])!
         let components = calendar.components([.Era, .Year, .Month, .Day], fromDate: nextDay)

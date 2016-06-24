@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RotatingViewController: UIViewController {
+public class RotatingViewController: UIViewController {
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .All
     }
     

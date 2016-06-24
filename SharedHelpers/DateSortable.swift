@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol DateSortable {
+public protocol DateSortable {
     var sortDate: NSDate { get }
 }
 
 
 // MARK: - Sorting functions
 
-extension CollectionType where Self.Generator.Element: DateSortable {
+public extension CollectionType where Self.Generator.Element: DateSortable {
     
-    func sortedByDate(ascending ascending: Bool = true) -> [Self.Generator.Element] {
+    public func sortedByDate(ascending ascending: Bool = true) -> [Self.Generator.Element] {
         return self.sort(ascending ? sortAscending : sortDescending)
     }
     
