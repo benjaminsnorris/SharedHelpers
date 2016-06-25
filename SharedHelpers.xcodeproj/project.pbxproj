@@ -19,6 +19,7 @@
 		7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */; };
 		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
 		7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */; };
+		70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
 		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
 		7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				7063F69A1D1C334D006D8A58 /* GradientView.swift */,
 				7063F6981D1C3347006D8A58 /* RoundedViews.swift */,
 				7063F6961D1C3340006D8A58 /* RotatingViewController.swift */,
+				70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */,
 				7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */,
 				7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */,
+				70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */,
 				7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */,
 				7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */,
 				7063F69F1D1C335B006D8A58 /* SegueHandlable.swift in Sources */,
