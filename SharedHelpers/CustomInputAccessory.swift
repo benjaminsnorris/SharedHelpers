@@ -29,7 +29,7 @@ public class CustomInputAccessory: UIView {
     
     // MARK: - Initializers
     
-    convenience public init(textInput: UIView) {
+    convenience public init(textInput: UIView?) {
         self.init(frame: CGRectZero)
         self.textInput = textInput
         setupViews()
