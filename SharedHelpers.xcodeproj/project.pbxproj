@@ -20,6 +20,7 @@
 		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
 		7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */; };
 		708530CB1D2E9DC300C7C1DC /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */; };
+		708894A51D2F193300CA8129 /* AdjustingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708894A41D2F193300CA8129 /* AdjustingScrollView.swift */; };
 		708F34981D2EC6A7006ACABB /* GradientViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F34971D2EC6A7006ACABB /* GradientViewSpec.swift */; };
 		708F349B1D2EC6D4006ACABB /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F34991D2EC6D4006ACABB /* StoryboardInitializableSpec.swift */; };
 		708F349C1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F349A1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift */; };
@@ -55,6 +56,7 @@
 		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
 		7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
+		708894A41D2F193300CA8129 /* AdjustingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustingScrollView.swift; sourceTree = "<group>"; };
 		708F34971D2EC6A7006ACABB /* GradientViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewSpec.swift; sourceTree = "<group>"; };
 		708F34991D2EC6D4006ACABB /* StoryboardInitializableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializableSpec.swift; sourceTree = "<group>"; };
 		708F349A1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerTypeSpec.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */,
 				7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */,
 				7063F6A01D1C3368006D8A58 /* DateSortable.swift */,
+				708894A41D2F193300CA8129 /* AdjustingScrollView.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */,
 				7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */,
 				70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */,
+				708894A51D2F193300CA8129 /* AdjustingScrollView.swift in Sources */,
 				7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */,
 				7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */,
 				7063F69F1D1C335B006D8A58 /* SegueHandlable.swift in Sources */,
