@@ -8,7 +8,7 @@
 import UIKit
 
 @objc public protocol AdjustingScrollView {
-    var scrollViewToAdjust: UIScrollView { get }
+    var scrollViewToAdjust: UIScrollView? { get }
     @objc func keyboardWillShow(notification: NSNotification)
     @objc func keyboardWillHide()
 }
@@ -26,14 +26,14 @@ public extension AdjustingScrollView where Self: UIViewController {
         let keyboardSize = keyboardFrame.size
         
         let contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
-        scrollViewToAdjust.contentInset = contentInset
-        scrollViewToAdjust.scrollIndicatorInsets = contentInset
+        scrollViewToAdjust?.contentInset = contentInset
+        scrollViewToAdjust?.scrollIndicatorInsets = contentInset
     }
     
     public func keyboardWillDisappear() {
         let contentInset = UIEdgeInsetsZero
-        scrollViewToAdjust.contentInset = contentInset
-        scrollViewToAdjust.scrollIndicatorInsets = contentInset
+        scrollViewToAdjust?.contentInset = contentInset
+        scrollViewToAdjust?.scrollIndicatorInsets = contentInset
     }
 
 }
