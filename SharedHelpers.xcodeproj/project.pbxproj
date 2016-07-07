@@ -11,7 +11,7 @@
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
 		7063F68C1D1C32FC006D8A58 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */; };
 		7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6961D1C3340006D8A58 /* RotatingViewController.swift */; };
-		7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6981D1C3347006D8A58 /* RoundedViews.swift */; };
+		7063F6991D1C3347006D8A58 /* StyledViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6981D1C3347006D8A58 /* StyledViews.swift */; };
 		7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69A1D1C334D006D8A58 /* GradientView.swift */; };
 		7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */; };
 		7063F69F1D1C335B006D8A58 /* SegueHandlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */; };
@@ -19,7 +19,16 @@
 		7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */; };
 		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
 		7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */; };
+<<<<<<< Updated upstream
 		70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */; };
+=======
+		708530C91D2E9D9C00C7C1DC /* StylingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530C81D2E9D9C00C7C1DC /* StylingProtocols.swift */; };
+		708530CB1D2E9DC300C7C1DC /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */; };
+		708530D01D2EC39D00C7C1DC /* StyledLabelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CC1D2EC39D00C7C1DC /* StyledLabelSpec.swift */; };
+		708530D11D2EC39D00C7C1DC /* StyledButtonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CD1D2EC39D00C7C1DC /* StyledButtonSpec.swift */; };
+		708530D21D2EC39D00C7C1DC /* StyledImageViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CE1D2EC39D00C7C1DC /* StyledImageViewSpec.swift */; };
+		708530D31D2EC39D00C7C1DC /* StyledViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CF1D2EC39D00C7C1DC /* StyledViewSpec.swift */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +49,7 @@
 		7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpersTests.swift; sourceTree = "<group>"; };
 		7063F68D1D1C32FC006D8A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7063F6961D1C3340006D8A58 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
-		7063F6981D1C3347006D8A58 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		7063F6981D1C3347006D8A58 /* StyledViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViews.swift; sourceTree = "<group>"; };
 		7063F69A1D1C334D006D8A58 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlable.swift; sourceTree = "<group>"; };
@@ -48,7 +57,16 @@
 		7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
 		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
 		7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessory.swift; sourceTree = "<group>"; };
+=======
+		708530C81D2E9D9C00C7C1DC /* StylingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocols.swift; sourceTree = "<group>"; };
+		708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
+		708530CC1D2EC39D00C7C1DC /* StyledLabelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledLabelSpec.swift; sourceTree = "<group>"; };
+		708530CD1D2EC39D00C7C1DC /* StyledButtonSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledButtonSpec.swift; sourceTree = "<group>"; };
+		708530CE1D2EC39D00C7C1DC /* StyledImageViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledImageViewSpec.swift; sourceTree = "<group>"; };
+		708530CF1D2EC39D00C7C1DC /* StyledViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViewSpec.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */,
+				708530CC1D2EC39D00C7C1DC /* StyledLabelSpec.swift */,
+				708530CD1D2EC39D00C7C1DC /* StyledButtonSpec.swift */,
+				708530CE1D2EC39D00C7C1DC /* StyledImageViewSpec.swift */,
+				708530CF1D2EC39D00C7C1DC /* StyledViewSpec.swift */,
 				7063F68D1D1C32FC006D8A58 /* Info.plist */,
 			);
 			path = SharedHelpersTests;
@@ -113,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				7063F69A1D1C334D006D8A58 /* GradientView.swift */,
-				7063F6981D1C3347006D8A58 /* RoundedViews.swift */,
+				7063F6981D1C3347006D8A58 /* StyledViews.swift */,
 				7063F6961D1C3340006D8A58 /* RotatingViewController.swift */,
 				70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */,
 			);
@@ -126,6 +148,7 @@
 				7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */,
 				7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */,
 				7063F6A01D1C3368006D8A58 /* DateSortable.swift */,
+				708530C81D2E9D9C00C7C1DC /* StylingProtocols.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -136,6 +159,7 @@
 				7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */,
 				7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */,
 				7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */,
+				708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -248,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */,
+				708530C91D2E9D9C00C7C1DC /* StylingProtocols.swift in Sources */,
+				7063F6991D1C3347006D8A58 /* StyledViews.swift in Sources */,
+				708530CB1D2E9DC300C7C1DC /* UIColor+Named.swift in Sources */,
 				7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */,
 				7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */,
 				7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */,
@@ -265,6 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708530D11D2EC39D00C7C1DC /* StyledButtonSpec.swift in Sources */,
+				708530D31D2EC39D00C7C1DC /* StyledViewSpec.swift in Sources */,
+				708530D01D2EC39D00C7C1DC /* StyledLabelSpec.swift in Sources */,
+				708530D21D2EC39D00C7C1DC /* StyledImageViewSpec.swift in Sources */,
 				7063F68C1D1C32FC006D8A58 /* SharedHelpersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
