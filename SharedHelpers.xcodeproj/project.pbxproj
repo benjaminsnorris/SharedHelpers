@@ -14,7 +14,7 @@
 		7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6981D1C3347006D8A58 /* RoundedViews.swift */; };
 		7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69A1D1C334D006D8A58 /* GradientView.swift */; };
 		7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */; };
-		7063F69F1D1C335B006D8A58 /* SegueHandlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */; };
+		7063F69F1D1C335B006D8A58 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69E1D1C335B006D8A58 /* SegueHandling.swift */; };
 		7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A01D1C3368006D8A58 /* DateSortable.swift */; };
 		7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */; };
 		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
@@ -50,7 +50,7 @@
 		7063F6981D1C3347006D8A58 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		7063F69A1D1C334D006D8A58 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
-		7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlable.swift; sourceTree = "<group>"; };
+		7063F69E1D1C335B006D8A58 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
 		7063F6A01D1C3368006D8A58 /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
 		7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
 		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */,
-				7063F69E1D1C335B006D8A58 /* SegueHandlable.swift */,
+				7063F69E1D1C335B006D8A58 /* SegueHandling.swift */,
 				7063F6A01D1C3368006D8A58 /* DateSortable.swift */,
 				708894A41D2F193300CA8129 /* AdjustingScrollView.swift */,
 			);
@@ -279,7 +279,7 @@
 				708894A51D2F193300CA8129 /* AdjustingScrollView.swift in Sources */,
 				7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */,
 				7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */,
-				7063F69F1D1C335B006D8A58 /* SegueHandlable.swift in Sources */,
+				7063F69F1D1C335B006D8A58 /* SegueHandling.swift in Sources */,
 				7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
