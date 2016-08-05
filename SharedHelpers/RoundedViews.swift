@@ -41,10 +41,10 @@ extension CircularView where Self: UIView {
     @IBInspectable public var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 
@@ -87,10 +87,10 @@ extension CircularView where Self: UIView {
     @IBInspectable public var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 
@@ -133,10 +133,10 @@ extension CircularView where Self: UIView {
     @IBInspectable public var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     

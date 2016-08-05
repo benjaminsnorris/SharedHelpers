@@ -8,24 +8,24 @@
 import Foundation
 
 public protocol DateSortable {
-    var sortDate: NSDate { get }
+    var sortDate: Date { get }
 }
 
 
 // MARK: - Sorting functions
 
-public extension CollectionType where Self.Generator.Element: DateSortable {
+public extension Collection where Self.Iterator.Element: DateSortable {
     
-    public func sortedByDate(ascending ascending: Bool = true) -> [Self.Generator.Element] {
-        return self.sort(ascending ? sortAscending : sortDescending)
+    public func sortedByDate(ascending: Bool = true) -> [Self.Iterator.Element] {
+        return self.sorted(by: ascending ? sortAscending : sortDescending)
     }
     
-    private func sortAscending(first: DateSortable, _ second: DateSortable) -> Bool {
-        return first.sortDate.earlierDate(second.sortDate) == first.sortDate
+    private func sortAscending(_ first: DateSortable, _ second: DateSortable) -> Bool {
+        return (first.sortDate as NSDate).earlierDate(second.sortDate) == first.sortDate
     }
 
-    private func sortDescending(first: DateSortable, _ second: DateSortable) -> Bool {
-        return first.sortDate.laterDate(second.sortDate) == first.sortDate
+    private func sortDescending(_ first: DateSortable, _ second: DateSortable) -> Bool {
+        return (first.sortDate as NSDate).laterDate(second.sortDate) == first.sortDate
     }
 
 }

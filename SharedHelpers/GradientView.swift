@@ -12,24 +12,24 @@ import UIKit
     // MARK: - Enums
     
     enum Direction: Int {
-        case Vertical
-        case Horizontal
-        case DiagonalDown
-        case DiagonalUp
+        case vertical
+        case horizontal
+        case diagonalDown
+        case diagonalUp
     }
     
     
     // MARK: - Inspectable properties
     
-    @IBInspectable public var startColor: UIColor = .blueColor()
-    @IBInspectable public var endColor: UIColor = .redColor()
+    @IBInspectable public var startColor: UIColor = .blue()
+    @IBInspectable public var endColor: UIColor = .red()
     @IBInspectable public var direction: Int = 0
     
     
     // MARK: - Internal computed properties
     
     var computedDirection: Direction {
-        guard let dir = Direction(rawValue: direction) else { return .Vertical }
+        guard let dir = Direction(rawValue: direction) else { return .vertical }
         return dir
     }
 
@@ -60,20 +60,20 @@ import UIKit
         super.layoutSubviews()
         
         gradientLayer.frame = bounds
-        gradientLayer.colors = [startColor.CGColor, endColor.CGColor]
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         
         var startPoint = CGPoint(x: 0.0, y: 0.0)
         var endPoint = CGPoint(x: 0.0, y: 1.0)
         switch computedDirection {
-        case .Vertical:
+        case .vertical:
             break
-        case .Horizontal:
+        case .horizontal:
             startPoint = CGPoint(x: 0.0, y: 0.0)
             endPoint = CGPoint(x: 1.0, y: 0.0)
-        case .DiagonalDown:
+        case .diagonalDown:
             startPoint = CGPoint(x: 0.0, y: 0.0)
             endPoint = CGPoint(x: 1.0, y: 1.0)
-        case .DiagonalUp:
+        case .diagonalUp:
             startPoint = CGPoint(x: 0.0, y: 1.0)
             endPoint = CGPoint(x: 1.0, y: 0.0)
         }
