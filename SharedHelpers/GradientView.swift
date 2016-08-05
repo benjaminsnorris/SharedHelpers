@@ -21,8 +21,8 @@ import UIKit
     
     // MARK: - Inspectable properties
     
-    @IBInspectable public var startColor: UIColor = .blue()
-    @IBInspectable public var endColor: UIColor = .red()
+    @IBInspectable public var startColor: UIColor = .blue
+    @IBInspectable public var endColor: UIColor = .red
     @IBInspectable public var direction: Int = 0
     
     

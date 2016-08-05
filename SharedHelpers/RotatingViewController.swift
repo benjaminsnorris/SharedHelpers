@@ -9,7 +9,7 @@ import UIKit
 
 public class RotatingViewController: UIViewController {
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
     }
     
@@ -17,7 +17,7 @@ public class RotatingViewController: UIViewController {
 
 public class RotatingNavController: UINavigationController {
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
     }
     

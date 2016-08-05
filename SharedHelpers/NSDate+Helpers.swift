@@ -97,9 +97,9 @@ public extension Date {
     public var isToday: Bool {
         let now = Date()
         let calender = Calendar.current
-        let flags: Calendar.Unit = [.day, .month, .year]
-        let componentsOne = calender.components(flags, from: self)
-        let componentsTwo = calender.components(flags, from: now)
+        let flags: Set<Calendar.Component> = [.day, .month, .year]
+        let componentsOne = calender.dateComponents(flags, from: self)
+        let componentsTwo = calender.dateComponents(flags, from: now)
         return (componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year)
     }
     
@@ -112,19 +112,10 @@ public extension Date {
     
     public var endOfDay: Date {
         let calendar = Calendar.current
-        let nextDay = calendar.date(byAdding: .day, value: 1, to: self, options: [])!
+        let nextDay = calendar.date(byAdding: .day, value: 1, to: self)!
         let components = calendar.dateComponents([.era, .year, .month, .day], from: nextDay)
         let startOfDate = calendar.date(from: components)!
         return startOfDate
     }
     
-}
-
-
-// MARK: - Comparable
-
-extension Date: Comparable { }
-
-public func <(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince1970 < rhs.timeIntervalSince1970
 }

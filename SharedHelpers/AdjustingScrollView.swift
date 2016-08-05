@@ -21,7 +21,7 @@ public extension AdjustingScrollView where Self: UIViewController {
     }
 
     public func keyboardWillAppear(_ notification: Notification) {
-        guard let userInfo = (notification as NSNotification).userInfo, keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
+        guard let userInfo = (notification as NSNotification).userInfo, let keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
         let keyboardFrame = keyboardFrameValue.cgRectValue
         let keyboardSize = keyboardFrame.size
         
@@ -31,7 +31,7 @@ public extension AdjustingScrollView where Self: UIViewController {
     }
     
     public func keyboardWillDisappear() {
-        let contentInset = UIEdgeInsetsZero
+        let contentInset = UIEdgeInsets.zero
         scrollViewToAdjust?.contentInset = contentInset
         scrollViewToAdjust?.scrollIndicatorInsets = contentInset
     }
