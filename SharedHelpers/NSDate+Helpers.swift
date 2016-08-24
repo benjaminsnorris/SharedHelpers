@@ -14,16 +14,12 @@ public extension NSDate {
     static private var ISO8601MillisecondFormatter: NSDateFormatter {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let tz = NSTimeZone(abbreviation:"GMT")
-        formatter.timeZone = tz
         return formatter
     }
     
     static private var ISO8601SecondFormatter: NSDateFormatter {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let tz = NSTimeZone(abbreviation:"GMT")
-        formatter.timeZone = tz
         return formatter
     }
     
