@@ -15,11 +15,11 @@ public protocol StoryboardInitializable {
 public extension StoryboardInitializable where Self: UIViewController {
     
     public static var storyboardName: String {
-        return String(Self)
+        return String(describing: Self.self)
     }
     
     public static var viewControllerIdentifier: String {
-        return String(Self)
+        return String(describing: Self.self)
     }
     
     public static func initializeFromStoryboard() -> Self {

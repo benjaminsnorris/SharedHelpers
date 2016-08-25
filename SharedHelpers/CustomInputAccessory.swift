@@ -21,10 +21,10 @@ public class CustomInputAccessory: UIView {
 
     // MARK: - Private properties
     
-    private var delegate: CustomInputAccessoryDelegate?
-    private var textInput: UIView?
-    private let toolbar = UIToolbar()
-    private let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
+    fileprivate var delegate: CustomInputAccessoryDelegate?
+    fileprivate var textInput: UIView?
+    fileprivate let toolbar = UIToolbar()
+    fileprivate let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
     
     
     // MARK: - Initializers
@@ -76,7 +76,7 @@ extension CustomInputAccessory {
 
 // MARK: - Private functions
 
-private extension CustomInputAccessory {
+fileprivate extension CustomInputAccessory {
     
     func setupViews() {
         let toolbarSize = toolbar.sizeThatFits(toolbar.frame.size)
