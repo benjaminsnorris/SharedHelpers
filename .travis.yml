@@ -2,6 +2,7 @@ language: objective-c
 
 before_install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install slather
 
 env:
   global:
