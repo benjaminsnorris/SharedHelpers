@@ -40,4 +40,5 @@ script:
     | xcpretty -c
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J "$PROJECT_NAME"
+  - slather
+  - bash <(curl -s https://codecov.io/bash) -J "$PROJECT_NAME" -f ./test_reports/cobertura.xml
