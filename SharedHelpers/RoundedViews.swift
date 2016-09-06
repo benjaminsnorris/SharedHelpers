@@ -63,9 +63,48 @@ extension CircularView where Self: UIView {
         }
     }
     
+    @IBInspectable public var loading: Bool = false {
+        didSet {
+            if loading {
+                spinner.startAnimating()
+                savedTitle = titleLabel?.text
+                setTitle(nil, forState: .Normal)
+            } else {
+                spinner.stopAnimating()
+                setTitle(savedTitle, forState: .Normal)
+                savedTitle = nil
+            }
+        }
+    }
+    
+    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: .White)
+    private var savedTitle: String?
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        arrangeSpinner()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        arrangeSpinner()
+    }
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
+    }
+    
+    public override func tintColorDidChange() {
+        spinner.color = tintColor
+    }
+    
+    private func arrangeSpinner() {
+        addSubview(spinner)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+        spinner.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+        spinner.stopAnimating()
     }
     
 }
