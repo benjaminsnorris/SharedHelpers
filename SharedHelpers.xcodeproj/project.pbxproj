@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7063F6801D1C32FC006D8A58 /* SharedHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7063F67F1D1C32FC006D8A58 /* SharedHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
-		7063F68C1D1C32FC006D8A58 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */; };
-		7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6961D1C3340006D8A58 /* RotatingViewController.swift */; };
-		7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6981D1C3347006D8A58 /* RoundedViews.swift */; };
-		7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69A1D1C334D006D8A58 /* GradientView.swift */; };
-		7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */; };
-		7063F69F1D1C335B006D8A58 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F69E1D1C335B006D8A58 /* SegueHandling.swift */; };
-		7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A01D1C3368006D8A58 /* DateSortable.swift */; };
-		7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */; };
-		7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */; };
-		7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */; };
-		708530CB1D2E9DC300C7C1DC /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */; };
-		708894A51D2F193300CA8129 /* AdjustingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708894A41D2F193300CA8129 /* AdjustingScrollView.swift */; };
-		708F34981D2EC6A7006ACABB /* GradientViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F34971D2EC6A7006ACABB /* GradientViewSpec.swift */; };
-		708F349B1D2EC6D4006ACABB /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F34991D2EC6D4006ACABB /* StoryboardInitializableSpec.swift */; };
-		708F349C1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F349A1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift */; };
-		708F349F1D2EC6DE006ACABB /* NSDate+HelpersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F349D1D2EC6DE006ACABB /* NSDate+HelpersSpec.swift */; };
-		708F34A01D2EC6DE006ACABB /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708F349E1D2EC6DE006ACABB /* UIColor+HexSpec.swift */; };
-		70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */; };
+		7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8111D7A14C700373574 /* AdjustingScrollView.swift */; };
+		7078A81E1D7A14C700373574 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */; };
+		7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8131D7A14C700373574 /* CustomInputAccessory.swift */; };
+		7078A8201D7A14C700373574 /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
+		7078A8211D7A14C700373574 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8151D7A14C700373574 /* GradientView.swift */; };
+		7078A8221D7A14C700373574 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8161D7A14C700373574 /* NSDate+Helpers.swift */; };
+		7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8171D7A14C700373574 /* RotatingViewController.swift */; };
+		7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8181D7A14C700373574 /* RoundedViews.swift */; };
+		7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8191D7A14C700373574 /* SegueHandling.swift */; };
+		7078A8261D7A14C700373574 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */; };
+		7078A8271D7A14C700373574 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A81B1D7A14C700373574 /* UIColor+Hex.swift */; };
+		7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A81C1D7A14C700373574 /* UIColor+Named.swift */; };
+		7078A83E1D7A163600373574 /* SharedHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 7078A83B1D7A163600373574 /* SharedHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7078A8401D7A164700373574 /* GradientViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A82D1D7A162700373574 /* GradientViewSpec.swift */; };
+		7078A8411D7A164700373574 /* NSDate+HelpersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A82E1D7A162700373574 /* NSDate+HelpersSpec.swift */; };
+		7078A8421D7A164700373574 /* SegueHandlerTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A82F1D7A162700373574 /* SegueHandlerTypeSpec.swift */; };
+		7078A8431D7A164700373574 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8301D7A162700373574 /* SharedHelpersTests.swift */; };
+		7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */; };
+		7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8321D7A162700373574 /* UIColor+HexSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,28 +41,28 @@
 
 /* Begin PBXFileReference section */
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7063F67F1D1C32FC006D8A58 /* SharedHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedHelpers.h; sourceTree = "<group>"; };
-		7063F6811D1C32FC006D8A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpersTests.swift; sourceTree = "<group>"; };
-		7063F68D1D1C32FC006D8A58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7063F6961D1C3340006D8A58 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
-		7063F6981D1C3347006D8A58 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
-		7063F69A1D1C334D006D8A58 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
-		7063F69E1D1C335B006D8A58 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
-		7063F6A01D1C3368006D8A58 /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
-		7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
-		7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
-		7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
-		708894A41D2F193300CA8129 /* AdjustingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustingScrollView.swift; sourceTree = "<group>"; };
-		708F34971D2EC6A7006ACABB /* GradientViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewSpec.swift; sourceTree = "<group>"; };
-		708F34991D2EC6D4006ACABB /* StoryboardInitializableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializableSpec.swift; sourceTree = "<group>"; };
-		708F349A1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerTypeSpec.swift; sourceTree = "<group>"; };
-		708F349D1D2EC6DE006ACABB /* NSDate+HelpersSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+HelpersSpec.swift"; sourceTree = "<group>"; };
-		708F349E1D2EC6DE006ACABB /* UIColor+HexSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexSpec.swift"; sourceTree = "<group>"; };
-		70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessory.swift; sourceTree = "<group>"; };
+		7078A8111D7A14C700373574 /* AdjustingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustingScrollView.swift; sourceTree = "<group>"; };
+		7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
+		7078A8131D7A14C700373574 /* CustomInputAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessory.swift; sourceTree = "<group>"; };
+		7078A8141D7A14C700373574 /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
+		7078A8151D7A14C700373574 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7078A8161D7A14C700373574 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
+		7078A8171D7A14C700373574 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
+		7078A8181D7A14C700373574 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		7078A8191D7A14C700373574 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
+		7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		7078A81B1D7A14C700373574 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		7078A81C1D7A14C700373574 /* UIColor+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
+		7078A82D1D7A162700373574 /* GradientViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientViewSpec.swift; sourceTree = "<group>"; };
+		7078A82E1D7A162700373574 /* NSDate+HelpersSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+HelpersSpec.swift"; sourceTree = "<group>"; };
+		7078A82F1D7A162700373574 /* SegueHandlerTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerTypeSpec.swift; sourceTree = "<group>"; };
+		7078A8301D7A162700373574 /* SharedHelpersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedHelpersTests.swift; sourceTree = "<group>"; };
+		7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializableSpec.swift; sourceTree = "<group>"; };
+		7078A8321D7A162700373574 /* UIColor+HexSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexSpec.swift"; sourceTree = "<group>"; };
+		7078A83A1D7A163600373574 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7078A83B1D7A163600373574 /* SharedHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHelpers.h; sourceTree = "<group>"; };
+		7078A83C1D7A163600373574 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +87,9 @@
 		7063F6721D1C32FC006D8A58 = {
 			isa = PBXGroup;
 			children = (
-				7063F67E1D1C32FC006D8A58 /* SharedHelpers */,
-				7063F68A1D1C32FC006D8A58 /* SharedHelpersTests */,
+				7078A8101D7A14C700373574 /* Sources */,
+				7078A82C1D7A162700373574 /* Tests */,
+				7078A8391D7A163600373574 /* Support */,
 				7063F67D1D1C32FC006D8A58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,63 +103,70 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7063F67E1D1C32FC006D8A58 /* SharedHelpers */ = {
+		7078A8101D7A14C700373574 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7063F67F1D1C32FC006D8A58 /* SharedHelpers.h */,
-				7063F6A81D1C34BB006D8A58 /* UI */,
-				7063F6A91D1C34C9006D8A58 /* Protocols */,
-				7063F6AA1D1C34D1006D8A58 /* Extensions */,
-				7063F6811D1C32FC006D8A58 /* Info.plist */,
+				7078A8291D7A14D800373574 /* UI */,
+				7078A82A1D7A15FD00373574 /* Protocols */,
+				7078A82B1D7A160800373574 /* Extensions */,
 			);
-			path = SharedHelpers;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		7063F68A1D1C32FC006D8A58 /* SharedHelpersTests */ = {
+		7078A8291D7A14D800373574 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7063F68B1D1C32FC006D8A58 /* SharedHelpersTests.swift */,
-				708F34971D2EC6A7006ACABB /* GradientViewSpec.swift */,
-				708F34991D2EC6D4006ACABB /* StoryboardInitializableSpec.swift */,
-				708F349A1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift */,
-				708F349D1D2EC6DE006ACABB /* NSDate+HelpersSpec.swift */,
-				708F349E1D2EC6DE006ACABB /* UIColor+HexSpec.swift */,
-				7063F68D1D1C32FC006D8A58 /* Info.plist */,
-			);
-			path = SharedHelpersTests;
-			sourceTree = "<group>";
-		};
-		7063F6A81D1C34BB006D8A58 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				7063F69A1D1C334D006D8A58 /* GradientView.swift */,
-				7063F6981D1C3347006D8A58 /* RoundedViews.swift */,
-				7063F6961D1C3340006D8A58 /* RotatingViewController.swift */,
-				70E7FD5E1D1EC6EC003BC030 /* CustomInputAccessory.swift */,
+				7078A8131D7A14C700373574 /* CustomInputAccessory.swift */,
+				7078A8151D7A14C700373574 /* GradientView.swift */,
+				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
+				7078A8181D7A14C700373574 /* RoundedViews.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
 		};
-		7063F6A91D1C34C9006D8A58 /* Protocols */ = {
+		7078A82A1D7A15FD00373574 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				7063F69C1D1C3354006D8A58 /* StoryboardInitializable.swift */,
-				7063F69E1D1C335B006D8A58 /* SegueHandling.swift */,
-				7063F6A01D1C3368006D8A58 /* DateSortable.swift */,
-				708894A41D2F193300CA8129 /* AdjustingScrollView.swift */,
+				7078A8111D7A14C700373574 /* AdjustingScrollView.swift */,
+				7078A8141D7A14C700373574 /* DateSortable.swift */,
+				7078A8191D7A14C700373574 /* SegueHandling.swift */,
+				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
 		};
-		7063F6AA1D1C34D1006D8A58 /* Extensions */ = {
+		7078A82B1D7A160800373574 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7063F6A21D1C337C006D8A58 /* CollectionType+Sorting.swift */,
-				7063F6A41D1C338A006D8A58 /* NSDate+Helpers.swift */,
-				7063F6A61D1C3391006D8A58 /* UIColor+Hex.swift */,
-				708530CA1D2E9DC300C7C1DC /* UIColor+Named.swift */,
+				7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */,
+				7078A8161D7A14C700373574 /* NSDate+Helpers.swift */,
+				7078A81B1D7A14C700373574 /* UIColor+Hex.swift */,
+				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		7078A82C1D7A162700373574 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7078A82D1D7A162700373574 /* GradientViewSpec.swift */,
+				7078A82E1D7A162700373574 /* NSDate+HelpersSpec.swift */,
+				7078A82F1D7A162700373574 /* SegueHandlerTypeSpec.swift */,
+				7078A8301D7A162700373574 /* SharedHelpersTests.swift */,
+				7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */,
+				7078A8321D7A162700373574 /* UIColor+HexSpec.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		7078A8391D7A163600373574 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				7078A83A1D7A163600373574 /* Info.plist */,
+				7078A83B1D7A163600373574 /* SharedHelpers.h */,
+				7078A83C1D7A163600373574 /* Tests-Info.plist */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +176,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7063F6801D1C32FC006D8A58 /* SharedHelpers.h in Headers */,
+				7078A83E1D7A163600373574 /* SharedHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,18 +277,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7063F6991D1C3347006D8A58 /* RoundedViews.swift in Sources */,
-				708530CB1D2E9DC300C7C1DC /* UIColor+Named.swift in Sources */,
-				7063F6971D1C3340006D8A58 /* RotatingViewController.swift in Sources */,
-				7063F6A31D1C337C006D8A58 /* CollectionType+Sorting.swift in Sources */,
-				7063F6A71D1C3391006D8A58 /* UIColor+Hex.swift in Sources */,
-				7063F69D1D1C3354006D8A58 /* StoryboardInitializable.swift in Sources */,
-				70E7FD5F1D1EC6EC003BC030 /* CustomInputAccessory.swift in Sources */,
-				708894A51D2F193300CA8129 /* AdjustingScrollView.swift in Sources */,
-				7063F6A51D1C338A006D8A58 /* NSDate+Helpers.swift in Sources */,
-				7063F6A11D1C3368006D8A58 /* DateSortable.swift in Sources */,
-				7063F69F1D1C335B006D8A58 /* SegueHandling.swift in Sources */,
-				7063F69B1D1C334D006D8A58 /* GradientView.swift in Sources */,
+				7078A8271D7A14C700373574 /* UIColor+Hex.swift in Sources */,
+				7078A81E1D7A14C700373574 /* CollectionType+Sorting.swift in Sources */,
+				7078A8261D7A14C700373574 /* StoryboardInitializable.swift in Sources */,
+				7078A8211D7A14C700373574 /* GradientView.swift in Sources */,
+				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
+				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
+				7078A8221D7A14C700373574 /* NSDate+Helpers.swift in Sources */,
+				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
+				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
+				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
+				7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */,
+				7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,12 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				708F349F1D2EC6DE006ACABB /* NSDate+HelpersSpec.swift in Sources */,
-				708F349C1D2EC6D4006ACABB /* SegueHandlerTypeSpec.swift in Sources */,
-				708F349B1D2EC6D4006ACABB /* StoryboardInitializableSpec.swift in Sources */,
-				708F34A01D2EC6DE006ACABB /* UIColor+HexSpec.swift in Sources */,
-				708F34981D2EC6A7006ACABB /* GradientViewSpec.swift in Sources */,
-				7063F68C1D1C32FC006D8A58 /* SharedHelpersTests.swift in Sources */,
+				7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */,
+				7078A8431D7A164700373574 /* SharedHelpersTests.swift in Sources */,
+				7078A8421D7A164700373574 /* SegueHandlerTypeSpec.swift in Sources */,
+				7078A8401D7A164700373574 /* GradientViewSpec.swift in Sources */,
+				7078A8411D7A164700373574 /* NSDate+HelpersSpec.swift in Sources */,
+				7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,13 +415,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SharedHelpers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -426,20 +435,21 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SharedHelpers/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Release;
 		};
 		7063F6941D1C32FC006D8A58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SharedHelpersTests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,7 +459,7 @@
 		7063F6951D1C32FC006D8A58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SharedHelpersTests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
