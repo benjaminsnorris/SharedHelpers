@@ -66,6 +66,7 @@ extension CircularView where Self: UIView {
     @IBInspectable public var loading: Bool = false {
         didSet {
             if loading {
+                spinner.color = titleColorForState(.Normal)
                 spinner.startAnimating()
                 savedTitle = titleLabel?.text
                 setTitle(nil, forState: .Normal)
@@ -95,10 +96,6 @@ extension CircularView where Self: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
-    }
-    
-    public override func tintColorDidChange() {
-        spinner.color = tintColor
     }
     
     private func arrangeSpinner() {
