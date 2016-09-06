@@ -69,10 +69,12 @@ extension CircularView where Self: UIView {
                 spinner.startAnimating()
                 savedTitle = titleLabel?.text
                 setTitle(nil, forState: .Normal)
+                accessibilityLabel = NSLocalizedString("Loading", comment: "Label for button while loading")
             } else {
                 spinner.stopAnimating()
                 setTitle(savedTitle, forState: .Normal)
                 savedTitle = nil
+                accessibilityLabel = nil
             }
         }
     }
