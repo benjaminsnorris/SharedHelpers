@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
+		7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
 		7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8111D7A14C700373574 /* AdjustingScrollView.swift */; };
 		7078A81E1D7A14C700373574 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7019DCD21D819D3600B08C10 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
+		7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersionSpec.swift; sourceTree = "<group>"; };
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7078A8111D7A14C700373574 /* AdjustingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustingScrollView.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7019DCD41D819D3A00B08C10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7019DCD21D819D3600B08C10 /* SemanticVersion.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		7063F6721D1C32FC006D8A58 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +121,7 @@
 				7078A8291D7A14D800373574 /* UI */,
 				7078A82A1D7A15FD00373574 /* Protocols */,
 				7078A82B1D7A160800373574 /* Extensions */,
+				7019DCD41D819D3A00B08C10 /* Helpers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -155,6 +168,7 @@
 				7078A8301D7A162700373574 /* SharedHelpersTests.swift */,
 				7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */,
 				7078A8321D7A162700373574 /* UIColor+HexSpec.swift */,
+				7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -288,6 +302,7 @@
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
 				7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */,
+				7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */,
 				7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +315,7 @@
 				7078A8431D7A164700373574 /* SharedHelpersTests.swift in Sources */,
 				7078A8421D7A164700373574 /* SegueHandlerTypeSpec.swift in Sources */,
 				7078A8401D7A164700373574 /* GradientViewSpec.swift in Sources */,
+				7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */,
 				7078A8411D7A164700373574 /* NSDate+HelpersSpec.swift in Sources */,
 				7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */,
 			);
