@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SemanticVersion {
-    var major: Int
-    var minor: Int
-    var patch: Int
+public struct SemanticVersion {
+    public var major: Int
+    public var minor: Int
+    public var patch: Int
     
-    init?(_ versionString: String) {
+    public init?(_ versionString: String) {
         let components = versionString.componentsSeparatedByString(".")
         guard let majorString = components.first, major = Int(majorString) else { return nil }
         self.major = major
@@ -28,7 +28,7 @@ struct SemanticVersion {
 
 extension SemanticVersion: CustomStringConvertible {
     
-    var description: String {
+    public var description: String {
         return "\(major).\(minor).\(patch)"
     }
     
@@ -36,11 +36,11 @@ extension SemanticVersion: CustomStringConvertible {
 
 extension SemanticVersion: Comparable {}
 
-func == (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
+public func == (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
     return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
 }
 
-func < (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
+public func < (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
     if lhs.major < rhs.major && lhs.minor <= rhs.minor && lhs.patch <= rhs.patch {
         return true
     }
