@@ -36,6 +36,12 @@ public extension NSDate {
         return formatter
     }
     
+    static private var timeFormatter: NSDateFormatter {
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        return formatter
+    }
+    
     static private var dayAndMonthFormatter: NSDateFormatter {
         let formatter = NSDateFormatter()
         formatter.dateFormat = NSDateFormatter.dateFormatFromTemplate("MMM d", options: 0, locale: NSLocale.currentLocale())
@@ -62,6 +68,10 @@ public extension NSDate {
     
     
     // MARK: - Formatted computed vars
+    
+    public var timeString: String {
+        return NSDate.timeFormatter.stringFromDate(self)
+    }
     
     public var dateAndTimeString: String {
         return NSDate.dateAndTimeFormatter.stringFromDate(self)
