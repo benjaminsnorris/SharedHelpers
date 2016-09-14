@@ -31,7 +31,8 @@ public extension NSDate {
     
     static private var dateAndTimeFormatter: NSDateFormatter {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "E, d MMM yyyy, H:mm a"
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .ShortStyle
         return formatter
     }
     
