@@ -36,6 +36,13 @@ public extension NSDate {
         return formatter
     }
     
+    static private var fullDateAndTimeFormatter: NSDateFormatter {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .FullStyle
+        formatter.timeStyle = .ShortStyle
+        return formatter
+    }
+    
     static private var timeFormatter: NSDateFormatter {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
@@ -75,6 +82,10 @@ public extension NSDate {
     
     public var dateAndTimeString: String {
         return NSDate.dateAndTimeFormatter.stringFromDate(self)
+    }
+    
+    public var fullDateAndTimeString: String {
+        return NSDate.fullDateAndTimeFormatter.stringFromDate(self)
     }
     
     public var iso8601DateAndTimeString: String {
