@@ -39,8 +39,8 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillAppear(notification: NSNotification) {
-        handleKeyboardNotification(notification)
+    public func keyboardWillAppear(notification: NSNotification, in viewController: UIViewController) {
+        handleKeyboardNotification(notification, viewController: viewController)
     }
 
     /**
@@ -51,8 +51,8 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing 
         information about the keyboard.
      */
-    public func keyboardDidAppear(notification: NSNotification) {
-        handleKeyboardNotification(notification)
+    public func keyboardDidAppear(notification: NSNotification, in viewController: UIViewController) {
+        handleKeyboardNotification(notification, viewController: viewController)
     }
     
     /**
@@ -69,10 +69,10 @@ public extension AdjustingScrollView where Self: UIViewController {
 
 private extension AdjustingScrollView {
     
-    private func handleKeyboardNotification(notification: NSNotification) {
+    private func handleKeyboardNotification(notification: NSNotification, viewController: UIViewController) {
         guard let userInfo = notification.userInfo, keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue, scrollView = scrollViewToAdjust else { return }
         let keyboardFrame = keyboardFrameValue.CGRectValue()
-        let convertedScrollViewFrame = scrollView.convertRect(scrollView.frame, toCoordinateSpace: UIScreen.mainScreen().coordinateSpace)
+        let convertedScrollViewFrame = scrollView.convertRect(scrollView.frame, toView: viewController.view)
         let keyboardHeight = keyboardFrame.size.height
         let adjustedKeyboardFrame = CGRectMake(keyboardFrame.origin.x, keyboardFrame.origin.y - keyboardHeight, keyboardFrame.size.width, keyboardHeight)
         guard adjustedKeyboardFrame.intersects(convertedScrollViewFrame) else { return }
