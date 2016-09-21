@@ -1,7 +1,0 @@
-# .slather.yml
-
-coverage_service:   cobertura_xml
-xcodeproj:          SharedHelpers.xcodeproj
-scheme:             SharedHelpers
-source_directory:   Sources
-output_directory:   test_reports
