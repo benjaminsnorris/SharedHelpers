@@ -25,7 +25,6 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     scan(project: "SharedHelpers.xcodeproj", scheme: "SharedHelpers", skip_slack: true, code_coverage: true, devices: ["iPhone 6s Plus", "iPhone 6s", "iPad Pro"])
-    # slather(cobertura_xml: true, proj: "SharedHelpers.xcodeproj", scheme: "SharedHelpers", source_directory: "Sources", output_directory: "fastlane/test_output")
     sh "curl -s https://codecov.io/bash | bash -s -- -J SharedHelpers -t 9e53747f-f877-4923-a964-660a148670a2"
   end
 
