@@ -64,3 +64,5 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/README.md
+fastlane/SharedHelpers.framework.coverage.txt
+fastlane/SharedHelpersTests.xctest.coverage.txt
