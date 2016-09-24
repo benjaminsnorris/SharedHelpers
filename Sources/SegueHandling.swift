@@ -13,12 +13,12 @@ public protocol SegueHandling {
 
 public extension SegueHandling where Self: UIViewController, SegueIdentifier.RawValue == String {
     
-    public func performSegueWithIdentifier(segueIdentifier: SegueIdentifier, sender: AnyObject?) {
-        performSegueWithIdentifier(segueIdentifier.rawValue, sender: sender)
+    public func performSegueWithIdentifier(_ segueIdentifier: SegueIdentifier, sender: AnyObject?) {
+        performSegue(withIdentifier: segueIdentifier.rawValue, sender: sender)
     }
     
-    public func segueIdentifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
-        guard let identifier = segue.identifier, segueIdentifier = SegueIdentifier(rawValue: identifier)
+    public func segueIdentifierForSegue(_ segue: UIStoryboardSegue) -> SegueIdentifier {
+        guard let identifier = segue.identifier, let segueIdentifier = SegueIdentifier(rawValue: identifier)
             else { fatalError("Invalid segue identifier \(segue.identifier).") }
         return segueIdentifier
     }
