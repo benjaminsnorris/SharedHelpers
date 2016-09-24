@@ -7,10 +7,10 @@
 
 import Foundation
 
-public extension CollectionType {
+public extension Collection {
     
-    public func sort(ascending ascending: Bool, @noescape _ isOrderedBefore: (Self.Generator.Element, Self.Generator.Element) -> Bool) -> [Self.Generator.Element] {
-        return sort({ ascending == isOrderedBefore($0, $1) })
+    public func sort(ascending: Bool, _ isOrderedBefore: (Self.Iterator.Element, Self.Iterator.Element) -> Bool) -> [Self.Iterator.Element] {
+        return sorted(by: { ascending == isOrderedBefore($0, $1) })
     }
     
 }
