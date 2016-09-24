@@ -9,8 +9,8 @@ import UIKit
 
 public extension UIColor {
     
-    public enum InputError: ErrorType {
-        case UnableToScanHexValue
+    public enum InputError: Error {
+        case unableToScanHexValue
     }
     
     convenience public init(hex: Int, alpha: CGFloat = 1.0) {
@@ -23,9 +23,9 @@ public extension UIColor {
     
     convenience public init(hexString: String, alpha: CGFloat = 1.0) throws {
         var hexValue: UInt32 = 0
-        guard NSScanner(string: hexString).scanHexInt(&hexValue) else {
+        guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
             self.init() // Must init or we get EXEC_BAD_ACCESS
-            throw InputError.UnableToScanHexValue
+            throw InputError.unableToScanHexValue
         }
         self.init(hex: Int(hexValue), alpha: alpha)
     }

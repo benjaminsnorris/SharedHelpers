@@ -12,31 +12,31 @@ public protocol CustomInputAccessoryDelegate {
     func donePressed()
 }
 
-public class CustomInputAccessory: UIView {
+open class CustomInputAccessory: UIView {
     
     // MARK: - Public properties
     
-    public var customButtonTitle: String?
+    open var customButtonTitle: String?
     
 
     // MARK: - Private properties
     
-    private var delegate: CustomInputAccessoryDelegate?
-    private var textInput: UIView?
-    private let toolbar = UIToolbar()
-    private let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
+    fileprivate var delegate: CustomInputAccessoryDelegate?
+    fileprivate var textInput: UIView?
+    fileprivate let toolbar = UIToolbar()
+    fileprivate let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
     
     
     // MARK: - Initializers
     
     convenience public init(textInput: UIView?) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         self.textInput = textInput
         setupViews()
     }
     
     convenience public init(delegate: CustomInputAccessoryDelegate, customButtonTitle: String? = nil) {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
         self.customButtonTitle = customButtonTitle
         self.delegate = delegate
         setupViews()
@@ -80,14 +80,14 @@ private extension CustomInputAccessory {
     
     func setupViews() {
         let toolbarSize = toolbar.sizeThatFits(toolbar.frame.size)
-        toolbar.frame = CGRectMake(0, 0, toolbarSize.width, toolbarSize.height)
-        toolbar.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        toolbar.frame = CGRect(x: 0, y: 0, width: toolbarSize.width, height: toolbarSize.height)
+        toolbar.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         frame = toolbar.frame
         
         let buttons: [UIBarButtonItem]
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         if let customButtonTitle = customButtonTitle {
-            let customButton = UIBarButtonItem(title: customButtonTitle, style: .Plain, target: nil, action: #selector(CustomInputAccessory.customButtonTouched))
+            let customButton = UIBarButtonItem(title: customButtonTitle, style: .plain, target: nil, action: #selector(CustomInputAccessory.customButtonTouched))
             buttons = [customButton, flexibleSpace, doneButton]
         } else {
             buttons = [flexibleSpace, doneButton]

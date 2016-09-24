@@ -7,44 +7,44 @@
 
 import UIKit
 
-public class RotatingViewController: UIViewController {
+open class RotatingViewController: UIViewController {
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .All
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return .all
     }
     
-    @IBInspectable public var lightStatusBar: Bool = false {
+    @IBInspectable open var lightStatusBar: Bool = false {
         didSet {
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
-    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    open override var preferredStatusBarStyle : UIStatusBarStyle {
         if lightStatusBar {
-            return .LightContent
+            return .lightContent
         }
-        return .Default
+        return .default
     }
 
 }
 
-public class RotatingNavController: UINavigationController {
+open class RotatingNavController: UINavigationController {
     
-    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .All
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return .all
     }
     
-    @IBInspectable public var lightStatusBar: Bool = false {
+    @IBInspectable open var lightStatusBar: Bool = false {
         didSet {
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
-    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    open override var preferredStatusBarStyle : UIStatusBarStyle {
         if lightStatusBar {
-            return .LightContent
+            return .lightContent
         }
-        return .Default
+        return .default
     }
     
 }

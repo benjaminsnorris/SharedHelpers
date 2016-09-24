@@ -13,8 +13,8 @@ public struct SemanticVersion {
     public var patch: Int
     
     public init?(_ versionString: String) {
-        let components = versionString.componentsSeparatedByString(".")
-        guard let majorString = components.first, major = Int(majorString) else { return nil }
+        let components = versionString.components(separatedBy: ".")
+        guard let majorString = components.first, let major = Int(majorString) else { return nil }
         self.major = major
         minor = 0
         patch = 0
