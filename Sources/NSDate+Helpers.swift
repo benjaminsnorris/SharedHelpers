@@ -135,6 +135,25 @@ public extension NSDate {
         return startOfDate
     }
     
+    
+    // MARK: - Functions
+    
+    public func rounded(by number: Int) -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.Minute, fromDate: self)
+        let extraMinutes = components.minute % number
+        let rounded = round(Double(extraMinutes) / Double(number))
+        let adjustedMinutes: Int
+        if rounded == 0 {
+            adjustedMinutes = -extraMinutes
+        } else {
+            adjustedMinutes = number - extraMinutes
+        }
+        components.minute = adjustedMinutes
+        guard let roundedDate = calendar.dateByAddingComponents(components, toDate: self, options: []) else { return self }
+        return roundedDate
+    }
+    
 }
 
 
