@@ -138,16 +138,23 @@ public extension NSDate {
     
     // MARK: - Functions
     
-    public func rounded(by number: Int) -> NSDate {
+    /**
+     Rounds down a date by the specified minutes. For use with `UIDatePicker` to
+     determine the display date when using a `minuteInterval` greater than 1.
+     
+     - parameter minutes: Number of minutes to use in rounding. When used together
+        with `UIDatePicker`, this should match the `minuteInterval`.
+     */
+    public func rounded(minutes minutes: Int) -> NSDate {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.Minute, fromDate: self)
-        let extraMinutes = components.minute % number
-        let rounded = round(Double(extraMinutes) / Double(number))
+        let extraMinutes = components.minute % minutes
+        let rounded = extraMinutes / minutes
         let adjustedMinutes: Int
         if rounded == 0 {
             adjustedMinutes = -extraMinutes
         } else {
-            adjustedMinutes = number - extraMinutes
+            adjustedMinutes = minutes - extraMinutes
         }
         components.minute = adjustedMinutes
         guard let roundedDate = calendar.dateByAddingComponents(components, toDate: self, options: []) else { return self }
