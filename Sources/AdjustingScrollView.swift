@@ -10,9 +10,9 @@ import UIKit
 @objc public protocol AdjustingScrollView {
     var scrollViewToAdjust: UIScrollView? { get }
     /// Function to implement in extension conforming to `AdjustingScrollView`
-    @objc func keyboardWillShow(notification: NSNotification)
+    @objc func keyboardWillShow(_ notification: Notification)
     /// Function to implement in extension conforming to `AdjustingScrollView`
-    @objc func keyboardDidShow(notification: NSNotification)
+    @objc func keyboardDidShow(_ notification: Notification)
     /// Function to implement in extension conforming to `AdjustingScrollView`
     @objc func keyboardWillHide()
 }
@@ -26,9 +26,9 @@ public extension AdjustingScrollView where Self: UIViewController {
         `UIKeyboardWillHideNotification`
      */
     public func registerForKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     /**
@@ -39,7 +39,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillAppear(notification: NSNotification, in viewController: UIViewController) {
+    public func keyboardWillAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
 
@@ -51,7 +51,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing 
         information about the keyboard.
      */
-    public func keyboardDidAppear(notification: NSNotification, in viewController: UIViewController) {
+    public func keyboardDidAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
     
@@ -60,7 +60,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      its content insets back to `UIEdgeInsetsZero`.
      */
     public func keyboardWillDisappear() {
-        let contentInset = UIEdgeInsetsZero
+        let contentInset = UIEdgeInsets.zero
         scrollViewToAdjust?.contentInset = contentInset
         scrollViewToAdjust?.scrollIndicatorInsets = contentInset
     }
@@ -69,12 +69,12 @@ public extension AdjustingScrollView where Self: UIViewController {
 
 private extension AdjustingScrollView {
     
-    private func handleKeyboardNotification(notification: NSNotification, viewController: UIViewController) {
-        guard let userInfo = notification.userInfo, keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue, scrollView = scrollViewToAdjust else { return }
-        let keyboardFrame = keyboardFrameValue.CGRectValue()
-        let convertedScrollViewFrame = scrollView.convertRect(scrollView.frame, toView: viewController.view)
+    func handleKeyboardNotification(_ notification: Notification, viewController: UIViewController) {
+        guard let userInfo = (notification as NSNotification).userInfo, let keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue, let scrollView = scrollViewToAdjust else { return }
+        let keyboardFrame = keyboardFrameValue.cgRectValue
+        let convertedScrollViewFrame = scrollView.convert(scrollView.frame, to: viewController.view)
         let keyboardHeight = keyboardFrame.size.height
-        let adjustedKeyboardFrame = CGRectMake(keyboardFrame.origin.x, keyboardFrame.origin.y - keyboardHeight, keyboardFrame.size.width, keyboardHeight)
+        let adjustedKeyboardFrame = CGRect(x: keyboardFrame.origin.x, y: keyboardFrame.origin.y - keyboardHeight, width: keyboardFrame.size.width, height: keyboardHeight)
         guard adjustedKeyboardFrame.intersects(convertedScrollViewFrame) else { return }
         let heightAdjustment = convertedScrollViewFrame.origin.y + convertedScrollViewFrame.size.height - adjustedKeyboardFrame.origin.y
         

@@ -27,9 +27,9 @@ extension CircularView where Self: UIView {
 
 // MARK: - Button
 
-@IBDesignable public class RoundedButton: UIButton, CircularView {
+@IBDesignable open class RoundedButton: UIButton, CircularView {
     
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -38,17 +38,17 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable open var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable open var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -57,31 +57,31 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var circular: Bool = false {
+    @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
         }
     }
     
-    @IBInspectable public var loading: Bool = false {
+    @IBInspectable open var loading: Bool = false {
         didSet {
             if loading {
-                spinner.color = titleColorForState(.Normal)
+                spinner.color = titleColor(for: UIControlState())
                 spinner.startAnimating()
                 savedTitle = titleLabel?.text
-                setTitle(nil, forState: .Normal)
+                setTitle(nil, for: UIControlState())
                 accessibilityLabel = NSLocalizedString("Loading", comment: "Label for button while loading")
             } else {
                 spinner.stopAnimating()
-                setTitle(savedTitle, forState: .Normal)
+                setTitle(savedTitle, for: UIControlState())
                 savedTitle = nil
                 accessibilityLabel = nil
             }
         }
     }
     
-    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: .White)
-    private var savedTitle: String?
+    fileprivate let spinner = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    fileprivate var savedTitle: String?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,16 +93,16 @@ extension CircularView where Self: UIView {
         arrangeSpinner()
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
     }
     
-    private func arrangeSpinner() {
+    fileprivate func arrangeSpinner() {
         addSubview(spinner)
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
-        spinner.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+        spinner.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         spinner.stopAnimating()
     }
     
@@ -111,9 +111,9 @@ extension CircularView where Self: UIView {
 
 // MARK: - ImageView
 
-@IBDesignable public class RoundedImageView: UIImageView, CircularView {
+@IBDesignable open class RoundedImageView: UIImageView, CircularView {
     
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -122,17 +122,17 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable open var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable open var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -141,13 +141,13 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var circular: Bool = false {
+    @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
         }
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
     }
@@ -157,9 +157,9 @@ extension CircularView where Self: UIView {
 
 // MARK: - View
 
-@IBDesignable public class RoundedView: UIView, CircularView {
+@IBDesignable open class RoundedView: UIView, CircularView {
     
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -168,17 +168,17 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable open var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
-            return UIColor(CGColor: CGColor)
+            return UIColor(cgColor: CGColor)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable open var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -187,13 +187,13 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable public var circular: Bool = false {
+    @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
         }
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
     }
