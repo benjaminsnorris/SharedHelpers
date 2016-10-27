@@ -113,11 +113,7 @@ public extension Date {
     
     public var isToday: Bool {
         let now = Date()
-        let calender = Calendar.current
-        let flags: NSCalendar.Unit = [.day, .month, .year]
-        let componentsOne = (calender as NSCalendar).components(flags, from: self)
-        let componentsTwo = (calender as NSCalendar).components(flags, from: now)
-        return (componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year)
+        return isSameDay(as: now)
     }
     
     public var startOfDay: Date {
@@ -162,4 +158,35 @@ public extension Date {
         return roundedDate
     }
     
+    public func isSameDay(as date: Date) -> Bool {
+        let calender = Calendar.current
+        let components: Set<Calendar.Component> = [.day, .month, .year]
+        let componentsOne = calender.dateComponents(components, from: self)
+        let componentsTwo = calender.dateComponents(components, from: date)
+        return componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year
+    }
+    
+}
+
+
+// MARK: - Time intervals on Int
+
+public extension Int {
+    
+    public var seconds: TimeInterval {
+        return TimeInterval(self)
+    }
+
+    public var minutes: TimeInterval {
+        return TimeInterval(self * 60)
+    }
+    
+    public var hours: TimeInterval {
+        return TimeInterval(minutes * 60)
+    }
+    
+    public var days: TimeInterval {
+        return TimeInterval(hours * 24)
+    }
+
 }

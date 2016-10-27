@@ -15,7 +15,7 @@
 		7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8131D7A14C700373574 /* CustomInputAccessory.swift */; };
 		7078A8201D7A14C700373574 /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
 		7078A8211D7A14C700373574 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8151D7A14C700373574 /* GradientView.swift */; };
-		7078A8221D7A14C700373574 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8161D7A14C700373574 /* NSDate+Helpers.swift */; };
+		7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8161D7A14C700373574 /* Date+Helpers.swift */; };
 		7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8171D7A14C700373574 /* RotatingViewController.swift */; };
 		7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8181D7A14C700373574 /* RoundedViews.swift */; };
 		7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8191D7A14C700373574 /* SegueHandling.swift */; };
@@ -51,7 +51,7 @@
 		7078A8131D7A14C700373574 /* CustomInputAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessory.swift; sourceTree = "<group>"; };
 		7078A8141D7A14C700373574 /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
 		7078A8151D7A14C700373574 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		7078A8161D7A14C700373574 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
+		7078A8161D7A14C700373574 /* Date+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		7078A8171D7A14C700373574 /* RotatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingViewController.swift; sourceTree = "<group>"; };
 		7078A8181D7A14C700373574 /* RoundedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		7078A8191D7A14C700373574 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */,
-				7078A8161D7A14C700373574 /* NSDate+Helpers.swift */,
+				7078A8161D7A14C700373574 /* Date+Helpers.swift */,
 				7078A81B1D7A14C700373574 /* UIColor+Hex.swift */,
 				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
 			);
@@ -299,7 +299,7 @@
 				7078A8211D7A14C700373574 /* GradientView.swift in Sources */,
 				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
-				7078A8221D7A14C700373574 /* NSDate+Helpers.swift in Sources */,
+				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
