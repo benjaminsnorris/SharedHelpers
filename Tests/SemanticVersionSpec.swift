@@ -104,8 +104,8 @@ class SemanticVersionSpec: XCTestCase {
         XCTAssertEqual(firstVersion, secondVersion)
     }
     
-    /// test that it not equal with matching major and minor and different patch
-    func testThatItNotEqualWithMatchingMajorAndMinorAndDifferentPatch() {
+    /// test that it is not equal with matching major and minor and different patch
+    func testThatItIsNotEqualWithMatchingMajorAndMinorAndDifferentPatch() {
         let firstVersion = SemanticVersion("1.1")
         let secondVersion = SemanticVersion("1.1.1")
         XCTAssertNotEqual(firstVersion, secondVersion)
@@ -203,6 +203,135 @@ class SemanticVersionSpec: XCTestCase {
         let firstVersion = SemanticVersion("1.1.1")!
         let secondVersion = SemanticVersion("1.1.1")!
         XCTAssertFalse(firstVersion < secondVersion)
+    }
+    
+    
+    // MARK: - Comparison equality tests
+    
+    /// test that it is less or equal with smaller major
+    func testThatItIsLessOrEqualWithSmallerMajor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("2")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with smaller major and minor
+    func testThatItIsLessOrEqualWithSmallerMajorAndMinor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("2.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with smaller major and minor and patch
+    func testThatItIsLessOrEqualWithSmallerMajorAndMinorAndPatch() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("2.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with matching major and smaller minor
+    func testThatItIsLessOrEqualWithMatchingMajorAndSmallerMinor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with matching major and smaller minor and patch
+    func testThatItIsLessOrEqualWithMatchingMajorAndSmallerMinorAndPatch() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with matching major and minor and smaller patch
+    func testThatItIsLessOrEqualWithMatchingMajorAndMinorAndSmallerPatch() {
+        let firstVersion = SemanticVersion("1.1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+
+    /// test that it is less or equal with matching major
+    func testThatItIsLessOrEqualWithMatchingMajor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with matching major and minor
+    func testThatItIsLessOrEqualWithMatchingMajorAndMinor() {
+        let firstVersion = SemanticVersion("1.1")!
+        let secondVersion = SemanticVersion("1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching major and different minor
+    func testThatItIsNotLessOrEqualWithMatchingMajorAndDifferentMinor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with different major
+    func testThatItIsNotLessOrEqualWithDifferentMajor() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("2")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is less or equal with matching major and minor and patch
+    func testThatItIsLessOrEqualWithMatchingMajorAndMinorAndPatch() {
+        let firstVersion = SemanticVersion("1.1.1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it not equal with matching major and minor and different patch
+    func testThatItIsNotLessOrEqualWithMatchingMajorAndMinorAndDifferentPatch() {
+        let firstVersion = SemanticVersion("1.1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching major and patch and different minor
+    func testThatItIsNotLessOrEqualWithMatchingMajorAndPatchAndDifferentMinor() {
+        let firstVersion = SemanticVersion("1.0.1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching major and different minor and patch
+    func testThatItIsNotLessOrEqualWithMatchingMajorAndDifferentMinorAndPatch() {
+        let firstVersion = SemanticVersion("1")!
+        let secondVersion = SemanticVersion("1.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching minor and patch and different major
+    func testThatItIsNotLessOrEqualWithMatchingMinorAndPatchAndDifferentMajor() {
+        let firstVersion = SemanticVersion("1.1.1")!
+        let secondVersion = SemanticVersion("2.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching minor and different major and patch
+    func testThatItIsNotLessOrEqualWithMatchingMinorAndDifferentMajorAndPatch() {
+        let firstVersion = SemanticVersion("1.1")!
+        let secondVersion = SemanticVersion("2.1.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with matching patch and different major and minor
+    func testThatItIsNotLessOrEqualWithMatchingPatchAndDifferentMajorAndMinor() {
+        let firstVersion = SemanticVersion("1.1.1")!
+        let secondVersion = SemanticVersion("2.2.1")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
+    }
+    
+    /// test that it is not less or equal with different major and minor and patch
+    func testThatItIsNotLessOrEqualWithDifferentMajorAndMinorAndPatch() {
+        let firstVersion = SemanticVersion("1.1.1")!
+        let secondVersion = SemanticVersion("2.2.2")!
+        XCTAssertLessThanOrEqual(firstVersion, secondVersion)
     }
     
 }
