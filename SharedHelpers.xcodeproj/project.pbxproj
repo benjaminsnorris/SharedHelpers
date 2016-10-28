@@ -29,6 +29,7 @@
 		7078A8431D7A164700373574 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8301D7A162700373574 /* SharedHelpersTests.swift */; };
 		7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */; };
 		7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8321D7A162700373574 /* UIColor+HexSpec.swift */; };
+		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		7078A83A1D7A163600373574 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7078A83B1D7A163600373574 /* SharedHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHelpers.h; sourceTree = "<group>"; };
 		7078A83C1D7A163600373574 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				7078A8111D7A14C700373574 /* AdjustingScrollView.swift */,
+				70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */,
 				7078A8141D7A14C700373574 /* DateSortable.swift */,
 				7078A8191D7A14C700373574 /* SegueHandling.swift */,
 				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
@@ -297,6 +300,7 @@
 				7078A81E1D7A14C700373574 /* CollectionType+Sorting.swift in Sources */,
 				7078A8261D7A14C700373574 /* StoryboardInitializable.swift in Sources */,
 				7078A8211D7A14C700373574 /* GradientView.swift in Sources */,
+				70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */,
 				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
