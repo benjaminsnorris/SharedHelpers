@@ -108,6 +108,19 @@ public extension Date {
         return Date.dayAndMonthFormatter.string(from: self)
     }
     
+    /// `Today`, `Yesterday`, or month and day (e.g. Aug 15)
+    public var relativeDayAndMonthString: String {
+        let now = Date()
+        let yesterday = now - 1.days
+        if isSameDay(as: yesterday) {
+            return NSLocalizedString("Yesterday", comment: "Section heading for comments")
+        }
+        if isSameDay(as: now) {
+            return NSLocalizedString("Today", comment: "Section heading for comments")
+        }
+        return dayAndMonthString
+    }
+    
     
     // MARK: - Helper computed vars
     
