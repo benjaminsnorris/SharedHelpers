@@ -56,3 +56,5 @@ after_failure:
   - cp ~/Library/Logs/CoreSimulator/*.log .
   - ls -al
   - popd
+  - tar -zcvf travis-ci-ios-logs.tar.gz logs/
+  - curl -T travis-ci-ios-logs.tar.gz chunk.io
