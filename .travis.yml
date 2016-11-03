@@ -32,7 +32,7 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - travis_retry xcodebuild
+  - xcodebuild
     -project "$PROJECT_NAME$PROJECT_SUFFIX"
     -scheme "$SCHEME"
     -sdk "$SDK"
@@ -47,3 +47,11 @@ script:
 after_success:
   - slather
   - bash <(curl -s https://codecov.io/bash) -J "$PROJECT_NAME" -f ./test_reports/cobertura.xml
+
+after_failure:
+  - mkdir logs
+  - pushd logs
+  - log collect || true
+  - find ~/Library/Developer/Xcode/DerivedData/ -name "*.log" -exec cp -v '{}' . \;
+  - cp ~/Library/Logs/CoreSimulator/*.log .
+  - ls -al
