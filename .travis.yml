@@ -55,3 +55,4 @@ after_failure:
   - find ~/Library/Developer/Xcode/DerivedData/ -name "*.log" -exec cp -v '{}' . \;
   - cp ~/Library/Logs/CoreSimulator/*.log .
   - ls -al
+  - popd
