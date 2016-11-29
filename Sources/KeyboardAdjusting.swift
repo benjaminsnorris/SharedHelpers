@@ -35,9 +35,14 @@ public extension KeyboardAdjusting where Self: UIViewController {
      - parameter notification: The `Notification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillChange(_ notification: Notification) {
+    public func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil) {
         guard let userInfo = notification.userInfo, let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect, let curveInt = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt, let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double, let window = view.window else { return }
-        constraintToAdjust?.constant = window.frame.height - keyboardFrame.origin.y
+        let adjustedConstant = window.frame.height - keyboardFrame.origin.y
+        if let constraint = constraint {
+            constraint.constant = adjustedConstant
+        } else {
+            constraintToAdjust?.constant = adjustedConstant
+        }
         let curve = UIViewAnimationOptions(rawValue: curveInt)
         UIView.animate(withDuration: duration, delay: 0.0, options: [curve], animations: {
             self.view.layoutIfNeeded()
@@ -47,8 +52,12 @@ public extension KeyboardAdjusting where Self: UIViewController {
     /**
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
-    public func keyboardWillDisappear() {
-        constraintToAdjust?.constant = 0
+    public func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
+        if let constraint = constraint {
+            constraint.constant = 0
+        } else {
+            constraintToAdjust?.constant = 0
+        }
     }
 
 }
