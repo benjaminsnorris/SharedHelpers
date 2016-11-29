@@ -24,21 +24,27 @@ open class CustomInputAccessory: UIView {
     fileprivate var delegate: CustomInputAccessoryDelegate?
     fileprivate var textInput: UIView?
     fileprivate let toolbar = UIToolbar()
-    fileprivate let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
+    fileprivate var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
     
     
     // MARK: - Initializers
     
-    convenience public init(textInput: UIView?) {
+    convenience public init(textInput: UIView?, doneButton: UIBarButtonItem? = nil) {
         self.init(frame: CGRect.zero)
         self.textInput = textInput
+        if let doneButton = doneButton {
+            self.doneButton = doneButton
+        }
         setupViews()
     }
     
-    convenience public init(delegate: CustomInputAccessoryDelegate, customButtonTitle: String? = nil) {
+    convenience public init(delegate: CustomInputAccessoryDelegate, doneButton: UIBarButtonItem? = nil, customButtonTitle: String? = nil) {
         self.init(frame: CGRect.zero)
         self.customButtonTitle = customButtonTitle
         self.delegate = delegate
+        if let doneButton = doneButton {
+            self.doneButton = doneButton
+        }
         setupViews()
     }
 
