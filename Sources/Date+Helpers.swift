@@ -76,26 +76,32 @@ public extension Date {
     
     // MARK: - Formatted computed vars
     
+    /// E.g. "3:30 PM"
     public var timeString: String {
         return Date.timeFormatter.string(from: self)
     }
     
+    /// E.g. "Nov 23, 1937, 3:30 PM"
     public var dateAndTimeString: String {
         return Date.dateAndTimeFormatter.string(from: self)
     }
     
+    /// E.g. "Tuesday, November 23, 1937 at 3:30 PM"
     public var fullDateAndTimeString: String {
         return Date.fullDateAndTimeFormatter.string(from: self)
     }
     
+    /// E.g. "1937-11-23T15:30:00-0700"
     public var iso8601DateAndTimeString: String {
         return Date.ISO8601SecondFormatter.string(from: self)
     }
     
+    /// E.g. "1937-11-23T15:30:00.023-0700"
     public var iso8601MillisecondString: String {
         return Date.ISO8601MillisecondFormatter.string(from: self)
     }
     
+    /// E.g. "1937-11-23"
     public var iso8601DateString: String {
         return Date.ISO8601YearMonthDayFormatter.string(from: self)
     }
@@ -104,6 +110,7 @@ public extension Date {
         return round(self.timeIntervalSince1970 * 1000)
     }
     
+    /// E.g. "Nov 23"
     public var dayAndMonthString: String {
         return Date.dayAndMonthFormatter.string(from: self)
     }
