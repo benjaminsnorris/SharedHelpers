@@ -29,6 +29,7 @@
 		7078A8431D7A164700373574 /* SharedHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8301D7A162700373574 /* SharedHelpersTests.swift */; };
 		7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */; };
 		7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8321D7A162700373574 /* UIColor+HexSpec.swift */; };
+		709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */; };
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		7078A83A1D7A163600373574 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7078A83B1D7A163600373574 /* SharedHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHelpers.h; sourceTree = "<group>"; };
 		7078A83C1D7A163600373574 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Edits.swift"; sourceTree = "<group>"; };
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				7078A8161D7A14C700373574 /* Date+Helpers.swift */,
 				7078A81B1D7A14C700373574 /* UIColor+Hex.swift */,
 				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
+				709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */,
 				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
+				709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
