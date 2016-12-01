@@ -7,9 +7,9 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
-    func imageTrimmedToSquare(ofSize square: CGFloat, mirror: Bool = false) -> UIImage {
+    public func trimmedToSquare(ofSize square: CGFloat, mirror: Bool = false) -> UIImage {
         
         // Trim rectangle to largest centered square.
         let oldSize = size
