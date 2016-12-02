@@ -30,6 +30,7 @@
 		7078A8441D7A164700373574 /* StoryboardInitializableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8311D7A162700373574 /* StoryboardInitializableSpec.swift */; };
 		7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8321D7A162700373574 /* UIColor+HexSpec.swift */; };
 		709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */; };
+		70AFA1C11DF12F9E00FA7345 /* FileManager+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */; };
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		7078A83B1D7A163600373574 /* SharedHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHelpers.h; sourceTree = "<group>"; };
 		7078A83C1D7A163600373574 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Edits.swift"; sourceTree = "<group>"; };
+		70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Helpers.swift"; sourceTree = "<group>"; };
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 				7078A81B1D7A14C700373574 /* UIColor+Hex.swift */,
 				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
 				709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */,
+				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
 				7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */,
+				70AFA1C11DF12F9E00FA7345 /* FileManager+Helpers.swift in Sources */,
 				7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */,
 				7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */,
 			);
