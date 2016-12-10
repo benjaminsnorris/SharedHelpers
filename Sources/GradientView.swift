@@ -11,7 +11,7 @@ import UIKit
     
     // MARK: - Enums
     
-    enum Direction: Int {
+    public enum Direction: Int {
         case vertical
         case horizontal
         case diagonalDown
