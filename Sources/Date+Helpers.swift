@@ -43,6 +43,12 @@ public extension Date {
         return formatter
     }
     
+    static fileprivate var fullDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        return formatter
+    }
+    
     static fileprivate var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -89,6 +95,11 @@ public extension Date {
     /// E.g. "Tuesday, November 23, 1937 at 3:30 PM"
     public var fullDateAndTimeString: String {
         return Date.fullDateAndTimeFormatter.string(from: self)
+    }
+    
+    /// E.g. "Tuesday, November 23, 1937"
+    public var fullDateString: String {
+        return Date.fullDateFormatter.string(from: self)
     }
     
     /// E.g. "1937-11-23T15:30:00-0700"
