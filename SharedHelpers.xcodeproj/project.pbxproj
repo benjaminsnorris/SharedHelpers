@@ -32,6 +32,8 @@
 		709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */; };
 		70AFA1C11DF12F9E00FA7345 /* FileManager+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */; };
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
+		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
+		70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Edits.swift"; sourceTree = "<group>"; };
 		70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Helpers.swift"; sourceTree = "<group>"; };
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
+		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteppedSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 				7078A8151D7A14C700373574 /* GradientView.swift */,
 				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
 				7078A8181D7A14C700373574 /* RoundedViews.swift */,
+				70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
 				709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */,
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
+				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -311,6 +317,8 @@
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
 				709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
+				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
+				70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
