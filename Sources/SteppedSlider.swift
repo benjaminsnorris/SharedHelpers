@@ -46,6 +46,7 @@ import UIKit
     // MARK: - Private properties
     
     fileprivate let stackView = UIStackView()
+    fileprivate let horizontalLine = UIView()
     
     
     // MARK: - Constants
@@ -79,7 +80,16 @@ private extension SteppedSlider {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.isUserInteractionEnabled = false
+        horizontalLine.translatesAutoresizingMaskIntoConstraints = false
+        insertSubview(horizontalLine, at: 0)
+        horizontalLine.backgroundColor = stepColor
+        horizontalLine.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        horizontalLine.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        horizontalLine.centerYAnchor.constraint(equalTo: stackView.centerYAnchor).isActive = true
+        horizontalLine.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         updateSteps()
+        minimumTrackTintColor = .clear
+        maximumTrackTintColor = .clear
     }
     
     func updateSteps() {
@@ -91,6 +101,7 @@ private extension SteppedSlider {
                 stackView.addArrangedSubview(stepMarker())
             }
         }
+        horizontalLine.backgroundColor = stepColor
     }
     
     func stepMarker() -> UIView {
