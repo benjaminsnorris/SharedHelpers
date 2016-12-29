@@ -9,13 +9,13 @@ import UIKit
 
 public extension UIView {
     
-    public func constrainFullSize(_ view: UIView, leading: CGFloat = 0, top: CGFloat = 0, trailing: CGFloat = 0, bottom: CGFloat = 0) {
-        guard let superview = view.superview else { fatalError("\(view) has no superview") }
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: leading).isActive = true
-        view.topAnchor.constraint(equalTo: superview.topAnchor, constant: top).isActive = true
-        view.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -trailing).isActive = true
-        view.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -bottom).isActive = true
+    public func constrainFullSize(leading: CGFloat = 0, top: CGFloat = 0, trailing: CGFloat = 0, bottom: CGFloat = 0) {
+        guard let superview = self.superview else { fatalError("\(self) has no superview") }
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: leading).isActive = true
+        self.topAnchor.constraint(equalTo: superview.topAnchor, constant: top).isActive = true
+        self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -trailing).isActive = true
+        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -bottom).isActive = true
     }
 
 }

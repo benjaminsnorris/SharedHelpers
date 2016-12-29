@@ -76,7 +76,7 @@ private extension SteppedSlider {
     func setupViews() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(stackView, at: 0)
-        constrainFullSize(stackView, leading: SteppedSlider.sideMargin, trailing: SteppedSlider.sideMargin)
+        stackView.constrainFullSize(leading: SteppedSlider.sideMargin, trailing: SteppedSlider.sideMargin)
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.isUserInteractionEnabled = false
