@@ -129,14 +129,20 @@ public extension Date {
     /// `Today`, `Yesterday`, or month and day (e.g. Aug 15)
     public var relativeDayAndMonthString: String {
         let now = Date()
-        let yesterday = now - 1.days
-        if isSameDay(as: yesterday) {
-            return NSLocalizedString("Yesterday", comment: "Section heading for comments")
+        if isSameDay(as: now - 1.days) {
+            return NSLocalizedString("Yesterday", comment: "Relative date string for previous day")
         }
         if isSameDay(as: now) {
-            return NSLocalizedString("Today", comment: "Section heading for comments")
+            return NSLocalizedString("Today", comment: "Relative date string for current day")
+        }
+        if isSameDay(as: now + 1.days) {
+            return NSLocalizedString("Tomorrow", comment: "Relative date string for next day")
         }
         return dayAndMonthString
+    }
+    
+    public var relativeDayAndTimeString: String {
+        return String.localizedStringWithFormat(NSLocalizedString("%@, %@", comment: "Relative date and time string. First parameter is relative date, second is time."), relativeDayAndMonthString, timeString)
     }
     
     
