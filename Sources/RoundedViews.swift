@@ -25,6 +25,22 @@ extension CircularView where Self: UIView {
 }
 
 
+// MARK: - UIView
+
+public extension UIView {
+    
+    @IBInspectable open var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+}
+
+
 // MARK: - Button
 
 @IBDesignable open class RoundedButton: UIButton, CircularView {
@@ -48,15 +64,6 @@ extension CircularView where Self: UIView {
         }
     }
 
-    @IBInspectable open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
     @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
@@ -132,15 +139,6 @@ extension CircularView where Self: UIView {
         }
     }
 
-    @IBInspectable open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
     @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
@@ -178,15 +176,6 @@ extension CircularView where Self: UIView {
         }
     }
     
-    @IBInspectable open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
     @IBInspectable open var circular: Bool = false {
         didSet {
             layoutSubviews()
@@ -196,22 +185,6 @@ extension CircularView where Self: UIView {
     override open func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
-    }
-    
-}
-
-
-// MARK: - Visual effect view
-
-@IBDesignable open class RoundedVisualEffectView: UIVisualEffectView {
-    
-    @IBInspectable open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
     }
     
 }
