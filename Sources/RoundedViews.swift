@@ -199,3 +199,20 @@ extension CircularView where Self: UIView {
     }
     
 }
+
+
+// MARK: - Visual effect view
+
+@IBDesignable open class RoundedVisualEffectView: UIVisualEffectView {
+    
+    @IBInspectable open var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+}
+
