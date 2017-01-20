@@ -19,3 +19,14 @@ public extension NSMutableAttributedString {
     }
     
 }
+
+
+public extension NSAttributedString {
+    
+    public func withIncreasedFontSize(by multiplier: CGFloat) -> NSAttributedString {
+        let mutableCopy = NSMutableAttributedString(attributedString: self)
+        mutableCopy.increaseFontSize(by: multiplier)
+        return mutableCopy
+    }
+    
+}
