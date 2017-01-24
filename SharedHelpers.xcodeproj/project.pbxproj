@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70039E221E37D807005041F1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70039E211E37D807005041F1 /* NibLoadable.swift */; };
 		7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
 		7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70039E211E37D807005041F1 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7019DCD21D819D3600B08C10 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersionSpec.swift; sourceTree = "<group>"; };
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				7078A8141D7A14C700373574 /* DateSortable.swift */,
 				7078A8191D7A14C700373574 /* SegueHandling.swift */,
 				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
+				70039E211E37D807005041F1 /* NibLoadable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
 				70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
+				70039E221E37D807005041F1 /* NibLoadable.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
 				7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */,
