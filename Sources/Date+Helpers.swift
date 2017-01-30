@@ -201,5 +201,9 @@ public extension Int {
     public var days: TimeInterval {
         return TimeInterval(hours * 24)
     }
+    
+    public var weeks: TimeInterval {
+        return TimeInterval(days * 7)
+    }
 
 }
