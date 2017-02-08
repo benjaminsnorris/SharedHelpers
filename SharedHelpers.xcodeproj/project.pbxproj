@@ -11,6 +11,7 @@
 		7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
 		7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
+		706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706551E91E4BBC370089BC8F /* UIFont+Named.swift */; };
 		7077B6A51E32B17A004146BF /* NSAttributedString+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */; };
 		7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8111D7A14C700373574 /* AdjustingScrollView.swift */; };
 		7078A81E1D7A14C700373574 /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */; };
@@ -54,6 +55,7 @@
 		7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersionSpec.swift; sourceTree = "<group>"; };
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		706551E91E4BBC370089BC8F /* UIFont+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Named.swift"; sourceTree = "<group>"; };
 		7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Helpers.swift"; sourceTree = "<group>"; };
 		7078A8111D7A14C700373574 /* AdjustingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustingScrollView.swift; sourceTree = "<group>"; };
 		7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Sorting.swift"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				7078A8161D7A14C700373574 /* Date+Helpers.swift */,
 				7078A81B1D7A14C700373574 /* UIColor+Hex.swift */,
 				7078A81C1D7A14C700373574 /* UIColor+Named.swift */,
+				706551E91E4BBC370089BC8F /* UIFont+Named.swift */,
 				709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */,
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
@@ -327,6 +330,7 @@
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
 				70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
+				706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */,
 				70039E221E37D807005041F1 /* NibLoadable.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				7078A8241D7A14C700373574 /* RoundedViews.swift in Sources */,
