@@ -17,10 +17,13 @@ public extension NibLoadable where Self: UIView {
         return String(describing: Self.self)
     }
     
-    public func loadFromNib() -> UIView {
+    public static var nib: UINib {
         let bundle = Bundle(for: Self.self)
-        let nib = UINib(nibName: Self.nibName, bundle: bundle)
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
+        return UINib(nibName: Self.nibName, bundle: bundle)
+    }
+    
+    public func loadFromNib() -> UIView {
+        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
         return view
     }
     
