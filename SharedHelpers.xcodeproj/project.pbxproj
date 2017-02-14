@@ -10,6 +10,7 @@
 		70039E221E37D807005041F1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70039E211E37D807005041F1 /* NibLoadable.swift */; };
 		7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
 		7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */; };
+		702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D5CA81E53831E00E3B796 /* Nameable.swift */; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
 		706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706551E91E4BBC370089BC8F /* UIFont+Named.swift */; };
 		7077B6A51E32B17A004146BF /* NSAttributedString+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */; };
@@ -53,6 +54,7 @@
 		70039E211E37D807005041F1 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7019DCD21D819D3600B08C10 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersionSpec.swift; sourceTree = "<group>"; };
+		702D5CA81E53831E00E3B796 /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		706551E91E4BBC370089BC8F /* UIFont+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Named.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				7078A8191D7A14C700373574 /* SegueHandling.swift */,
 				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
 				70039E211E37D807005041F1 /* NibLoadable.swift */,
+				702D5CA81E53831E00E3B796 /* Nameable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
 				70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */,
+				702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
 				706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */,
 				70039E221E37D807005041F1 /* NibLoadable.swift in Sources */,
