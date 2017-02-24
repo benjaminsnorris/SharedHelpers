@@ -10,6 +10,7 @@
 		70039E221E37D807005041F1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70039E211E37D807005041F1 /* NibLoadable.swift */; };
 		7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
 		7019DCD71D819F2900B08C10 /* SemanticVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */; };
+		702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702524E41E60AF8900E50A47 /* UIImage+Color.swift */; };
 		702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D5CA81E53831E00E3B796 /* Nameable.swift */; };
 		7063F6871D1C32FC006D8A58 /* SharedHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */; };
 		706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706551E91E4BBC370089BC8F /* UIFont+Named.swift */; };
@@ -54,6 +55,7 @@
 		70039E211E37D807005041F1 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7019DCD21D819D3600B08C10 /* SemanticVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		7019DCD51D819EA100B08C10 /* SemanticVersionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticVersionSpec.swift; sourceTree = "<group>"; };
+		702524E41E60AF8900E50A47 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		702D5CA81E53831E00E3B796 /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		7063F67C1D1C32FC006D8A58 /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7063F6861D1C32FC006D8A58 /* SharedHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
 				7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */,
+				702524E41E60AF8900E50A47 /* UIImage+Color.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
 				709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
+				702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */,
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
 				70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */,
 				702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */,
