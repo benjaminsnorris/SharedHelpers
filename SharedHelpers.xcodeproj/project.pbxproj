@@ -40,6 +40,7 @@
 		70C3DFC41E6495AB005F884D /* UIBarButtonItem+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */; };
 		70C3DFC61E6495CC005F884D /* UIAlertAction+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */; };
 		70C3DFC81E649687005F884D /* UIApplication+Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC71E649687005F884D /* UIApplication+Mail.swift */; };
+		70C3DFCA1E649928005F884D /* TimeZone+CurrentName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */; };
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
 		70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */; };
@@ -92,6 +93,7 @@
 		70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Blank.swift"; sourceTree = "<group>"; };
 		70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Cancel.swift"; sourceTree = "<group>"; };
 		70C3DFC71E649687005F884D /* UIApplication+Mail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Mail.swift"; sourceTree = "<group>"; };
+		70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeZone+CurrentName.swift"; sourceTree = "<group>"; };
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteppedSlider.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */,
 				70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */,
 				70C3DFC71E649687005F884D /* UIApplication+Mail.swift */,
+				70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				70C3DFC61E6495CC005F884D /* UIAlertAction+Cancel.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
 				709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */,
+				70C3DFCA1E649928005F884D /* TimeZone+CurrentName.swift in Sources */,
 				70C3DFC21E6494FF005F884D /* UISegmentedControl+Height.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */,
