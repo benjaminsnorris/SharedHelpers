@@ -36,6 +36,7 @@
 		7078A8451D7A164700373574 /* UIColor+HexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8321D7A162700373574 /* UIColor+HexSpec.swift */; };
 		709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */; };
 		70AFA1C11DF12F9E00FA7345 /* FileManager+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */; };
+		70C3DFC21E6494FF005F884D /* UISegmentedControl+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */; };
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
 		70D13BBA1E0AEEC100E6BDD0 /* SteppedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */; };
@@ -84,6 +85,7 @@
 		7078A83C1D7A163600373574 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		709FB9EC1DF09E5A00611164 /* UIImage+Edits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Edits.swift"; sourceTree = "<group>"; };
 		70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Helpers.swift"; sourceTree = "<group>"; };
+		70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Height.swift"; sourceTree = "<group>"; };
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		70D13BB91E0AEEC100E6BDD0 /* SteppedSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteppedSlider.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
 				7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */,
+				70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */,
 				702524E41E60AF8900E50A47 /* UIImage+Color.swift */,
 			);
 			name = Extensions;
@@ -332,6 +335,7 @@
 				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
 				709FB9ED1DF09E5A00611164 /* UIImage+Edits.swift in Sources */,
+				70C3DFC21E6494FF005F884D /* UISegmentedControl+Height.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */,
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
