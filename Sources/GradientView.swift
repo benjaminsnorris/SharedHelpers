@@ -25,6 +25,20 @@ import UIKit
     @IBInspectable open var endColor: UIColor = .red
     @IBInspectable open var direction: Int = 0
     
+    @IBInspectable open var startColorName: String? {
+        didSet {
+            guard let color = UIColor(named: startColorName) else { return }
+            startColor = color
+        }
+    }
+    
+    @IBInspectable open var endColorName: String? {
+        didSet {
+            guard let color = UIColor(named: endColorName) else { return }
+            endColor = color
+        }
+    }
+
     
     // MARK: - Internal computed properties
     

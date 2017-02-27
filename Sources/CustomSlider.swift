@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable open class SteppedSlider: UISlider {
+@IBDesignable open class CustomSlider: UISlider {
     
     // MARK: - Inspectable properties
     
@@ -23,11 +23,20 @@ import UIKit
         }
     }
     
-    @IBInspectable open var stepColor: UIColor = .lightGray {
+    @IBInspectable open var stepColor: UIColor! = .lightGray {
         didSet {
             updateSteps()
         }
     }
+    
+    @IBInspectable open var stepColorName: String? {
+        didSet {
+            stepColor = UIColor(named: stepColorName)
+        }
+    }
+    
+    
+    // MARK: - Property overrides
     
     override open var value: Float {
         get {
@@ -71,12 +80,12 @@ import UIKit
 
 // MARK: - Private functions
 
-private extension SteppedSlider {
+private extension CustomSlider {
 
     func setupViews() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(stackView, at: 0)
-        stackView.constrainFullSize(leading: SteppedSlider.sideMargin, trailing: SteppedSlider.sideMargin)
+        stackView.constrainFullSize(leading: CustomSlider.sideMargin, trailing: CustomSlider.sideMargin)
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.isUserInteractionEnabled = false
