@@ -9,6 +9,37 @@ import UIKit
 
 public extension UIView {
     
+    @IBInspectable open var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    @IBInspectable open var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable open var borderColor: UIColor? {
+        get {
+            guard let CGColor = layer.borderColor else { return nil }
+            return UIColor(cgColor: CGColor)
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+    
+    // MARK: - Constraining full size 
+    
     public struct Margins: OptionSet {
         
         public let rawValue: Int
