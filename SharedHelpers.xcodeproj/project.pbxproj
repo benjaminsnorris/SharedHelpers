@@ -38,7 +38,6 @@
 		70C3DFC21E6494FF005F884D /* UISegmentedControl+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */; };
 		70C3DFC41E6495AB005F884D /* UIBarButtonItem+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */; };
 		70C3DFC61E6495CC005F884D /* UIAlertAction+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */; };
-		70C3DFC81E649687005F884D /* UIApplication+Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC71E649687005F884D /* UIApplication+Mail.swift */; };
 		70C3DFCA1E649928005F884D /* TimeZone+CurrentName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */; };
 		70C3DFCC1E649C0E005F884D /* StylingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFCB1E649C0E005F884D /* StylingProtocols.swift */; };
 		70C3DFCE1E64A0E1005F884D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFCD1E64A0E1005F884D /* CustomButton.swift */; };
@@ -104,7 +103,6 @@
 		70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Height.swift"; sourceTree = "<group>"; };
 		70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Blank.swift"; sourceTree = "<group>"; };
 		70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Cancel.swift"; sourceTree = "<group>"; };
-		70C3DFC71E649687005F884D /* UIApplication+Mail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Mail.swift"; sourceTree = "<group>"; };
 		70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeZone+CurrentName.swift"; sourceTree = "<group>"; };
 		70C3DFCB1E649C0E005F884D /* StylingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylingProtocols.swift; sourceTree = "<group>"; };
 		70C3DFCD1E64A0E1005F884D /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				702524E41E60AF8900E50A47 /* UIImage+Color.swift */,
 				70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */,
 				70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */,
-				70C3DFC71E649687005F884D /* UIApplication+Mail.swift */,
 				70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */,
 			);
 			name = Extensions;
@@ -406,7 +403,6 @@
 				70C3DFCC1E649C0E005F884D /* StylingProtocols.swift in Sources */,
 				706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */,
 				70C3DFD61E64A68A005F884D /* CustomTextField.swift in Sources */,
-				70C3DFC81E649687005F884D /* UIApplication+Mail.swift in Sources */,
 				70039E221E37D807005041F1 /* NibLoadable.swift in Sources */,
 				70C3DFD81E64A6FB005F884D /* CustomTextView.swift in Sources */,
 				70C3DFD21E64A2C4005F884D /* CustomView.swift in Sources */,
@@ -545,6 +541,7 @@
 		7063F6911D1C32FC006D8A58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
@@ -567,6 +564,7 @@
 		7063F6921D1C32FC006D8A58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
