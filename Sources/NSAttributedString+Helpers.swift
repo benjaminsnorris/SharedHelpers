@@ -18,8 +18,8 @@ public extension NSMutableAttributedString {
         }
     }
     
-    func highlightStrings(_ stringToHighlight: String, color: UIColor) {
-        guard !stringToHighlight.isEmpty else { return }
+    func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
+        guard let stringToHighlight = stringToHighlight, !stringToHighlight.isEmpty else { return }
         do {
             let expression = try NSRegularExpression(pattern: stringToHighlight, options: [.caseInsensitive, .ignoreMetacharacters])
             let matches = expression.matches(in: string, options: [], range: NSRange(location: 0, length: length))
