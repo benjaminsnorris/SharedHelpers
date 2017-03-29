@@ -13,9 +13,7 @@ import UIKit
     
     @IBInspectable open var backgroundColorName: String? {
         didSet {
-            let filledBackground = UIView()
-            filledBackground.backgroundColor = UIColor(named: backgroundColorName)
-            backgroundView = filledBackground
+            backgroundColor = UIColor(named: backgroundColorName)
         }
     }
     
