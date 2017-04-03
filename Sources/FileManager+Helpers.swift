@@ -17,4 +17,8 @@ public extension FileManager {
         return URL(fileURLWithPath: NSTemporaryDirectory())
     }
     
+    public static var cachesDirectory: URL {
+        return try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    }
+    
 }
