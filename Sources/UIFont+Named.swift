@@ -23,7 +23,7 @@ public extension UIFont {
         var font: UIFont
         if let namedFont = UIFont.value(forKey: name) as? UIFont {
             font = namedFont
-        } else if let _font = UIFont(name: name, size: UIFont.systemFontSize) {
+        } else if let _font = UIFont(name: name, size: size) {
             font = _font
         } else {
             return nil

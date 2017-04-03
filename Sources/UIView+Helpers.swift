@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIView {
     
-    @IBInspectable open var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -18,7 +18,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable open var borderWidth: CGFloat {
+    @IBInspectable public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -27,7 +27,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable open var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
             return UIColor(cgColor: CGColor)
@@ -57,7 +57,7 @@ public extension UIView {
     }
     
     public func constrainFullSize(leading: CGFloat = 0, top: CGFloat = 0, trailing: CGFloat = 0, bottom: CGFloat = 0) {
-        guard let superview = self.superview else { fatalError("\(self) has no superview") }
+        guard let _ = self.superview else { fatalError("\(self) has no superview") }
         constrainFullSize(insets: UIEdgeInsets(top: top, left: leading, bottom: bottom, right: trailing), margins: [])
     }
     
