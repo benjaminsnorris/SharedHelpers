@@ -41,9 +41,28 @@ import UIKit
         }
     }
     
+    @IBInspectable open var progressColorName: String? {
+        didSet {
+            guard let color = UIColor(named: progressColorName) else { return }
+            progressColor = color
+        }
+    }
+    
     @IBInspectable open var fontName: String? {
         didSet {
             applyFontName()
+        }
+    }
+    
+    @IBInspectable open var progress: Double = 0.0 {
+        didSet {
+            progressLayer.strokeEnd = CGFloat(progress)
+        }
+    }
+    
+    @IBInspectable open var progressColor: UIColor = #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)  {
+        didSet {
+            progressLayer.strokeColor = progressColor.cgColor
         }
     }
     
@@ -90,18 +109,19 @@ import UIKit
     // MARK: - Private properties
     
     fileprivate let spinner = UIActivityIndicatorView(activityIndicatorStyle: .white)
-    
+    fileprivate let progressLayer = CAShapeLayer()
+
     
     // MARK: - Initializers
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        arrangeSpinner()
+        setupViews()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        arrangeSpinner()
+        setupViews()
     }
     
     
@@ -110,6 +130,12 @@ import UIKit
     override open func layoutSubviews() {
         super.layoutSubviews()
         applyCircularStyleIfNeeded()
+        
+        progressLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+        let rotation = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
+        let translate = CATransform3DMakeTranslation(0, bounds.height, 0)
+        progressLayer.transform = CATransform3DConcat(rotation, translate)
+        progressLayer.lineWidth = bounds.height
     }
     
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -124,12 +150,18 @@ import UIKit
 
 private extension CustomButton {
     
-    func arrangeSpinner() {
+    func setupViews() {
         addSubview(spinner)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         spinner.stopAnimating()
+        
+        layer.addSublayer(progressLayer)
+        progressLayer.fillColor = UIColor.clear.cgColor
+        progressLayer.strokeStart = 0.0
+        progressLayer.strokeEnd = 0.0
+        progressLayer.strokeColor = progressColor.cgColor
     }
     
 }
