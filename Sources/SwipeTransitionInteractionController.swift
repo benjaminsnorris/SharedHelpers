@@ -47,7 +47,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         } else if edge == .left {
             return locationInSourceView.x / width
         } else if edge == .right {
-            return (width - locationInSourceView.x) - width
+            return (width - locationInSourceView.x) / width
         } else {
             fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
         }

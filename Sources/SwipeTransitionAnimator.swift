@@ -65,7 +65,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             containerView.insertSubview(toView, belowSubview: fromView)
         }
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             if isPresenting {
                 toView?.frame = toFrame
             } else {
