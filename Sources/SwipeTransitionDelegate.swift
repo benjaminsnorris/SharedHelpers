@@ -34,14 +34,14 @@ extension SwipeTransitionDelegate: UIViewControllerTransitioningDelegate {
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            
+            return SwipeTransitionInteractionController(edgeForDragging: targetEdge, gestureRecognizer: gestureRecognizer)
         }
         return nil
     }
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            
+            return SwipeTransitionInteractionController(edgeForDragging: targetEdge, gestureRecognizer: gestureRecognizer)
         }
         return nil
     }
