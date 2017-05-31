@@ -29,12 +29,12 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from),
-            let toViewController = transitionContext.viewController(forKey: .to),
-            let fromView = transitionContext.view(forKey: .from),
-            let toView = transitionContext.view(forKey: .to)
+            let toViewController = transitionContext.viewController(forKey: .to)
             else { return }
         let containerView = transitionContext.containerView
-        
+        let fromView = transitionContext.view(forKey: .from)
+        let toView = transitionContext.view(forKey: .to)
+
         let isPresenting = toViewController.presentingViewController == fromViewController
         let fromFrame = transitionContext.initialFrame(for: fromViewController)
         let toFrame = transitionContext.finalFrame(for: toViewController)
@@ -52,29 +52,29 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
-        fromView.frame = fromFrame
+        fromView?.frame = fromFrame
         if isPresenting {
-            toView.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx * -1, dy: toFrame.height * offset.dy * -1)
+            toView?.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx * -1, dy: toFrame.height * offset.dy * -1)
         } else {
-            toView.frame = toFrame
+            toView?.frame = toFrame
         }
         
-        if isPresenting {
+        if let toView = toView, isPresenting {
             containerView.addSubview(toView)
-        } else {
+        } else if let toView = toView, let fromView = fromView {
             containerView.insertSubview(toView, belowSubview: fromView)
         }
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
             if isPresenting {
-                toView.frame = toFrame
+                toView?.frame = toFrame
             } else {
-                fromView.frame = fromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
+                fromView?.frame = fromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
             }
         }) { _ in
             let wasCancelled = transitionContext.transitionWasCancelled
             if wasCancelled {
-                toView.removeFromSuperview()
+                toView?.removeFromSuperview()
             }
             transitionContext.completeTransition(!wasCancelled)
         }
