@@ -37,17 +37,23 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     func percent(for recognizer: UIPanGestureRecognizer) -> CGFloat {
         guard let transitionContainerView = transitionContext?.containerView else { return 0 }
         let locationInSourceView = recognizer.location(in: transitionContainerView)
+        let delta = recognizer.translation(in: transitionContainerView)
+        let originalLocation = CGPoint(x: locationInSourceView.x - delta.x, y: locationInSourceView.y - delta.y)
         let width = transitionContainerView.bounds.width
         let height = transitionContainerView.bounds.height
         
         if edge == .top {
-            return locationInSourceView.y / height
+            let possibleHeight = height - originalLocation.y
+            return delta.y / possibleHeight
         } else if edge == .bottom {
-            return (height - locationInSourceView.y) / height
+            let possibleHeight = originalLocation.y
+            return abs(delta.y) / possibleHeight
         } else if edge == .left {
-            return locationInSourceView.x / width
+            let possibleWidth = width - originalLocation.x
+            return delta.x / possibleWidth
         } else if edge == .right {
-            return (width - locationInSourceView.x) / width
+            let possibleWidth = originalLocation.x
+            return abs(delta.x) / possibleWidth
         } else {
             fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
         }
