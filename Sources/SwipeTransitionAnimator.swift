@@ -41,20 +41,20 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         
         let offset: CGVector
         if targetEdge == .top {
-            offset = CGVector(dx: 0, dy: 1)
-        } else if targetEdge == .bottom {
             offset = CGVector(dx: 0, dy: -1)
+        } else if targetEdge == .bottom {
+            offset = CGVector(dx: 0, dy: 1)
         } else if targetEdge == .left {
-            offset = CGVector(dx: 1, dy: 0)
-        } else if targetEdge == .right {
             offset = CGVector(dx: -1, dy: 0)
+        } else if targetEdge == .right {
+            offset = CGVector(dx: 1, dy: 0)
         } else {
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
         fromView?.frame = fromFrame
         if isPresenting {
-            toView?.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx * -1, dy: toFrame.height * offset.dy * -1)
+            toView?.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx, dy: toFrame.height * offset.dy)
         } else {
             toView?.frame = toFrame
         }
