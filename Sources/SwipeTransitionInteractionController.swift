@@ -13,6 +13,8 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     var gestureRecognizer: UIPanGestureRecognizer
     weak var transitionContext: UIViewControllerContextTransitioning?
     
+    static let velocityThreshold: CGFloat = 200.0
+    
     init(edgeForDragging edge: UIRectEdge, gestureRecognizer: UIPanGestureRecognizer) {
         self.edge = edge
         self.gestureRecognizer = gestureRecognizer
@@ -66,7 +68,18 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         case .changed:
             update(percent(for: gestureRecognizer))
         case .ended:
-            if percent(for: gestureRecognizer) >= 0.5 {
+            let velocity = gestureRecognizer.velocity(in: transitionContext?.containerView)
+            var swiped = false
+            if edge == .top {
+                swiped = velocity.y > SwipeTransitionInteractionController.velocityThreshold
+            } else if edge == .bottom {
+                swiped = velocity.y < -SwipeTransitionInteractionController.velocityThreshold
+            } else if edge == .left {
+                swiped = velocity.x > SwipeTransitionInteractionController.velocityThreshold
+            } else if edge == .right {
+                swiped = velocity.x < -SwipeTransitionInteractionController.velocityThreshold
+            }
+            if swiped || percent(for: gestureRecognizer) >= 0.5 {
                 finish()
             } else {
                 cancel()
