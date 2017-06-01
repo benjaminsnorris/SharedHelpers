@@ -10,7 +10,7 @@ import UIKit
 public class SwipeTransitionDelegate: NSObject {
     
     public var targetEdge: UIRectEdge
-    public var edgeForDragging: UIRectEdge?
+    public var edgeForDragging: UIRectEdge
     public var gestureRecognizer: UIPanGestureRecognizer?
     
     public init(targetEdge: UIRectEdge, edgeForDragging: UIRectEdge? = nil, gestureRecognizer: UIPanGestureRecognizer? = nil) {
@@ -40,14 +40,14 @@ extension SwipeTransitionDelegate: UIViewControllerTransitioningDelegate {
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            return SwipeTransitionInteractionController(edgeForDragging: targetEdge, gestureRecognizer: gestureRecognizer)
+            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer)
         }
         return nil
     }
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            return SwipeTransitionInteractionController(edgeForDragging: targetEdge, gestureRecognizer: gestureRecognizer)
+            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer)
         }
         return nil
     }
