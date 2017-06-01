@@ -10,10 +10,16 @@ import UIKit
 public class SwipeTransitionDelegate: NSObject {
     
     public var targetEdge: UIRectEdge
+    public var edgeForDragging: UIRectEdge?
     public var gestureRecognizer: UIPanGestureRecognizer?
     
-    public init(targetEdge: UIRectEdge, gestureRecognizer: UIPanGestureRecognizer? = nil) {
+    public init(targetEdge: UIRectEdge, edgeForDragging: UIRectEdge? = nil, gestureRecognizer: UIPanGestureRecognizer? = nil) {
         self.targetEdge = targetEdge
+        if let edgeForDragging = edgeForDragging {
+            self.edgeForDragging = edgeForDragging
+        } else {
+            self.edgeForDragging = targetEdge
+        }
         self.gestureRecognizer = gestureRecognizer
     }
     

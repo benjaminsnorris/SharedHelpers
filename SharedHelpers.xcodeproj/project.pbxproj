@@ -274,8 +274,8 @@
 		E7AE91E31EDF634500C8B0A2 /* Swipe Transition */ = {
 			isa = PBXGroup;
 			children = (
-				E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */,
 				E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */,
+				E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */,
 				E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */,
 			);
 			name = "Swipe Transition";
