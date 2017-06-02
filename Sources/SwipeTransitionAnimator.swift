@@ -52,9 +52,9 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
-        fromView?.frame = fromFrame
         if isPresenting {
             toView?.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx, dy: toFrame.height * offset.dy)
+            fromView?.frame = fromFrame
         } else {
             toView?.frame = toFrame
         }
