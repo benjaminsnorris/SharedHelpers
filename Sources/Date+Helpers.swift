@@ -29,6 +29,12 @@ public extension Date {
         return formatter
     }
     
+    static fileprivate var mediumDateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }
+    
     static fileprivate var dateAndTimeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -85,6 +91,11 @@ public extension Date {
     /// E.g. "3:30 PM"
     public var timeString: String {
         return Date.timeFormatter.string(from: self)
+    }
+    
+    // E.g. "Nov 23, 1937"
+    public var monthDayYearString: String {
+        return Date.mediumDateFormatter.string(from: self)
     }
     
     /// E.g. "Nov 23, 1937, 3:30 PM"
