@@ -12,8 +12,6 @@ public enum SlidingContainerPresentedState {
     case expanded
 }
 
-fileprivate let topMargin: CGFloat = 64.0
-fileprivate let cornerRadius: CGFloat = 12.0
 fileprivate let velocityThreshold: CGFloat = 200.0
 
 public protocol SlidingContainerPresentable: class {
@@ -21,6 +19,12 @@ public protocol SlidingContainerPresentable: class {
     var modalContainer: UIView! { get }
     var blurEffectView: UIVisualEffectView? { get }
     var blurEffect: UIBlurEffect? { get }
+    
+    var anchorEdge: UIRectEdge { get }
+    var minMargin: CGFloat { get }
+    var maxSize: CGFloat? { get }
+    var cornerRadius: CGFloat { get }
+    
     var progressWhenInterrupted: CGFloat { get set }
     
     @available(iOSApplicationExtension 10.0, *)
@@ -33,16 +37,52 @@ public extension SlidingContainerPresentable where Self: UIViewController {
     
     public var blurEffectView: UIVisualEffectView? { return nil }
     public var blurEffect: UIBlurEffect? { return nil }
+    public var minMargin: CGFloat { return 64.0 }
+    public var maxSize: CGFloat? { return nil }
+    public var cornerRadius: CGFloat { return 12.0 }
     
+    var relevantSize: CGFloat {
+        if anchorEdge == .left || anchorEdge == .right {
+            return modalContainer.frame.width
+        }
+        return modalContainer.frame.height
+    }
+    
+    var targetContainerState: SlidingContainerPresentedState {
+        return relevantSize > 0 ? .collapsed : .expanded
+    }
+    
+
     public func animateTransitionIfNeeded(state: SlidingContainerPresentedState, duration: TimeInterval) {
         guard runningAnimators.isEmpty else { return }
         let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             let viewFrame = self.view.frame
             switch state {
             case .expanded:
-                self.modalContainer.frame = CGRect(x: 0, y: topMargin, width: viewFrame.width, height: viewFrame.height - topMargin)
+                let maximumSize = self.maxSize ?? 0
+                if self.anchorEdge == .top {
+                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: viewFrame.width, height: max(viewFrame.height - self.minMargin, maximumSize))
+                } else if self.anchorEdge == .bottom {
+                    self.modalContainer.frame = CGRect(x: 0, y: self.maxSize == nil ? self.minMargin : viewFrame.height - maximumSize, width: viewFrame.width, height: max(viewFrame.height - self.minMargin, maximumSize))
+                } else if self.anchorEdge == .left {
+                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: self.maxSize ?? viewFrame.width - self.minMargin, height: viewFrame.height)
+                } else if self.anchorEdge == .right {
+                    self.modalContainer.frame = CGRect(x: self.maxSize == nil ? self.minMargin : viewFrame.width - maximumSize, y: 0, width: self.maxSize ?? viewFrame.width - self.minMargin, height: viewFrame.height)
+                } else {
+                    fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+                }
             case .collapsed:
-                self.modalContainer.frame = CGRect(x: 0, y: viewFrame.height, width: viewFrame.width, height: 0)
+                if self.anchorEdge == .top {
+                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: viewFrame.width, height: 0)
+                } else if self.anchorEdge == .bottom {
+                    self.modalContainer.frame = CGRect(x: 0, y: viewFrame.height, width: viewFrame.width, height: 0)
+                } else if self.anchorEdge == .left {
+                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: 0, height: viewFrame.height)
+                } else if self.anchorEdge == .right {
+                    self.modalContainer.frame = CGRect(x: viewFrame.width, y: 0, width: 0, height: viewFrame.height)
+                } else {
+                    fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+                }
             } }
         frameAnimator.addCompletion { [weak self] _ in
             guard let `self` = self, let index = self.runningAnimators.index(of: frameAnimator) else { return }
@@ -72,6 +112,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
                 blurEffectView.isUserInteractionEnabled = isShowing
                 blurEffectView.effect = isShowing ? self.blurEffect ?? UIBlurEffect(style: .dark) : nil
+                self.modalContainer.layer.cornerRadius = isShowing ? self.cornerRadius : 0
             }
             blurAnimator.startAnimation()
             runningAnimators.append(blurAnimator)
@@ -83,12 +124,12 @@ public extension SlidingContainerPresentable where Self: UIViewController {
 //                if #available(iOSApplicationExtension 11.0, *) {
 //                    self.modalContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 //                }
-                self.modalContainer.layer.cornerRadius = cornerRadius
+                self.modalContainer.layer.cornerRadius = self.cornerRadius
             case .collapsed:
                 self.modalContainer.layer.cornerRadius = 0
             }
         }
-        cornerAnimator.addCompletion { [weak self] _ in
+        cornerAnimator.addCompletion { [weak self] position in
             guard let `self` = self, let index = self.runningAnimators.index(of: cornerAnimator) else { return }
             self.runningAnimators.remove(at: index)
         }
@@ -107,23 +148,28 @@ public extension SlidingContainerPresentable where Self: UIViewController {
         }
     }
     
-    var currentContainerState: SlidingContainerPresentedState {
-        return modalContainer.frame.height > 0 ? .expanded : .collapsed
-    }
-    
-    var targetContainerState: SlidingContainerPresentedState {
-        return modalContainer.frame.height > 0 ? .collapsed : .expanded
-    }
-    
     func percent(for recognizer: UIPanGestureRecognizer) -> CGFloat {
-        guard let containerView = modalContainer else { return 0 }
-        let locationInSourceView = recognizer.location(in: containerView)
-        let delta = recognizer.translation(in: containerView)
+        let locationInSourceView = recognizer.location(in: view)
+        let delta = recognizer.translation(in: view)
         let originalLocation = CGPoint(x: locationInSourceView.x - delta.x, y: locationInSourceView.y - delta.y)
-        let height = containerView.bounds.height
+        let width = view.bounds.width
+        let height = view.bounds.height
         
-        let possibleHeight = height - originalLocation.y
-        return delta.y / possibleHeight
+        if anchorEdge == .top {
+            let possibleHeight = originalLocation.y
+            return abs(delta.y) / possibleHeight
+        } else if anchorEdge == .bottom {
+            let possibleHeight = height - originalLocation.y
+            return delta.y / possibleHeight
+        } else if anchorEdge == .left {
+            let possibleWidth = originalLocation.x
+            return abs(delta.x) / possibleWidth
+        } else if anchorEdge == .right {
+            let possibleWidth = width - originalLocation.x
+            return delta.x / possibleWidth
+        } else {
+            fatalError("edge must be .top, .bottom, .left, or .right. actual=\(anchorEdge)")
+        }
     }
     
     public func handlePan(with recognizer: UIPanGestureRecognizer) {
@@ -140,7 +186,16 @@ public extension SlidingContainerPresentable where Self: UIViewController {
         case .ended:
             let timing = UICubicTimingParameters(animationCurve: .easeOut)
             let velocity = recognizer.velocity(in: view)
-            let swiped = velocity.y > velocityThreshold
+            var swiped = false
+            if anchorEdge == .top {
+                swiped = velocity.y < -velocityThreshold
+            } else if anchorEdge == .bottom {
+                swiped = velocity.y > velocityThreshold
+            } else if anchorEdge == .left {
+                swiped = velocity.x < -velocityThreshold
+            } else if anchorEdge == .right {
+                swiped = velocity.x > velocityThreshold
+            }
             let shouldReverse = !swiped && percent(for: recognizer) < 0.5
             runningAnimators.forEach { animator in
                 animator.isReversed = shouldReverse
