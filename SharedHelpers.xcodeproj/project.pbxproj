@@ -59,6 +59,7 @@
 		E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */; };
 		E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */; };
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
+		E7FEE44B1EFC14AF0027220E /* SlidingContainerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
 		E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionDelegate.swift; sourceTree = "<group>"; };
 		E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionInteractionController.swift; sourceTree = "<group>"; };
+		E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingContainerPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
 				70039E211E37D807005041F1 /* NibLoadable.swift */,
 				702D5CA81E53831E00E3B796 /* Nameable.swift */,
+				E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */,
 				70C3DFD61E64A68A005F884D /* CustomTextField.swift in Sources */,
 				70039E221E37D807005041F1 /* NibLoadable.swift in Sources */,
+				E7FEE44B1EFC14AF0027220E /* SlidingContainerPresentable.swift in Sources */,
 				70C3DFD81E64A6FB005F884D /* CustomTextView.swift in Sources */,
 				70C3DFD21E64A2C4005F884D /* CustomView.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
