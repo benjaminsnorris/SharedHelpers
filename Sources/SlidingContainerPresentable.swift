@@ -24,6 +24,7 @@ public protocol SlidingContainerPresentable: class {
     var minMargin: CGFloat { get }
     var maxSize: CGFloat? { get }
     var cornerRadius: CGFloat { get }
+    var shouldAnimateCornerRadius: Bool { get }
     
     var progressWhenInterrupted: CGFloat { get set }
     
@@ -40,6 +41,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
     public var minMargin: CGFloat { return 64.0 }
     public var maxSize: CGFloat? { return nil }
     public var cornerRadius: CGFloat { return 12.0 }
+    public var shouldAnimateCornerRadius: Bool { return false }
     
     var targetContainerState: SlidingContainerPresentedState {
         if self.anchorEdge == .top {
@@ -137,29 +139,33 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
                 blurEffectView.isUserInteractionEnabled = isShowing
                 blurEffectView.effect = isShowing ? self.blurEffect ?? UIBlurEffect(style: .dark) : nil
-                self.modalContainer.layer.cornerRadius = isShowing ? self.cornerRadius : 0
+                if self.shouldAnimateCornerRadius {
+                    self.modalContainer.layer.cornerRadius = isShowing ? self.cornerRadius : 0
+                }
             }
             blurAnimator.startAnimation()
             runningAnimators.append(blurAnimator)
         }
         
-        let cornerAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) { 
-            switch state {
-            case .expanded:
-//                if #available(iOSApplicationExtension 11.0, *) {
-//                    self.modalContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//                }
-                self.modalContainer.layer.cornerRadius = self.cornerRadius
-            case .collapsed:
-                self.modalContainer.layer.cornerRadius = 0
+        if shouldAnimateCornerRadius {
+            let cornerAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+                switch state {
+                case .expanded:
+//                    if #available(iOSApplicationExtension 11.0, *) {
+//                        self.modalContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//                    }
+                    self.modalContainer.layer.cornerRadius = self.cornerRadius
+                case .collapsed:
+                    self.modalContainer.layer.cornerRadius = 0
+                }
             }
+            cornerAnimator.addCompletion { [weak self] position in
+                guard let `self` = self, let index = self.runningAnimators.index(of: cornerAnimator) else { return }
+                self.runningAnimators.remove(at: index)
+            }
+            cornerAnimator.startAnimation()
+            runningAnimators.append(cornerAnimator)
         }
-        cornerAnimator.addCompletion { [weak self] position in
-            guard let `self` = self, let index = self.runningAnimators.index(of: cornerAnimator) else { return }
-            self.runningAnimators.remove(at: index)
-        }
-        cornerAnimator.startAnimation()
-        runningAnimators.append(cornerAnimator)
     }
     
     public func animateOrReverseRunningTransition(state: SlidingContainerPresentedState? = nil, duration: TimeInterval) {
