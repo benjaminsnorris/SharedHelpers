@@ -41,15 +41,18 @@ public extension SlidingContainerPresentable where Self: UIViewController {
     public var maxSize: CGFloat? { return nil }
     public var cornerRadius: CGFloat { return 12.0 }
     
-    var relevantSize: CGFloat {
-        if anchorEdge == .left || anchorEdge == .right {
-            return modalContainer.frame.width
-        }
-        return modalContainer.frame.height
-    }
-    
     var targetContainerState: SlidingContainerPresentedState {
-        return relevantSize > 0 ? .collapsed : .expanded
+        if self.anchorEdge == .top {
+            return modalContainer.frame.origin.y == 0 ? .collapsed : .expanded
+        } else if self.anchorEdge == .bottom {
+            return modalContainer.frame.origin.y == view.frame.height ? .expanded : .collapsed
+        } else if self.anchorEdge == .left {
+            return modalContainer.frame.origin.x == 0 ? .collapsed : .expanded
+        } else if self.anchorEdge == .right {
+            return modalContainer.frame.origin.x == view.frame.width ? .expanded : .collapsed
+        } else {
+            fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+        }
     }
     
 
@@ -57,33 +60,55 @@ public extension SlidingContainerPresentable where Self: UIViewController {
         guard runningAnimators.isEmpty else { return }
         let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             let viewFrame = self.view.frame
-            switch state {
-            case .expanded:
-                let maximumSize = self.maxSize ?? 0
-                if self.anchorEdge == .top {
-                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: viewFrame.width, height: max(viewFrame.height - self.minMargin, maximumSize))
-                } else if self.anchorEdge == .bottom {
-                    self.modalContainer.frame = CGRect(x: 0, y: self.maxSize == nil ? self.minMargin : viewFrame.height - maximumSize, width: viewFrame.width, height: max(viewFrame.height - self.minMargin, maximumSize))
-                } else if self.anchorEdge == .left {
-                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: self.maxSize ?? viewFrame.width - self.minMargin, height: viewFrame.height)
-                } else if self.anchorEdge == .right {
-                    self.modalContainer.frame = CGRect(x: self.maxSize == nil ? self.minMargin : viewFrame.width - maximumSize, y: 0, width: self.maxSize ?? viewFrame.width - self.minMargin, height: viewFrame.height)
-                } else {
-                    fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+            let maximumSize = self.maxSize ?? 0
+            let height: CGFloat
+            let width: CGFloat
+            if self.anchorEdge == .left || self.anchorEdge == .right {
+                height = viewFrame.height
+                width = self.maxSize ?? viewFrame.width - self.minMargin
+            } else {
+                height = max(viewFrame.height - self.minMargin, maximumSize)
+                width = viewFrame.width
+            }
+            let x: CGFloat
+            let y: CGFloat
+            if self.anchorEdge == .top {
+                x = 0
+                switch state {
+                case .expanded:
+                    y = 0
+                case .collapsed:
+                    y = -height
                 }
-            case .collapsed:
-                if self.anchorEdge == .top {
-                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: viewFrame.width, height: 0)
-                } else if self.anchorEdge == .bottom {
-                    self.modalContainer.frame = CGRect(x: 0, y: viewFrame.height, width: viewFrame.width, height: 0)
-                } else if self.anchorEdge == .left {
-                    self.modalContainer.frame = CGRect(x: 0, y: 0, width: 0, height: viewFrame.height)
-                } else if self.anchorEdge == .right {
-                    self.modalContainer.frame = CGRect(x: viewFrame.width, y: 0, width: 0, height: viewFrame.height)
-                } else {
-                    fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+            } else if self.anchorEdge == .bottom {
+                x = 0
+                switch state {
+                case .expanded:
+                    y = self.maxSize == nil ? self.minMargin : viewFrame.height - maximumSize
+                case .collapsed:
+                    y = viewFrame.height
                 }
-            } }
+            } else if self.anchorEdge == .left {
+                switch state {
+                case .expanded:
+                    x = 0
+                case .collapsed:
+                    x = -width
+                }
+                y = 0
+            } else if self.anchorEdge == .right {
+                switch state {
+                case .expanded:
+                    x = self.maxSize == nil ? self.minMargin : viewFrame.width - maximumSize
+                case .collapsed:
+                    x = viewFrame.width
+                }
+                y = 0
+            } else {
+                fatalError("status=invalid-anchor-edge actual=\(self.anchorEdge)")
+            }
+            self.modalContainer.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
         frameAnimator.addCompletion { [weak self] _ in
             guard let `self` = self, let index = self.runningAnimators.index(of: frameAnimator) else { return }
             self.runningAnimators.remove(at: index)
