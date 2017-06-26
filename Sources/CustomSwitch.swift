@@ -13,7 +13,19 @@ import UIKit
     
     @IBInspectable open var tintColorName: String? {
         didSet {
-            onTintColor = UIColor(named: tintColorName)
+            applyTintColorName()
+        }
+    }
+    
+    @IBInspectable open var onTintColorName: String? {
+        didSet {
+            updateOnTint()
+        }
+    }
+    
+    @IBInspectable open var thumbColorName: String? {
+        didSet {
+            updateThumbTint()
         }
     }
 
@@ -39,6 +51,16 @@ import UIKit
     
     func updateColors() {
         applyTintColorName()
+        updateOnTint()
+        updateThumbTint()
+    }
+    
+    func updateOnTint() {
+        onTintColor = UIColor(named: onTintColorName)
+    }
+
+    func updateThumbTint() {
+        thumbTintColor = UIColor(named: thumbColorName)
     }
 
 }
