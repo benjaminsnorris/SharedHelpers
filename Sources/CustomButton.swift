@@ -13,13 +13,13 @@ import UIKit
     
     @IBInspectable open var titleColorName: String? {
         didSet {
-            setTitleColor(UIColor(named: titleColorName), for: .normal)
+            updateTitleColor()
         }
     }
     
     @IBInspectable open var disabledTitleColorName: String? {
         didSet {
-            setTitleColor(UIColor(named: disabledTitleColorName), for: .disabled)
+            updateDisabledTitleColor()
         }
     }
     
@@ -159,10 +159,20 @@ import UIKit
     }
     
     func updateColors() {
+        updateTitleColor()
+        updateDisabledTitleColor()
         applyBackgroundColorName()
         applyTintColorName()
         applyBorderColorName()
         applyShadowColorName()
+    }
+    
+    func updateTitleColor() {
+        setTitleColor(UIColor(named: titleColorName), for: .normal)
+    }
+    
+    func updateDisabledTitleColor() {
+        setTitleColor(UIColor(named: disabledTitleColorName), for: .disabled)
     }
 
 }
