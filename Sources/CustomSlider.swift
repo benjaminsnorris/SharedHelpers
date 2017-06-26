@@ -31,7 +31,7 @@ import UIKit
     
     @IBInspectable open var stepColorName: String? {
         didSet {
-            stepColor = UIColor(named: stepColorName)
+            updateColors()
         }
     }
     
@@ -75,6 +75,17 @@ import UIKit
         setupViews()
     }
     
+    
+    // MARK: - Functions
+    
+    func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
+    }
+    
+    func updateColors() {
+        stepColor = UIColor(named: stepColorName)
+    }
+
 }
 
 
@@ -83,6 +94,7 @@ import UIKit
 private extension CustomSlider {
 
     func setupViews() {
+        registerForNotifications()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(stackView, at: 0)
         stackView.constrainFullSize(leading: CustomSlider.sideMargin, trailing: CustomSlider.sideMargin)

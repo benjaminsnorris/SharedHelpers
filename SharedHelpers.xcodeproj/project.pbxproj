@@ -56,6 +56,7 @@
 		70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */; };
 		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
 		70D13BBA1E0AEEC100E6BDD0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */; };
+		E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */; };
 		E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */; };
 		E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */; };
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
@@ -125,6 +126,7 @@
 		70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
 		E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionDelegate.swift; sourceTree = "<group>"; };
 		E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionInteractionController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */,
 				70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */,
 				70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */,
+				E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */,
 				70C3DFFA1E68D023005F884D /* UINavigationController+Preview.swift in Sources */,
 				E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */,
 				7078A8271D7A14C700373574 /* UIColor+Hex.swift in Sources */,

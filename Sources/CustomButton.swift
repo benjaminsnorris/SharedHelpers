@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable open class CustomButton: UIButton, CircularView, BackgroundColorNameable, TintColorNameable, BorderColorNameable, FontNameable {
+@IBDesignable open class CustomButton: UIButton, CircularView, BackgroundColorNameable, TintColorNameable, BorderColorNameable, ShadowColorNameable, FontNameable {
     
     // MARK: - Inspectable properties
     
@@ -45,6 +45,12 @@ import UIKit
         didSet {
             guard let color = UIColor(named: progressColorName) else { return }
             progressColor = color
+        }
+    }
+
+    @IBInspectable open var shadowColorName: String? {
+        didSet {
+            applyShadowColorName()
         }
     }
     
@@ -117,11 +123,13 @@ import UIKit
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        registerForNotifications()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupViews()
+        registerForNotifications()
     }
     
     
@@ -141,6 +149,20 @@ import UIKit
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         applyFontName()
+    }
+
+    
+    // MARK: - Functions
+    
+    func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
+    }
+    
+    func updateColors() {
+        applyBackgroundColorName()
+        applyTintColorName()
+        applyBorderColorName()
+        applyShadowColorName()
     }
 
 }

@@ -40,8 +40,19 @@ public protocol BorderColorNameable {
 public extension BorderColorNameable where Self: UIView {
     
     public func applyBorderColorName() {
-        guard let color = UIColor(named: borderColorName) else { return }
-        layer.borderColor = color.cgColor
+        borderColor = UIColor(named: borderColorName)
+    }
+    
+}
+
+public protocol ShadowColorNameable {
+    var shadowColorName: String? { get set }
+}
+
+public extension ShadowColorNameable where Self: UIView {
+    
+    public func applyShadowColorName() {
+        shadowColor = UIColor(named: shadowColorName)
     }
     
 }

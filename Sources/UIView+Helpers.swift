@@ -36,6 +36,16 @@ public extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
+    
+    @IBInspectable public var shadowColor: UIColor? {
+        get {
+            guard let CGColor = layer.shadowColor else { return nil }
+            return UIColor(cgColor: CGColor)
+        }
+        set {
+            layer.shadowColor = newValue?.cgColor
+        }
+    }
 
     
     // MARK: - Constraining full size 

@@ -13,7 +13,7 @@ import UIKit
     
     @IBInspectable open var textColorName: String? = "primaryText" {
         didSet {
-            textColor = UIColor(named: textColorName)
+            updateTextColor()
         }
     }
     
@@ -36,11 +36,39 @@ import UIKit
     }
     
     
+    // MARK: - Initializers
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        registerForNotifications()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        registerForNotifications()
+    }
+    
+    
     // MARK: - Lifecycle overrides
     
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         applyFontName()
+    }
+
+
+    // MARK: - Functions
+    
+    func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
+    }
+    
+    func updateColors() {
+        updateTextColor()
+    }
+    
+    func updateTextColor() {
+        textColor = UIColor(named: textColorName)
     }
 
 }
