@@ -44,6 +44,21 @@ import UIKit
     
     // MARK: - Initializers
     
+    override public init(image: UIImage?) {
+        super.init(image: image)
+        registerForNotifications()
+    }
+    
+    override public init(image: UIImage?, highlightedImage: UIImage?) {
+        super.init(image: image, highlightedImage: highlightedImage)
+        registerForNotifications()
+    }
+    
+    convenience public init() {
+        self.init(image: nil)
+        registerForNotifications()
+    }
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         registerForNotifications()
