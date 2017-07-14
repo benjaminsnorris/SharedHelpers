@@ -70,6 +70,7 @@
 		E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */; };
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
 		E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */; };
+		E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */; };
 		E7FEE44B1EFC14AF0027220E /* SlidingContainerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionDelegate.swift; sourceTree = "<group>"; };
 		E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionInteractionController.swift; sourceTree = "<group>"; };
 		E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBasicTabBar.swift; sourceTree = "<group>"; };
 		E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingContainerPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,22 +214,23 @@
 		7078A8291D7A14D800373574 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7078A8131D7A14C700373574 /* CustomInputAccessory.swift */,
-				7078A8151D7A14C700373574 /* GradientView.swift */,
-				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
-				70C3DFD11E64A2C4005F884D /* CustomView.swift */,
+				70C3DFE11E64A97D005F884D /* CustomActivityIndicator.swift */,
 				70C3DFCD1E64A0E1005F884D /* CustomButton.swift */,
 				70C3DFCF1E64A296005F884D /* CustomImageView.swift */,
+				7078A8131D7A14C700373574 /* CustomInputAccessory.swift */,
 				70C3DFD31E64A551005F884D /* CustomLabel.swift */,
-				70C3DFD51E64A68A005F884D /* CustomTextField.swift */,
-				70C3DFD71E64A6FB005F884D /* CustomTextView.swift */,
+				70C3DFDF1E64A92D005F884D /* CustomSegmentedControl.swift */,
+				70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */,
+				70C3DFDD1E64A8EA005F884D /* CustomSwitch.swift */,
+				E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */,
 				70C3DFD91E64A804005F884D /* CustomTableCell.swift */,
 				70C3DFDB1E64A884005F884D /* CustomTableView.swift */,
-				70C3DFDD1E64A8EA005F884D /* CustomSwitch.swift */,
-				70C3DFDF1E64A92D005F884D /* CustomSegmentedControl.swift */,
-				70C3DFE11E64A97D005F884D /* CustomActivityIndicator.swift */,
+				70C3DFD51E64A68A005F884D /* CustomTextField.swift */,
+				70C3DFD71E64A6FB005F884D /* CustomTextView.swift */,
+				70C3DFD11E64A2C4005F884D /* CustomView.swift */,
 				70C3DFE31E64A9CB005F884D /* CustomVisualEffectView.swift */,
-				70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */,
+				7078A8151D7A14C700373574 /* GradientView.swift */,
+				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
 				E7AE91E31EDF634500C8B0A2 /* Swipe Transition */,
 			);
 			name = UI;
@@ -482,6 +485,7 @@
 				70C3DFE41E64A9CB005F884D /* CustomVisualEffectView.swift in Sources */,
 				702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
+				E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */,
 				70C3DFCC1E649C0E005F884D /* StylingProtocols.swift in Sources */,
 				E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */,
 				706551EA1E4BBC370089BC8F /* UIFont+Named.swift in Sources */,
@@ -795,6 +799,7 @@
 				E7955E2D1F0D557200B8E7ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
