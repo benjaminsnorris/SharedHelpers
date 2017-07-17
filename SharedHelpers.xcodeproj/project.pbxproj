@@ -66,6 +66,7 @@
 		E7955E381F0D565900B8E7ED /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702524E41E60AF8900E50A47 /* UIImage+Color.swift */; };
 		E7955E391F0D565E00B8E7ED /* TimeZone+CurrentName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */; };
 		E7955E3A1F0D566800B8E7ED /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019DCD21D819D3600B08C10 /* SemanticVersion.swift */; };
+		E7A901CC1F1D690D00E10890 /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D5CA81E53831E00E3B796 /* Nameable.swift */; };
 		E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */; };
 		E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E41EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift */; };
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
@@ -525,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7955E301F0D560800B8E7ED /* CollectionType+Sorting.swift in Sources */,
+				E7A901CC1F1D690D00E10890 /* Nameable.swift in Sources */,
 				E7955E321F0D561600B8E7ED /* UIColor+Hex.swift in Sources */,
 				E7955E351F0D561600B8E7ED /* UIImage+Edits.swift in Sources */,
 				E7955E311F0D560D00B8E7ED /* Date+Helpers.swift in Sources */,
