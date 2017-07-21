@@ -160,23 +160,18 @@ public extension Date {
     // MARK: - Helper computed vars
     
     public var isToday: Bool {
-        let now = Date()
-        return isSameDay(as: now)
+        return Calendar.current.isDateInToday(self)
     }
     
     public var startOfDay: Date {
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components([.era, .year, .month, .day], from: self)
-        let startOfDate = calendar.date(from: components)!
-        return startOfDate
+        return Calendar.current.startOfDay(for: self)
     }
     
     public var endOfDay: Date {
-        let calendar = Calendar.current
-        let nextDay = (calendar as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
-        let components = (calendar as NSCalendar).components([.era, .year, .month, .day], from: nextDay)
-        let startOfDate = calendar.date(from: components)!
-        return startOfDate
+        let nextDay = (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
+        return nextDay.startOfDay
+    }
+    
     /// The hour of the date
     var hour: Int {
         return Calendar.current.component(.hour, from: self)
@@ -205,11 +200,7 @@ public extension Date {
     // MARK: - Functions
         
     public func isSameDay(as date: Date) -> Bool {
-        let calender = Calendar.current
-        let components: Set<Calendar.Component> = [.day, .month, .year]
-        let componentsOne = calender.dateComponents(components, from: self)
-        let componentsTwo = calender.dateComponents(components, from: date)
-        return componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year
+        return Calendar.current.isDate(date, inSameDayAs: self)
     }
     
 }
