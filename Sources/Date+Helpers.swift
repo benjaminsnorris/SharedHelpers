@@ -177,6 +177,28 @@ public extension Date {
         let components = (calendar as NSCalendar).components([.era, .year, .month, .day], from: nextDay)
         let startOfDate = calendar.date(from: components)!
         return startOfDate
+    /// The hour of the date
+    var hour: Int {
+        return Calendar.current.component(.hour, from: self)
+    }
+    
+    /// The minute of the date
+    var minute: Int {
+        return Calendar.current.component(.minute, from: self)
+    }
+    
+    /// Rounds sender to the next half hour ex. 10:12 -> 10:30
+    var nextHalfHour: Date {
+        let currentMinutes = Calendar.current.component(.minute, from: self)
+        guard currentMinutes != 0 && currentMinutes != 30 else { return self }
+        
+        if currentMinutes < 30, let next30Date = Calendar.current.date(bySetting: .minute, value: 30, of: self) {
+            return next30Date
+        } else if let nextHourDate = Calendar.current.date(byAdding: .minute, value: 60 - currentMinutes, to: self) {
+            return nextHourDate
+        } else {
+            return self
+        }
     }
     
     
