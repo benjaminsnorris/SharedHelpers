@@ -168,7 +168,7 @@ public extension Date {
     }
     
     public var endOfDay: Date {
-        let nextDay = (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
+        let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: self)!
         return nextDay.startOfDay
     }
     
