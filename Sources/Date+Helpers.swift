@@ -160,34 +160,47 @@ public extension Date {
     // MARK: - Helper computed vars
     
     public var isToday: Bool {
-        let now = Date()
-        return isSameDay(as: now)
+        return Calendar.current.isDateInToday(self)
     }
     
     public var startOfDay: Date {
-        let calendar = Calendar.current
-        let components = (calendar as NSCalendar).components([.era, .year, .month, .day], from: self)
-        let startOfDate = calendar.date(from: components)!
-        return startOfDate
+        return Calendar.current.startOfDay(for: self)
     }
     
     public var endOfDay: Date {
-        let calendar = Calendar.current
-        let nextDay = (calendar as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
-        let components = (calendar as NSCalendar).components([.era, .year, .month, .day], from: nextDay)
-        let startOfDate = calendar.date(from: components)!
-        return startOfDate
+        let nextDay = (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: [])!
+        return nextDay.startOfDay
+    }
+    
+    /// The hour of the date
+    var hour: Int {
+        return Calendar.current.component(.hour, from: self)
+    }
+    
+    /// The minute of the date
+    var minute: Int {
+        return Calendar.current.component(.minute, from: self)
+    }
+    
+    /// Rounds sender to the next half hour ex. 10:12 -> 10:30
+    var nextHalfHour: Date {
+        let currentMinutes = Calendar.current.component(.minute, from: self)
+        guard currentMinutes != 0 && currentMinutes != 30 else { return self }
+        
+        if currentMinutes < 30, let next30Date = Calendar.current.date(bySetting: .minute, value: 30, of: self) {
+            return next30Date
+        } else if let nextHourDate = Calendar.current.date(byAdding: .minute, value: 60 - currentMinutes, to: self) {
+            return nextHourDate
+        } else {
+            return self
+        }
     }
     
     
     // MARK: - Functions
         
     public func isSameDay(as date: Date) -> Bool {
-        let calender = Calendar.current
-        let components: Set<Calendar.Component> = [.day, .month, .year]
-        let componentsOne = calender.dateComponents(components, from: self)
-        let componentsTwo = calender.dateComponents(components, from: date)
-        return componentsOne.day == componentsTwo.day && componentsOne.month == componentsTwo.month && componentsOne.year == componentsTwo.year
+        return Calendar.current.isDate(date, inSameDayAs: self)
     }
     
 }
