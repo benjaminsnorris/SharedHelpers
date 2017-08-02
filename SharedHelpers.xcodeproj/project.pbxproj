@@ -57,6 +57,7 @@
 		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
 		70D13BBA1E0AEEC100E6BDD0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */; };
 		E71EA9901F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */; };
+		E769E6841F326037003B6995 /* UITextView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769E6831F326037003B6995 /* UITextView+Helpers.swift */; };
 		E7955E2F1F0D55F800B8E7ED /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
 		E7955E301F0D560800B8E7ED /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */; };
 		E7955E311F0D560D00B8E7ED /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8161D7A14C700373574 /* Date+Helpers.swift */; };
@@ -141,6 +142,7 @@
 		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Helpers.swift"; sourceTree = "<group>"; };
+		E769E6831F326037003B6995 /* UITextView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Helpers.swift"; sourceTree = "<group>"; };
 		E7955E271F0D557100B8E7ED /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A902261F1EC0CA00E10890 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
 		E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				70C3DFC11E6494FF005F884D /* UISegmentedControl+Height.swift */,
 				E7A902261F1EC0CA00E10890 /* UITableView+Helpers.swift */,
 				E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */,
+				E769E6831F326037003B6995 /* UITextView+Helpers.swift */,
 				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
 			);
 			name = Extensions;
@@ -489,6 +492,7 @@
 				702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */,
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,
 				70D13BBA1E0AEEC100E6BDD0 /* CustomSlider.swift in Sources */,
+				E769E6841F326037003B6995 /* UITextView+Helpers.swift in Sources */,
 				70C3DFE41E64A9CB005F884D /* CustomVisualEffectView.swift in Sources */,
 				702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
