@@ -58,12 +58,12 @@ import UIKit
     
     override public init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
-        registerForNotifications()
+        setupViews()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        registerForNotifications()
+        setupViews()
     }
     
     
@@ -90,6 +90,10 @@ import UIKit
     
     func updateTextColor() {
         textColor = UIColor(named: textColorName)
+    }
+    
+    open func setupViews() {
+        registerForNotifications()
     }
 
 }
