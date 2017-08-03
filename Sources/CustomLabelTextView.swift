@@ -19,6 +19,7 @@ import UIKit
     
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let characterIndex = layoutManager.characterIndex(for: point, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+        guard !text.characters.isEmpty && characterIndex <= text.characters.count else { return nil }
         if textStorage.attribute(NSLinkAttributeName, at: characterIndex, effectiveRange: nil) == nil {
             return nil
         }
