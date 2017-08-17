@@ -36,6 +36,11 @@ import UIKit
         registerForNotifications()
     }
     
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        updateSeparatorColor()
+    }
+    
     
     // MARK: - Functions
     
