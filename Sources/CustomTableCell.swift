@@ -13,19 +13,29 @@ import UIKit
     
     @IBInspectable open var backgroundColorName: String? {
         didSet {
-            backgroundColor = UIColor(named: backgroundColorName)
+            applyBackgroundColorName()
         }
     }
     
     @IBInspectable open var textColorName: String? {
         didSet {
+<<<<<<< Updated upstream
             updateTextColor()
+=======
+            applyTextColorName()
+        }
+    }
+    
+    @IBInspectable open var detailTextColorName: String? {
+        didSet {
+            applyTextColorName()
+>>>>>>> Stashed changes
         }
     }
     
     @IBInspectable open var tintColorName: String? {
         didSet {
-            tintColor = UIColor(named: tintColorName)
+            applyTintColorName()
         }
     }
     
@@ -72,9 +82,13 @@ import UIKit
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         applyFontName()
+        applyBackgroundColorName()
+        applyTintColorName()
+        applyTextColorName()
         detailTextLabel?.font = UIFont(named: detailFontName)
     }
     
+<<<<<<< Updated upstream
 
     // MARK: - Functions
     
@@ -92,4 +106,14 @@ import UIKit
         textLabel?.textColor = UIColor(named: textColorName)
     }
 
+=======
+    
+    // MARK: - Internal functions
+    
+    func applyTextColorName() {
+        textLabel?.textColor = UIColor(named: textColorName)
+        detailTextLabel?.textColor = UIColor(named: detailTextColorName)
+    }
+    
+>>>>>>> Stashed changes
 }
