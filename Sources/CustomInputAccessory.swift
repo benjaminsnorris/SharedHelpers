@@ -17,13 +17,13 @@ open class CustomInputAccessory: UIView {
     // MARK: - Public properties
     
     open var customButtonTitle: String?
+    public let toolbar = UIToolbar()
     
 
     // MARK: - Private properties
     
     fileprivate var delegate: CustomInputAccessoryDelegate?
     fileprivate var textInput: UIView?
-    fileprivate let toolbar = UIToolbar()
     fileprivate var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
     
     
