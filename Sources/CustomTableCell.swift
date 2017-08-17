@@ -19,17 +19,13 @@ import UIKit
     
     @IBInspectable open var textColorName: String? {
         didSet {
-<<<<<<< Updated upstream
-            updateTextColor()
-=======
-            applyTextColorName()
+            applyTextColorNames()
         }
     }
     
     @IBInspectable open var detailTextColorName: String? {
         didSet {
-            applyTextColorName()
->>>>>>> Stashed changes
+            applyTextColorNames()
         }
     }
     
@@ -77,19 +73,6 @@ import UIKit
     }
     
     
-    // MARK: - Lifecycle overrides
-    
-    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        applyFontName()
-        applyBackgroundColorName()
-        applyTintColorName()
-        applyTextColorName()
-        detailTextLabel?.font = UIFont(named: detailFontName)
-    }
-    
-<<<<<<< Updated upstream
-
     // MARK: - Functions
     
     func registerForNotifications() {
@@ -99,21 +82,12 @@ import UIKit
     func updateColors() {
         applyBackgroundColorName()
         applyTintColorName()
-        updateTextColor()
+        applyTextColorNames()
     }
     
-    func updateTextColor() {
-        textLabel?.textColor = UIColor(named: textColorName)
-    }
-
-=======
-    
-    // MARK: - Internal functions
-    
-    func applyTextColorName() {
+    func applyTextColorNames() {
         textLabel?.textColor = UIColor(named: textColorName)
         detailTextLabel?.textColor = UIColor(named: detailTextColorName)
     }
     
->>>>>>> Stashed changes
 }
