@@ -35,16 +35,28 @@ public extension KeyboardAdjusting where Self: UIViewController {
      - parameter notification: The `Notification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil) {
-        guard let userInfo = notification.userInfo, let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect, let curveInt = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt, let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double, let window = view.window else { return }
-        let adjustedConstant = window.frame.height - keyboardFrame.origin.y
-        if let constraint = constraint {
-            constraint.constant = adjustedConstant
-        } else {
-            constraintToAdjust?.constant = adjustedConstant
+    public func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+        guard let userInfo = notification.userInfo,
+            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
+            let curveInt = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt,
+            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double,
+            let window = view.window,
+            let wrapper = view.superview
+            else { return }
+        let adjustedFrame = wrapper.convert(wrapper.frame, to: window)
+        var maxY = adjustedFrame.maxY
+        if modalPresentationStyle == .formSheet || navigationController?.modalPresentationStyle == .formSheet {
+            maxY = wrapper.frame.height + statusBarHeight
         }
+        let offset = maxY - keyboardFrame.origin.y
+        let adjustedConstant = max(offset, 0)
         let curve = UIViewAnimationOptions(rawValue: curveInt)
         UIView.animate(withDuration: duration, delay: 0.0, options: [curve], animations: {
+            if let constraint = constraint {
+                constraint.constant = adjustedConstant
+            } else {
+                self.constraintToAdjust?.constant = adjustedConstant
+            }
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
