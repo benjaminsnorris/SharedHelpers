@@ -48,16 +48,10 @@ public extension KeyboardAdjusting where Self: UIViewController {
             let curveInt = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt,
             let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double
             else { return }
+        guard keyboardFrame.height > 0 else { setConstant(of: constraint, to: 0, animated: true); return }
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
         let curve = UIViewAnimationOptions(rawValue: curveInt)
-        UIView.animate(withDuration: duration, delay: 0.0, options: [curve], animations: {
-            if let constraint = constraint {
-                constraint.constant = adjustedConstant
-            } else {
-                self.constraintToAdjust?.constant = adjustedConstant
-            }
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        setConstant(of: constraint, to: adjustedConstant, animated: true, duration: duration, curve: curve)
     }
     
     /**
@@ -74,12 +68,9 @@ public extension KeyboardAdjusting where Self: UIViewController {
        (`UIApplication.shared.statusBarFrame.height`). Used for form sheet modals.
      */
     public func adjustConstraint(for keyboardFrame: CGRect, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+        guard keyboardFrame.height > 0 else { setConstant(of: constraint, to: 0); return }
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
-        let constraint = constraint ?? constraintToAdjust
-        constraint?.constant = adjustedConstant
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        setConstant(of: constraint, to: adjustedConstant)
     }
     
     func adjustedConstant(for keyboardFrame: CGRect, statusBarHeight: CGFloat = 0.0) -> CGFloat {
@@ -91,6 +82,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
         if modalPresentationStyle == .formSheet || navigationController?.modalPresentationStyle == .formSheet {
             maxY = wrapper.frame.height + statusBarHeight
         }
+        maxY = min(maxY, window.frame.maxY)
         let offset = maxY - keyboardFrame.origin.y
         return max(offset, 0)
     }
@@ -99,11 +91,26 @@ public extension KeyboardAdjusting where Self: UIViewController {
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
     public func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
-        if let constraint = constraint {
-            constraint.constant = 0
+        setConstant(of: constraint, to: 0, animated: true)
+    }
+    
+    func setConstant(of constraint: NSLayoutConstraint?, to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIViewAnimationOptions? = nil) {
+        if animated {
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [curve ?? .curveEaseInOut], animations: {
+                self.finishSettingConstant(of: constraint, to: constant)
+            }, completion: nil)
         } else {
-            constraintToAdjust?.constant = 0
+            finishSettingConstant(of: constraint, to: constant)
         }
+    }
+    
+    func finishSettingConstant(of constraint: NSLayoutConstraint?, to constant: CGFloat) {
+        if let constraint = constraint {
+            constraint.constant = constant
+        } else {
+            constraintToAdjust?.constant = constant
+        }
+        view.layoutIfNeeded()
     }
 
 }
