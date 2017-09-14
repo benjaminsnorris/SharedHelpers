@@ -58,6 +58,7 @@
 		70D13BBA1E0AEEC100E6BDD0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */; };
 		E71EA9901F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */; };
 		E769E6881F328726003B6995 /* CustomLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769E6871F328726003B6995 /* CustomLabelTextView.swift */; };
+		E76F9D4C1F6AE668009EC5C1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */; };
 		E7955E2F1F0D55F800B8E7ED /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
 		E7955E301F0D560800B8E7ED /* CollectionType+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */; };
 		E7955E311F0D560D00B8E7ED /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8161D7A14C700373574 /* Date+Helpers.swift */; };
@@ -145,6 +146,7 @@
 		70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Helpers.swift"; sourceTree = "<group>"; };
 		E769E6871F328726003B6995 /* CustomLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelTextView.swift; sourceTree = "<group>"; };
+		E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		E7955E271F0D557100B8E7ED /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A902261F1EC0CA00E10890 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
 		E7AE91E11EDF634000C8B0A2 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				70C3DFCF1E64A296005F884D /* CustomImageView.swift */,
 				7078A8131D7A14C700373574 /* CustomInputAccessory.swift */,
 				70C3DFD31E64A551005F884D /* CustomLabel.swift */,
+				E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */,
 				70C3DFDF1E64A92D005F884D /* CustomSegmentedControl.swift */,
 				70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */,
 				70C3DFDD1E64A8EA005F884D /* CustomSwitch.swift */,
@@ -487,6 +490,7 @@
 				70CCD5A51DC3E46B005352B8 /* KeyboardAdjusting.swift in Sources */,
 				70C3DFD41E64A551005F884D /* CustomLabel.swift in Sources */,
 				70C3DFC41E6495AB005F884D /* UIBarButtonItem+Blank.swift in Sources */,
+				E76F9D4C1F6AE668009EC5C1 /* CustomSearchBar.swift in Sources */,
 				7078A81F1D7A14C700373574 /* CustomInputAccessory.swift in Sources */,
 				70C3DFC61E6495CC005F884D /* UIAlertAction+Cancel.swift in Sources */,
 				7078A81D1D7A14C700373574 /* AdjustingScrollView.swift in Sources */,
