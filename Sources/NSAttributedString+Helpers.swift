@@ -19,15 +19,26 @@ public extension NSMutableAttributedString {
     }
     
     func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
-        guard let stringToHighlight = stringToHighlight, !stringToHighlight.isEmpty else { return }
+        let textMatches = string.matches(for: stringToHighlight)
+        for match in textMatches {
+            addAttribute(NSBackgroundColorAttributeName, value: color, range: match.range)
+        }
+    }
+    
+}
+
+
+
+public extension String {
+    
+    func matches(for stringToHighlight: String?) -> [NSTextCheckingResult] {
+        guard let stringToHighlight = stringToHighlight, !stringToHighlight.isEmpty else { return [] }
         do {
             let expression = try NSRegularExpression(pattern: stringToHighlight, options: [.caseInsensitive, .ignoreMetacharacters])
-            let matches = expression.matches(in: string, options: [], range: NSRange(location: 0, length: length))
-            for match in matches {
-                self.addAttribute(NSBackgroundColorAttributeName, value: color, range: match.range)
-            }
+            return expression.matches(in: self, options: [], range: NSRange(location: 0, length: characters.count))
         } catch {
             print("status=could-not-create-regex error=\(error)")
+            return []
         }
     }
     
