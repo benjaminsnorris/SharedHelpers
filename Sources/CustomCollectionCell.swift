@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable open class CustomCollectionCell: UICollectionViewCell, BackgroundColorNameable, TintColorNameable {
+@IBDesignable open class CustomCollectionCell: UICollectionViewCell, BackgroundColorNameable, TintColorNameable, BorderColorNameable {
     
     // MARK: - Inspectable properties
     
@@ -20,6 +20,12 @@ import UIKit
     @IBInspectable open var tintColorName: String? {
         didSet {
             applyTintColorName()
+        }
+    }
+    
+    @IBInspectable open var borderColorName: String? {
+        didSet {
+            applyBorderColorName()
         }
     }
     
@@ -46,6 +52,7 @@ import UIKit
     func updateColors() {
         applyBackgroundColorName()
         applyTintColorName()
+        applyBorderColorName()
     }
 
 }
