@@ -15,6 +15,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     var scrollView: UIScrollView?
     
     fileprivate var adjustedInitialLocation = CGPoint.zero
+    fileprivate var initialContentOffset = CGPoint.zero
     
     static let velocityThreshold: CGFloat = 200.0
     
@@ -24,6 +25,9 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         super.init()
         self.gestureRecognizer.addTarget(self, action: #selector(gestureRecognizerDidUpdate(_:)))
         self.scrollView = scrollView
+        if let tableView = scrollView as? UITableView {
+            initialContentOffset = tableView.style == .grouped ? CGPoint(x: 0, y: -44) : .zero
+        }
     }
     
     @available(*, unavailable, message: "Use `init(edgeForDragging:gestureRecognizer:) instead")
@@ -45,19 +49,19 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         if let scrollView = scrollView, percentComplete == 0 {
             switch edge {
             case .top:
-                if scrollView.contentOffset.y >= 0 {
+                if scrollView.contentOffset.y >= initialContentOffset.y {
                     return 0
                 }
             case .bottom:
-                if scrollView.contentOffset.y <= 0 {
+                if scrollView.contentOffset.y <= initialContentOffset.y {
                     return 0
                 }
             case .left:
-                if scrollView.contentOffset.x >= 0 {
+                if scrollView.contentOffset.x >= initialContentOffset.x {
                     return 0
                 }
             case .right:
-                if scrollView.contentOffset.x <= 0 {
+                if scrollView.contentOffset.x <= initialContentOffset.x {
                     return 0
                 }
             default:
@@ -67,7 +71,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
                 adjustedInitialLocation = recognizer.location(in: transitionContainerView)
             }
         }
-        scrollView?.contentOffset = .zero
+        scrollView?.contentOffset = initialContentOffset
         let delta = recognizer.translation(in: transitionContainerView)
         let width = transitionContainerView.bounds.width
         let height = transitionContainerView.bounds.height
@@ -93,8 +97,8 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     
     func gestureRecognizerDidUpdate(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
-        case .began:
-            adjustedInitialLocation = .zero
+        case .possible, .began:
+            break
         case .changed:
             update(percent(for: gestureRecognizer))
         case .ended:
@@ -114,7 +118,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
             } else {
                 cancel()
             }
-        case .possible, .cancelled, .failed:
+        case .cancelled, .failed:
             cancel()
         }
     }
