@@ -104,14 +104,29 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         case .ended:
             let velocity = gestureRecognizer.velocity(in: transitionContext?.containerView)
             var swiped = false
-            if edge == .top {
+            switch edge {
+            case .top:
                 swiped = velocity.y > SwipeTransitionInteractionController.velocityThreshold
-            } else if edge == .bottom {
+                if let scrollView = scrollView, scrollView.contentOffset.y >= initialContentOffset.y {
+                    swiped = false
+                }
+            case .bottom:
                 swiped = velocity.y < -SwipeTransitionInteractionController.velocityThreshold
-            } else if edge == .left {
+                if let scrollView = scrollView, scrollView.contentOffset.y <= initialContentOffset.y {
+                    swiped = false
+                }
+            case .left:
                 swiped = velocity.x > SwipeTransitionInteractionController.velocityThreshold
-            } else if edge == .right {
+                if let scrollView = scrollView, scrollView.contentOffset.x >= initialContentOffset.x {
+                    swiped = false
+                }
+            case .right:
                 swiped = velocity.x < -SwipeTransitionInteractionController.velocityThreshold
+                if let scrollView = scrollView, scrollView.contentOffset.x <= initialContentOffset.x {
+                    swiped = false
+                }
+            default:
+                break
             }
             if swiped || percent(for: gestureRecognizer) >= 0.5 {
                 finish()
