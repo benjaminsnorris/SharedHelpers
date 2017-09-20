@@ -74,11 +74,15 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
+        var adjustedFromFrame = fromFrame
         if isPresenting {
             toView?.frame = toFrame.offsetBy(dx: toFrame.width * offset.dx, dy: toFrame.height * offset.dy)
             fromView?.frame = fromFrame
         } else {
             toView?.frame = toFrame
+            if transitionContext.presentationStyle == .formSheet {
+                adjustedFromFrame.origin.x = containerView.frame.width / 2 - adjustedFromFrame.width / 2
+            }
         }
         
         let dimmingView = UIView()
@@ -100,7 +104,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
                 dimmingView.alpha = 1.0
             } else {
                 fromView?.layer.cornerRadius = 0.0
-                fromView?.frame = fromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
+                fromView?.frame = adjustedFromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
                 if let dimming = containerView.subviews.first(where: { $0.tag == SwipeTransitionAnimator.dimmingTag }) {
                     dimming.alpha = 0.0
                 }
