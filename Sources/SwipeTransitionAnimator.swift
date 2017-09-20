@@ -40,17 +40,33 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         let isPresenting = toViewController.presentingViewController == fromViewController
         let fromFrame = transitionContext.initialFrame(for: fromViewController)
         let toFrame = transitionContext.finalFrame(for: toViewController)
+        if isPresenting {
+            toView?.clipsToBounds = true
+        }
         
         let offset: CGVector
-        if targetEdge == .top {
+        switch targetEdge {
+        case .top:
             offset = CGVector(dx: 0, dy: -1)
-        } else if targetEdge == .bottom {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            }
+        case .bottom:
             offset = CGVector(dx: 0, dy: 1)
-        } else if targetEdge == .left {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
+        case .left:
             offset = CGVector(dx: -1, dy: 0)
-        } else if targetEdge == .right {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            }
+        case .right:
             offset = CGVector(dx: 1, dy: 0)
-        } else {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            }
+        default:
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
@@ -76,8 +92,10 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             if isPresenting {
                 toView?.frame = toFrame
+                toView?.layer.cornerRadius = 10.0
                 dimmingView.alpha = 1.0
             } else {
+                fromView?.layer.cornerRadius = 0.0
                 fromView?.frame = fromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
                 if let dimming = containerView.subviews.first(where: { $0.tag == SwipeTransitionAnimator.dimmingTag }) {
                     dimming.alpha = 0.0
