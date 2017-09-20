@@ -12,14 +12,18 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     var edge: UIRectEdge
     var gestureRecognizer: UIPanGestureRecognizer
     weak var transitionContext: UIViewControllerContextTransitioning?
+    var scrollView: UIScrollView?
+    
+    fileprivate var adjustedInitialLocation = CGPoint.zero
     
     static let velocityThreshold: CGFloat = 200.0
     
-    init(edgeForDragging edge: UIRectEdge, gestureRecognizer: UIPanGestureRecognizer) {
+    init(edgeForDragging edge: UIRectEdge, gestureRecognizer: UIPanGestureRecognizer, scrollView: UIScrollView? = nil) {
         self.edge = edge
         self.gestureRecognizer = gestureRecognizer
         super.init()
         self.gestureRecognizer.addTarget(self, action: #selector(gestureRecognizerDidUpdate(_:)))
+        self.scrollView = scrollView
     }
     
     @available(*, unavailable, message: "Use `init(edgeForDragging:gestureRecognizer:) instead")
@@ -38,25 +42,51 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     
     func percent(for recognizer: UIPanGestureRecognizer) -> CGFloat {
         guard let transitionContainerView = transitionContext?.containerView else { return 0 }
-        let locationInSourceView = recognizer.location(in: transitionContainerView)
+        if let scrollView = scrollView, percentComplete == 0 {
+            switch edge {
+            case .top:
+                if scrollView.contentOffset.y >= 0 {
+                    return 0
+                }
+            case .bottom:
+                if scrollView.contentOffset.y <= 0 {
+                    return 0
+                }
+            case .left:
+                if scrollView.contentOffset.x >= 0 {
+                    return 0
+                }
+            case .right:
+                if scrollView.contentOffset.x <= 0 {
+                    return 0
+                }
+            default:
+                fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
+            }
+            if adjustedInitialLocation == .zero {
+                adjustedInitialLocation = recognizer.location(in: transitionContainerView)
+            }
+        }
+        scrollView?.contentOffset = .zero
         let delta = recognizer.translation(in: transitionContainerView)
-        let originalLocation = CGPoint(x: locationInSourceView.x - delta.x, y: locationInSourceView.y - delta.y)
         let width = transitionContainerView.bounds.width
         let height = transitionContainerView.bounds.height
+        var adjustedPoint = delta
+        if adjustedInitialLocation != .zero {
+            let locationInSourceView = recognizer.location(in: transitionContainerView)
+            adjustedPoint = CGPoint(x: locationInSourceView.x - adjustedInitialLocation.x, y: locationInSourceView.y - adjustedInitialLocation.y)
+        }
         
-        if edge == .top {
-            let possibleHeight = height - originalLocation.y
-            return delta.y / possibleHeight
-        } else if edge == .bottom {
-            let possibleHeight = originalLocation.y
-            return abs(delta.y) / possibleHeight
-        } else if edge == .left {
-            let possibleWidth = width - originalLocation.x
-            return delta.x / possibleWidth
-        } else if edge == .right {
-            let possibleWidth = originalLocation.x
-            return abs(delta.x) / possibleWidth
-        } else {
+        switch edge {
+        case .top:
+            return adjustedPoint.y > 0 ? adjustedPoint.y / height : 0
+        case .bottom:
+            return adjustedPoint.y < 0 ? abs(adjustedPoint.y) / height : 0
+        case .left:
+            return adjustedPoint.x > 0 ? adjustedPoint.x / height : 0
+        case .right:
+            return adjustedPoint.x < 0 ? abs(adjustedPoint.x) / width : 0
+        default:
             fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
         }
     }
@@ -64,7 +94,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     func gestureRecognizerDidUpdate(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
-            break
+            adjustedInitialLocation = .zero
         case .changed:
             update(percent(for: gestureRecognizer))
         case .ended:

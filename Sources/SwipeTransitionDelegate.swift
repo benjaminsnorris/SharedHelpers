@@ -12,8 +12,9 @@ public class SwipeTransitionDelegate: NSObject {
     public var targetEdge: UIRectEdge
     public var edgeForDragging: UIRectEdge
     public var gestureRecognizer: UIPanGestureRecognizer?
+    public var scrollView: UIScrollView?
     
-    public init(targetEdge: UIRectEdge, edgeForDragging: UIRectEdge? = nil, gestureRecognizer: UIPanGestureRecognizer? = nil) {
+    public init(targetEdge: UIRectEdge, edgeForDragging: UIRectEdge? = nil, gestureRecognizer: UIPanGestureRecognizer? = nil, scrollView: UIScrollView? = nil) {
         self.targetEdge = targetEdge
         if let edgeForDragging = edgeForDragging {
             self.edgeForDragging = edgeForDragging
@@ -21,6 +22,7 @@ public class SwipeTransitionDelegate: NSObject {
             self.edgeForDragging = targetEdge
         }
         self.gestureRecognizer = gestureRecognizer
+        self.scrollView = scrollView
     }
     
 }
@@ -40,14 +42,14 @@ extension SwipeTransitionDelegate: UIViewControllerTransitioningDelegate {
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer)
+            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer, scrollView: scrollView)
         }
         return nil
     }
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestureRecognizer = gestureRecognizer {
-            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer)
+            return SwipeTransitionInteractionController(edgeForDragging: edgeForDragging, gestureRecognizer: gestureRecognizer, scrollView: scrollView)
         }
         return nil
     }
