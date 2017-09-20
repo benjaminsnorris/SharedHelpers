@@ -91,6 +91,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             dimmingView.alpha = 0
             dimmingView.frame = containerView.bounds
             dimmingView.tag = SwipeTransitionAnimator.dimmingTag
+            dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             containerView.addSubview(dimmingView)
             containerView.addSubview(toView)
         } else if let toView = toView, let fromView = fromView {
