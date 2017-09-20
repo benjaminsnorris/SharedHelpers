@@ -26,7 +26,7 @@ class SwipeTransitionAnimator: NSObject {
 extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.4
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -89,7 +89,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             containerView.insertSubview(toView, belowSubview: fromView)
         }
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             if isPresenting {
                 toView?.frame = toFrame
                 toView?.layer.cornerRadius = 10.0
