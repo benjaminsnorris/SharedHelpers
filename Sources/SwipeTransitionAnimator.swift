@@ -11,6 +11,8 @@ class SwipeTransitionAnimator: NSObject {
     
     var targetEdge: UIRectEdge
     
+    fileprivate static let dimmingTag = -635
+    
     init(targetEdge: UIRectEdge) {
         self.targetEdge = targetEdge
         super.init()
@@ -59,7 +61,13 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
             toView?.frame = toFrame
         }
         
+        let dimmingView = UIView()
         if let toView = toView, isPresenting {
+            dimmingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            dimmingView.alpha = 0
+            dimmingView.frame = containerView.bounds
+            dimmingView.tag = SwipeTransitionAnimator.dimmingTag
+            containerView.addSubview(dimmingView)
             containerView.addSubview(toView)
         } else if let toView = toView, let fromView = fromView {
             containerView.insertSubview(toView, belowSubview: fromView)
@@ -68,13 +76,21 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             if isPresenting {
                 toView?.frame = toFrame
+                dimmingView.alpha = 1.0
             } else {
                 fromView?.frame = fromFrame.offsetBy(dx: fromFrame.width * offset.dx, dy: fromFrame.height * offset.dy)
+                if let dimming = containerView.subviews.first(where: { $0.tag == SwipeTransitionAnimator.dimmingTag }) {
+                    dimming.alpha = 0.0
+                }
             }
         }) { _ in
             let wasCancelled = transitionContext.transitionWasCancelled
             if wasCancelled {
                 toView?.removeFromSuperview()
+            } else if !isPresenting {
+                if let dimming = containerView.subviews.first(where: { $0.tag == SwipeTransitionAnimator.dimmingTag }) {
+                    dimming.removeFromSuperview()
+                }
             }
             transitionContext.completeTransition(!wasCancelled)
         }
