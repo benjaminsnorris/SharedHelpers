@@ -10,11 +10,15 @@ import UIKit
 class SwipeTransitionAnimator: NSObject {
     
     var targetEdge: UIRectEdge
+    var presentingCornerRadius: CGFloat
+    var dimmingBackgroundColor: UIColor?
     
     fileprivate static let dimmingTag = -635
     
-    init(targetEdge: UIRectEdge) {
+    init(targetEdge: UIRectEdge, presentingCornerRadius: CGFloat, dimmingBackgroundColor: UIColor? = nil) {
         self.targetEdge = targetEdge
+        self.presentingCornerRadius = presentingCornerRadius
+        self.dimmingBackgroundColor = dimmingBackgroundColor
         super.init()
     }
     
@@ -79,7 +83,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         
         let dimmingView = UIView()
         if let toView = toView, isPresenting {
-            dimmingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            dimmingView.backgroundColor = dimmingBackgroundColor ?? UIColor(white: 0, alpha: 0.5)
             dimmingView.alpha = 0
             dimmingView.frame = containerView.bounds
             dimmingView.tag = SwipeTransitionAnimator.dimmingTag
@@ -92,7 +96,7 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             if isPresenting {
                 toView?.frame = toFrame
-                toView?.layer.cornerRadius = 10.0
+                toView?.layer.cornerRadius = self.presentingCornerRadius
                 dimmingView.alpha = 1.0
             } else {
                 fromView?.layer.cornerRadius = 0.0
