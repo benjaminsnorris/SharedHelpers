@@ -76,6 +76,7 @@
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
 		E7BB7A001F704DC200C4C9CA /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */; };
 		E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */; };
+		E7DDC5281F7483C5003327C5 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDC5271F7483C5003327C5 /* String+Helpers.swift */; };
 		E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */; };
 		E7E0B2511F6988EE00D6EC43 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */; };
 		E7EADD631F45F51F0017C6C3 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EADD621F45F51F0017C6C3 /* CustomCollectionCell.swift */; };
@@ -155,6 +156,7 @@
 		E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionInteractionController.swift; sourceTree = "<group>"; };
 		E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		E7DDC5271F7483C5003327C5 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBasicTabBar.swift; sourceTree = "<group>"; };
 		E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
 		E7EADD621F45F51F0017C6C3 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 				E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */,
 				7077B6A41E32B17A004146BF /* NSAttributedString+Helpers.swift */,
+				E7DDC5271F7483C5003327C5 /* String+Helpers.swift */,
 				70C3DFC91E649928005F884D /* TimeZone+CurrentName.swift */,
 				70C3DFC51E6495CC005F884D /* UIAlertAction+Cancel.swift */,
 				70C3DFC31E6495AB005F884D /* UIBarButtonItem+Blank.swift */,
@@ -529,6 +532,7 @@
 				70AFA1C11DF12F9E00FA7345 /* FileManager+Helpers.swift in Sources */,
 				E769E6881F328726003B6995 /* CustomLabelTextView.swift in Sources */,
 				7019DCD31D819D3600B08C10 /* SemanticVersion.swift in Sources */,
+				E7DDC5281F7483C5003327C5 /* String+Helpers.swift in Sources */,
 				70C3DFDE1E64A8EA005F884D /* CustomSwitch.swift in Sources */,
 				7078A8231D7A14C700373574 /* RotatingViewController.swift in Sources */,
 				70C3DFE21E64A97D005F884D /* CustomActivityIndicator.swift in Sources */,
