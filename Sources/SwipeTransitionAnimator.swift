@@ -30,7 +30,9 @@ class SwipeTransitionAnimator: NSObject {
 extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.4
+        let defaultDuration: TimeInterval = 0.4
+        guard let context = transitionContext else { return defaultDuration }
+        return context.isInteractive ? 0.7 : defaultDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
