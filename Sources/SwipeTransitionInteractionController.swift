@@ -17,7 +17,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     fileprivate var adjustedInitialLocation = CGPoint.zero
     fileprivate var initialContentOffset = CGPoint.zero
     
-    static let velocityThreshold: CGFloat = 200.0
+    static let velocityThreshold: CGFloat = 50.0
     
     init(edgeForDragging edge: UIRectEdge, gestureRecognizer: UIPanGestureRecognizer, scrollView: UIScrollView? = nil) {
         self.edge = edge
