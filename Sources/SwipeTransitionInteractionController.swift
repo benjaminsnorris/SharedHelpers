@@ -107,22 +107,22 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
             switch edge {
             case .top:
                 swiped = velocity.y > SwipeTransitionInteractionController.velocityThreshold
-                if let scrollView = scrollView, scrollView.contentOffset.y >= initialContentOffset.y {
+                if let scrollView = scrollView, scrollView.contentOffset.y > initialContentOffset.y {
                     swiped = false
                 }
             case .bottom:
                 swiped = velocity.y < -SwipeTransitionInteractionController.velocityThreshold
-                if let scrollView = scrollView, scrollView.contentOffset.y <= initialContentOffset.y {
+                if let scrollView = scrollView, scrollView.contentOffset.y < initialContentOffset.y {
                     swiped = false
                 }
             case .left:
                 swiped = velocity.x > SwipeTransitionInteractionController.velocityThreshold
-                if let scrollView = scrollView, scrollView.contentOffset.x >= initialContentOffset.x {
+                if let scrollView = scrollView, scrollView.contentOffset.x > initialContentOffset.x {
                     swiped = false
                 }
             case .right:
                 swiped = velocity.x < -SwipeTransitionInteractionController.velocityThreshold
-                if let scrollView = scrollView, scrollView.contentOffset.x <= initialContentOffset.x {
+                if let scrollView = scrollView, scrollView.contentOffset.x < initialContentOffset.x {
                     swiped = false
                 }
             default:
