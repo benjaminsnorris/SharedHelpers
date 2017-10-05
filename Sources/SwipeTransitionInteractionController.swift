@@ -47,23 +47,24 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
     func percent(for recognizer: UIPanGestureRecognizer) -> CGFloat {
         guard let transitionContainerView = transitionContext?.containerView else { return 0 }
         if let scrollView = scrollView, percentComplete == 0 {
-            if edge == .top {
+            switch edge {
+            case .top:
                 if scrollView.contentOffset.y >= initialContentOffset.y {
                     return 0
                 }
-            } else if edge == .bottom {
+            case .bottom:
                 if scrollView.contentOffset.y <= initialContentOffset.y {
                     return 0
                 }
-            } else if edge == .left {
+            case .left:
                 if scrollView.contentOffset.x >= initialContentOffset.x {
                     return 0
                 }
-            } else if edge == .right {
+            case .right:
                 if scrollView.contentOffset.x <= initialContentOffset.x {
                     return 0
                 }
-            } else {
+            default:
                 fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
             }
             if adjustedInitialLocation == .zero {
@@ -80,15 +81,16 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
             adjustedPoint = CGPoint(x: locationInSourceView.x - adjustedInitialLocation.x, y: locationInSourceView.y - adjustedInitialLocation.y)
         }
         
-        if edge == .top {
+        switch edge {
+        case .top:
             return adjustedPoint.y > 0 ? adjustedPoint.y / height : 0
-        } else if edge == .bottom {
+        case .bottom:
             return adjustedPoint.y < 0 ? abs(adjustedPoint.y) / height : 0
-        } else if edge == .left {
+        case .left:
             return adjustedPoint.x > 0 ? adjustedPoint.x / height : 0
-        } else if edge == .right {
+        case .right:
             return adjustedPoint.x < 0 ? abs(adjustedPoint.x) / width : 0
-        } else {
+        default:
             fatalError("edge must be .top, .bottom, .left, or .right. actual=\(edge)")
         }
     }
@@ -102,27 +104,28 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         case .ended:
             let velocity = gestureRecognizer.velocity(in: transitionContext?.containerView)
             var swiped = false
-            if edge == .top {
+            switch edge {
+            case .top:
                 swiped = velocity.y > SwipeTransitionInteractionController.velocityThreshold
                 if let scrollView = scrollView, scrollView.contentOffset.y >= initialContentOffset.y {
                     swiped = false
                 }
-            } else if edge == .bottom {
+            case .bottom:
                 swiped = velocity.y < -SwipeTransitionInteractionController.velocityThreshold
                 if let scrollView = scrollView, scrollView.contentOffset.y <= initialContentOffset.y {
                     swiped = false
                 }
-            } else if edge == .left {
+            case .left:
                 swiped = velocity.x > SwipeTransitionInteractionController.velocityThreshold
                 if let scrollView = scrollView, scrollView.contentOffset.x >= initialContentOffset.x {
                     swiped = false
                 }
-            } else if edge == .right {
+            case .right:
                 swiped = velocity.x < -SwipeTransitionInteractionController.velocityThreshold
                 if let scrollView = scrollView, scrollView.contentOffset.x <= initialContentOffset.x {
                     swiped = false
                 }
-            } else {
+            default:
                 break
             }
             if swiped || percent(for: gestureRecognizer) >= 0.5 {

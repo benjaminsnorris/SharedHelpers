@@ -49,27 +49,28 @@ extension SwipeTransitionAnimator: UIViewControllerAnimatedTransitioning {
         }
         
         let offset: CGVector
-        if targetEdge == .top {
+        switch targetEdge {
+        case .top:
             offset = CGVector(dx: 0, dy: -1)
-//            if #available(iOSApplicationExtension 11.0, *), isPresenting {
-//                toView?.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-//            }
-        } else if targetEdge == .bottom {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            }
+        case .bottom:
             offset = CGVector(dx: 0, dy: 1)
-//            if #available(iOSApplicationExtension 11.0, *), isPresenting {
-//                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//            }
-        } else if targetEdge == .left {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
+        case .left:
             offset = CGVector(dx: -1, dy: 0)
-//            if #available(iOSApplicationExtension 11.0, *), isPresenting {
-//                toView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-//            }
-        } else if targetEdge ==  .right {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            }
+        case .right:
             offset = CGVector(dx: 1, dy: 0)
-//            if #available(iOSApplicationExtension 11.0, *), isPresenting {
-//                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-//            }
-        } else {
+            if #available(iOSApplicationExtension 11.0, *), isPresenting {
+                toView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            }
+        default:
             fatalError("targetEdge must be .top, .bottom, .left, or .right. actual=\(targetEdge)")
         }
         
