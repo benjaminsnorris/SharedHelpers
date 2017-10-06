@@ -57,6 +57,7 @@
 		70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */; };
 		70D13BBA1E0AEEC100E6BDD0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */; };
 		E71EA9901F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */; };
+		E74E09971F883D960065986A /* SegmentedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E09961F883D960065986A /* SegmentedLine.swift */; };
 		E769E6881F328726003B6995 /* CustomLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769E6871F328726003B6995 /* CustomLabelTextView.swift */; };
 		E76F9D4C1F6AE668009EC5C1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */; };
 		E7955E2F1F0D55F800B8E7ED /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
@@ -147,6 +148,7 @@
 		70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		70D13BB91E0AEEC100E6BDD0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Helpers.swift"; sourceTree = "<group>"; };
+		E74E09961F883D960065986A /* SegmentedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedLine.swift; sourceTree = "<group>"; };
 		E769E6871F328726003B6995 /* CustomLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelTextView.swift; sourceTree = "<group>"; };
 		E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		E7955E271F0D557100B8E7ED /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				70C3DFE31E64A9CB005F884D /* CustomVisualEffectView.swift */,
 				7078A8151D7A14C700373574 /* GradientView.swift */,
 				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
+				E74E09961F883D960065986A /* SegmentedLine.swift */,
 				E7AE91E31EDF634500C8B0A2 /* Swipe Transition */,
 			);
 			name = UI;
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */,
+				E74E09971F883D960065986A /* SegmentedLine.swift in Sources */,
 				70C3DFFA1E68D023005F884D /* UINavigationController+Preview.swift in Sources */,
 				E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */,
 				7078A8271D7A14C700373574 /* UIColor+Hex.swift in Sources */,
