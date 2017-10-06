@@ -54,7 +54,7 @@ import UIKit
     }
     
     func updateSeparatorColor() {
-        separatorColor = UIColor(named: separatorColorName)
+        separatorColor = UIColor(withName: separatorColorName)
     }
 
 }

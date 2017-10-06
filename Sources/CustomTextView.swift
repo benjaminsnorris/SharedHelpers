@@ -89,7 +89,7 @@ import UIKit
     }
     
     func updateTextColor() {
-        textColor = UIColor(named: textColorName)
+        textColor = UIColor(withName: textColorName)
     }
     
     open func setupViews() {

@@ -9,8 +9,8 @@ import UIKit
 
 extension UIColor {
     
-    public convenience init?(named: String?) {
-        guard let name = named, let color = UIColor.value(forKey: name) as? UIColor else { return nil }
+    public convenience init?(withName name: String?) {
+        guard let name = name, let color = UIColor.value(forKey: name) as? UIColor else { return nil }
         self.init(cgColor: color.cgColor)
     }
     

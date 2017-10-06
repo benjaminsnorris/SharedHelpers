@@ -56,11 +56,11 @@ import UIKit
     }
     
     func updateOnTint() {
-        onTintColor = UIColor(named: onTintColorName)
+        onTintColor = UIColor(withName: onTintColorName)
     }
 
     func updateThumbTint() {
-        thumbTintColor = UIColor(named: thumbColorName)
+        thumbTintColor = UIColor(withName: thumbColorName)
     }
 
 }

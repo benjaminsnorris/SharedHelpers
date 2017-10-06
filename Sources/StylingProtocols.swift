@@ -16,7 +16,7 @@ public protocol BackgroundColorNameable {
 public extension BackgroundColorNameable where Self: UIView {
     
     public func applyBackgroundColorName() {
-        backgroundColor = UIColor(named: backgroundColorName)
+        backgroundColor = UIColor(withName: backgroundColorName)
     }
     
 }
@@ -28,7 +28,7 @@ public protocol TintColorNameable {
 public extension TintColorNameable where Self: UIView {
     
     public func applyTintColorName() {
-        tintColor = UIColor(named: tintColorName)
+        tintColor = UIColor(withName: tintColorName)
     }
     
 }
@@ -40,7 +40,7 @@ public protocol BorderColorNameable {
 public extension BorderColorNameable where Self: UIView {
     
     public func applyBorderColorName() {
-        borderColor = UIColor(named: borderColorName)
+        borderColor = UIColor(withName: borderColorName)
     }
     
 }
@@ -52,7 +52,7 @@ public protocol ShadowColorNameable {
 public extension ShadowColorNameable where Self: UIView {
     
     public func applyShadowColorName() {
-        shadowColor = UIColor(named: shadowColorName)
+        shadowColor = UIColor(withName: shadowColorName)
     }
     
 }

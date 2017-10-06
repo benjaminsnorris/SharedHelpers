@@ -42,7 +42,7 @@ import UIKit
     }
     
     func updateColors() {
-        color = UIColor(named: colorName)
+        color = UIColor(withName: colorName)
     }
 
 }

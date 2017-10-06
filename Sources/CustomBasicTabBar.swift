@@ -50,7 +50,7 @@ import UIKit
     
     func applyUnselectedItemTintColor() {
         if #available(iOSApplicationExtension 10.0, *) {
-            unselectedItemTintColor = UIColor(named: unselectedItemTintColorName)
+            unselectedItemTintColor = UIColor(withName: unselectedItemTintColorName)
         }
     }
 

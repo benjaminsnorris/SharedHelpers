@@ -86,8 +86,8 @@ import UIKit
     }
     
     func applyTextColorNames() {
-        textLabel?.textColor = UIColor(named: textColorName)
-        detailTextLabel?.textColor = UIColor(named: detailTextColorName)
+        textLabel?.textColor = UIColor(withName: textColorName)
+        detailTextLabel?.textColor = UIColor(withName: detailTextColorName)
     }
     
 }

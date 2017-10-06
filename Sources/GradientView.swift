@@ -27,14 +27,14 @@ import UIKit
     
     @IBInspectable open var startColorName: String? {
         didSet {
-            guard let color = UIColor(named: startColorName) else { return }
+            guard let color = UIColor(withName: startColorName) else { return }
             startColor = color
         }
     }
     
     @IBInspectable open var endColorName: String? {
         didSet {
-            guard let color = UIColor(named: endColorName) else { return }
+            guard let color = UIColor(withName: endColorName) else { return }
             endColor = color
         }
     }

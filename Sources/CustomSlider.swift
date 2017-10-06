@@ -83,7 +83,7 @@ import UIKit
     }
     
     func updateColors() {
-        stepColor = UIColor(named: stepColorName)
+        stepColor = UIColor(withName: stepColorName)
     }
 
 }

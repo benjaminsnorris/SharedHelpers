@@ -49,7 +49,7 @@ import UIKit
     
     func updateColors() {
         applyTintColorName()
-        barTintColor = UIColor(named: barTintColorName)
+        barTintColor = UIColor(withName: barTintColorName)
     }
 
 }

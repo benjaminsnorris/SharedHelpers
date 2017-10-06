@@ -43,7 +43,7 @@ import UIKit
     
     @IBInspectable open var progressColorName: String? {
         didSet {
-            guard let color = UIColor(named: progressColorName) else { return }
+            guard let color = UIColor(withName: progressColorName) else { return }
             progressColor = color
         }
     }
@@ -168,11 +168,11 @@ import UIKit
     }
     
     func updateTitleColor() {
-        setTitleColor(UIColor(named: titleColorName), for: .normal)
+        setTitleColor(UIColor(withName: titleColorName), for: .normal)
     }
     
     func updateDisabledTitleColor() {
-        setTitleColor(UIColor(named: disabledTitleColorName), for: .disabled)
+        setTitleColor(UIColor(withName: disabledTitleColorName), for: .disabled)
     }
 
 }
