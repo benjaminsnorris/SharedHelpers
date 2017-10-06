@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable open class SegmentedLine: UIView {
+@IBDesignable open class SegmentedLine: CustomView {
     
     // MARK: - Inspectable properties
     
@@ -83,11 +83,12 @@ import UIKit
     
     // MARK: - Functions
     
-    func registerForNotifications() {
+    override func registerForNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
     }
     
-    func updateColors() {
+    override func updateColors() {
+        super.updateColors()
         if let fillColorName = fillColorName, let color = UIColor(withName: fillColorName) {
             barLayer.strokeColor = color.cgColor
         } else {
