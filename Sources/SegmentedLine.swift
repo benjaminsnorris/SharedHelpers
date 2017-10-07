@@ -120,8 +120,8 @@ private extension SegmentedLine {
     }
     
     func updateBar() {
-        let start = CGPoint(x: frame.minX, y: frame.midY)
-        let end = CGPoint(x: frame.maxX, y: frame.midY)
+        let start = CGPoint(x: bounds.minX, y: bounds.midY)
+        let end = CGPoint(x: bounds.maxX, y: bounds.midY)
         let path = UIBezierPath()
         path.move(to: start)
         path.addLine(to: end)
