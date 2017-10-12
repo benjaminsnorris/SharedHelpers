@@ -11,6 +11,7 @@ public extension UIAlertAction {
     
     private enum Keys {
         static let checked = "checked"
+        static let image = "image"
     }
     
     public class var cancel: UIAlertAction {
@@ -23,6 +24,10 @@ public extension UIAlertAction {
     
     public func updateChecked(to isChecked: Bool) {
         setValue(isChecked, forKey: Keys.checked)
+    }
+    
+    public func updateImage(to image: UIImage) {
+        setValue(image, forKey: Keys.image)
     }
 
 }
