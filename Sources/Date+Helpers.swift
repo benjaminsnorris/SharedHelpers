@@ -69,7 +69,8 @@ public extension Date {
     
     static fileprivate let parsingFormatters = [ISO8601MillisecondFormatter, ISO8601SecondFormatter, ISO8601YearMonthDayFormatter]
     
-    static public func fromISO8601String(_ dateString:String) -> Date? {
+    static public func fromISO8601String(_ dateString: String?) -> Date? {
+        guard let dateString = dateString else { return nil }
         for formatter in parsingFormatters {
             if let date = formatter.date(from: dateString) {
                 return date
