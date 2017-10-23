@@ -19,7 +19,7 @@ import UIKit
     
     // MARK: - Initializers
     
-    override init(activityIndicatorStyle style: UIActivityIndicatorViewStyle) {
+    override public init(activityIndicatorStyle style: UIActivityIndicatorViewStyle) {
         super.init(activityIndicatorStyle: style)
         registerForNotifications()
     }
