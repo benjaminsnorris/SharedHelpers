@@ -24,16 +24,18 @@ open class CustomInputAccessory: UIView {
     
     fileprivate var delegate: CustomInputAccessoryDelegate?
     fileprivate var textInput: UIView?
-    fileprivate var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
+    fileprivate lazy var doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(CustomInputAccessory.doneTouched))
     
     
     // MARK: - Initializers
     
-    convenience public init(textInput: UIView?, doneButton: UIBarButtonItem? = nil) {
+    convenience public init(textInput: UIView?, doneButton: UIBarButtonItem? = nil, image: UIImage? = nil) {
         self.init(frame: CGRect.zero)
         self.textInput = textInput
         if let doneButton = doneButton {
             self.doneButton = doneButton
+        } else if let image = image {
+            self.doneButton = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(doneTouched))
         }
         setupViews()
     }
