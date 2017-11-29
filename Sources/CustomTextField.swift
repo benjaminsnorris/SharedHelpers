@@ -7,9 +7,15 @@
 
 import UIKit
 
-@IBDesignable open class CustomTextField: UITextField, TintColorNameable, FontNameable {
+@IBDesignable open class CustomTextField: UITextField, TintColorNameable, FontNameable, BackgroundColorNameable {
     
     // MARK: - Inspectable properties
+    
+    @IBInspectable open var backgroundColorName: String? {
+        didSet {
+            applyBackgroundColorName()
+        }
+    }
     
     @IBInspectable open var textColorName: String? {
         didSet {
@@ -70,6 +76,7 @@ import UIKit
     }
     
     func updateColors() {
+        applyBackgroundColorName()
         applyTintColorName()
         updateTextColor()
     }
