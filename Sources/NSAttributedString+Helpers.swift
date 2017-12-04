@@ -18,10 +18,16 @@ public extension NSMutableAttributedString {
         }
     }
     
-    func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
+    public func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
         let textMatches = string.matches(for: stringToHighlight)
         for match in textMatches {
             addAttribute(NSBackgroundColorAttributeName, value: color, range: match.range)
+        }
+    }
+    
+    public func highlightMatches(with ranges: [CountableClosedRange<Int>], color: UIColor) {
+        ranges.map(Range.init).map(NSRange.init).forEach {
+            addAttribute(NSBackgroundColorAttributeName, value: color, range: $0)
         }
     }
     
