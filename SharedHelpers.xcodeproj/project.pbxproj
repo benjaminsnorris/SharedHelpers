@@ -78,6 +78,7 @@
 		E7AE91E71EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */; };
 		E7BB7A001F704DC200C4C9CA /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */; };
 		E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */; };
+		E7DAFD481FEA489F00A13C63 /* UIViewController+TopMost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */; };
 		E7DDC5281F7483C5003327C5 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDC5271F7483C5003327C5 /* String+Helpers.swift */; };
 		E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */; };
 		E7E0B2511F6988EE00D6EC43 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */; };
@@ -160,6 +161,7 @@
 		E7AE91E61EDF69F500C8B0A2 /* SwipeTransitionInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionInteractionController.swift; sourceTree = "<group>"; };
 		E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMost.swift"; sourceTree = "<group>"; };
 		E7DDC5271F7483C5003327C5 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBasicTabBar.swift; sourceTree = "<group>"; };
 		E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				E7A902261F1EC0CA00E10890 /* UITableView+Helpers.swift */,
 				E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */,
 				70D13BB71E0AED2700E6BDD0 /* UIView+Helpers.swift */,
+				E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				702D5CA91E53831E00E3B796 /* Nameable.swift in Sources */,
 				7078A8201D7A14C700373574 /* DateSortable.swift in Sources */,
 				E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */,
+				E7DAFD481FEA489F00A13C63 /* UIViewController+TopMost.swift in Sources */,
 				70C3DFCC1E649C0E005F884D /* StylingProtocols.swift in Sources */,
 				E7A902271F1EC0CA00E10890 /* UITableView+Helpers.swift in Sources */,
 				E7AE91E51EDF68AD00C8B0A2 /* SwipeTransitionDelegate.swift in Sources */,
