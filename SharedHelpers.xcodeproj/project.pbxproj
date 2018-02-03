@@ -59,6 +59,7 @@
 		E71EA9901F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */; };
 		E73C7CE21F96A21F0056A982 /* UIAlertController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73C7CE11F96A21F0056A982 /* UIAlertController+Helpers.swift */; };
 		E74E09971F883D960065986A /* SegmentedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E09961F883D960065986A /* SegmentedLine.swift */; };
+		E76837A220266D3D00872123 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76837A120266D3D00872123 /* Array+Helpers.swift */; };
 		E769E6881F328726003B6995 /* CustomLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769E6871F328726003B6995 /* CustomLabelTextView.swift */; };
 		E76F9D4C1F6AE668009EC5C1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */; };
 		E7955E2F1F0D55F800B8E7ED /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7078A8141D7A14C700373574 /* DateSortable.swift */; };
@@ -152,6 +153,7 @@
 		E71EA98F1F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Helpers.swift"; sourceTree = "<group>"; };
 		E73C7CE11F96A21F0056A982 /* UIAlertController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Helpers.swift"; sourceTree = "<group>"; };
 		E74E09961F883D960065986A /* SegmentedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedLine.swift; sourceTree = "<group>"; };
+		E76837A120266D3D00872123 /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
 		E769E6871F328726003B6995 /* CustomLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelTextView.swift; sourceTree = "<group>"; };
 		E76F9D4B1F6AE668009EC5C1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		E7955E271F0D557100B8E7ED /* SharedHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				7078A8121D7A14C700373574 /* CollectionType+Sorting.swift */,
+				E76837A120266D3D00872123 /* Array+Helpers.swift */,
 				7078A8161D7A14C700373574 /* Date+Helpers.swift */,
 				70AFA1C01DF12F9E00FA7345 /* FileManager+Helpers.swift */,
 				E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */,
@@ -535,6 +538,7 @@
 				70C3DFD81E64A6FB005F884D /* CustomTextView.swift in Sources */,
 				E7BB7A001F704DC200C4C9CA /* CustomCollectionView.swift in Sources */,
 				70C3DFD21E64A2C4005F884D /* CustomView.swift in Sources */,
+				E76837A220266D3D00872123 /* Array+Helpers.swift in Sources */,
 				7078A8251D7A14C700373574 /* SegueHandling.swift in Sources */,
 				E71EA9901F2BACFB00FA5BE7 /* UITableViewCell+Helpers.swift in Sources */,
 				7078A8281D7A14C700373574 /* UIColor+Named.swift in Sources */,
