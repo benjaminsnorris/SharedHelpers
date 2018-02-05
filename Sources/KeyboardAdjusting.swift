@@ -10,6 +10,8 @@ import UIKit
 @objc public protocol KeyboardAdjusting {
     /// This should be the constraint for the bottom of the view that should adjust with the keyboard
     var constraintToAdjust: NSLayoutConstraint? { get }
+    /// This should be the scroll view that needs to be adjusted for the keyboard
+    var scrollViewToAdjust: UIScrollView? { get }
     @objc func keyboardWillChangeFrame(_ notification: Notification)
     @objc func keyboardWillHide()
 }
@@ -52,6 +54,8 @@ public extension KeyboardAdjusting where Self: UIViewController {
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
         let curve = UIViewAnimationOptions(rawValue: curveInt)
         setConstant(of: constraint, to: adjustedConstant, animated: true, duration: duration, curve: curve)
+        let adjustedInset = self.adjustedInset(for: keyboardFrame, statusBarHeight: statusBarHeight)
+        adjustBottomInsets(to: adjustedInset, animated: true, duration: duration, curve: curve)
     }
     
     /**
@@ -73,9 +77,10 @@ public extension KeyboardAdjusting where Self: UIViewController {
         setConstant(of: constraint, to: adjustedConstant)
     }
     
-    func adjustedConstant(for keyboardFrame: CGRect, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+    func adjustedConstant(for keyboardFrame: CGRect, using wrapperView: UIView? = nil, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+        let adjustedWrapper = wrapperView ?? view.superview
         guard let window = view.window,
-            let wrapper = view.superview
+            let wrapper = adjustedWrapper
             else { return 0.0 }
         let adjustedFrame = wrapper.convert(wrapper.frame, to: window)
         var maxY = adjustedFrame.maxY
@@ -87,11 +92,16 @@ public extension KeyboardAdjusting where Self: UIViewController {
         return max(offset, 0)
     }
     
+    func adjustedInset(for keyboardFrame: CGRect, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+        return adjustedConstant(for: keyboardFrame, using: scrollViewToAdjust, statusBarHeight: statusBarHeight)
+    }
+    
     /**
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
     public func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
         setConstant(of: constraint, to: 0, animated: true)
+        adjustBottomInsets(to: 0, animated: true)
     }
     
     func setConstant(of constraint: NSLayoutConstraint?, to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIViewAnimationOptions? = nil) {
@@ -111,6 +121,23 @@ public extension KeyboardAdjusting where Self: UIViewController {
             constraintToAdjust?.constant = constant
         }
         view.layoutIfNeeded()
+    }
+    
+    func adjustBottomInsets(to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIViewAnimationOptions? = nil) {
+        if animated {
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [curve ?? .curveEaseInOut], animations: {
+                self.finishAdjustingBottomInsets(to: constant)
+            }, completion: nil)
+        } else {
+            finishAdjustingBottomInsets(to: constant)
+        }
+    }
+    
+    func finishAdjustingBottomInsets(to constant: CGFloat) {
+        if let scrollView = scrollViewToAdjust {
+            scrollView.contentInset.bottom = constant
+            scrollView.scrollIndicatorInsets.bottom = constant
+        }
     }
 
 }
