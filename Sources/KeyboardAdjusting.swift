@@ -80,9 +80,10 @@ public extension KeyboardAdjusting where Self: UIViewController {
     func adjustedConstant(for keyboardFrame: CGRect, using wrapperView: UIView? = nil, statusBarHeight: CGFloat = 0.0) -> CGFloat {
         let adjustedWrapper = wrapperView ?? view.superview
         guard let window = view.window,
-            let wrapper = adjustedWrapper
+            let wrapper = adjustedWrapper,
+            let wrapperParent = wrapper.superview
             else { return 0.0 }
-        let adjustedFrame = wrapper.convert(wrapper.frame, to: window)
+        let adjustedFrame = wrapperParent.convert(wrapper.frame, to: nil)
         var maxY = adjustedFrame.maxY
         if modalPresentationStyle == .formSheet || navigationController?.modalPresentationStyle == .formSheet {
             maxY = wrapper.frame.height + statusBarHeight
