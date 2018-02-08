@@ -99,6 +99,8 @@ import UIKit
         }
     }
     
+    @IBInspectable open var clearHighlight: Bool = false
+    
     
     // MARK: - Computed properties
     
@@ -134,6 +136,17 @@ import UIKit
     
     
     // MARK: - Lifecycle overrides
+    
+    open override var isHighlighted: Bool {
+        didSet {
+            guard clearHighlight else { return }
+            if isHighlighted {
+                backgroundColor = .clear
+            } else {
+                applyBackgroundColorName()
+            }
+        }
+    }
     
     override open func layoutSubviews() {
         super.layoutSubviews()
