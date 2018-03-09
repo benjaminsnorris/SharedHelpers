@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     
-    public var topMostViewController: UIViewController {
+    open var topMostViewController: UIViewController {
         if presentedViewController == nil {
             return self
         }
