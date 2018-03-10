@@ -29,6 +29,12 @@ import UIKit
         }
     }
     
+    @IBInspectable open var placeholderTextColorName: String? {
+        didSet {
+            updatePlaceholderTextColor()
+        }
+    }
+    
     @IBInspectable open var fontName: String? {
         didSet {
             applyFontName()
@@ -83,6 +89,12 @@ import UIKit
     
     func updateTextColor() {
         textColor = UIColor(withName: textColorName)
+    }
+    
+    func updatePlaceholderTextColor() {
+        guard let placeholderText = placeholder, let placeholderColor = UIColor(withName: placeholderTextColorName) else { return }
+        let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSForegroundColorAttributeName: placeholderColor])
+        self.attributedPlaceholder = attributedPlaceholder
     }
 
 }
