@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    open var topMostViewController: UIViewController {
+    @objc open var topMostViewController: UIViewController {
         if presentedViewController == nil {
             return self
         }
