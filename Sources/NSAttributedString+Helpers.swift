@@ -41,7 +41,7 @@ public extension String {
         guard let stringToHighlight = stringToHighlight, !stringToHighlight.isEmpty else { return [] }
         do {
             let expression = try NSRegularExpression(pattern: stringToHighlight, options: [.caseInsensitive, .ignoreMetacharacters])
-            return expression.matches(in: self, options: [], range: NSRange(location: 0, length: characters.count))
+            return expression.matches(in: self, options: [], range: NSRange(location: 0, length: count))
         } catch {
             print("status=could-not-create-regex error=\(error)")
             return []
