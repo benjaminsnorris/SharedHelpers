@@ -67,7 +67,7 @@ open class CustomInputAccessory: UIView {
 
 extension CustomInputAccessory {
     
-    func doneTouched() {
+    @objc func doneTouched() {
         if let delegate = delegate {
             delegate.donePressed()
         } else if let textInput = textInput {
@@ -75,7 +75,7 @@ extension CustomInputAccessory {
         }
     }
     
-    func customButtonTouched() {
+    @objc func customButtonTouched() {
         delegate?.customButtonPressed()
     }
     

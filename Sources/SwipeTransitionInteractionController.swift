@@ -95,7 +95,7 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
         }
     }
     
-    func gestureRecognizerDidUpdate(_ gestureRecognizer: UIPanGestureRecognizer) {
+    @objc func gestureRecognizerDidUpdate(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .possible, .began:
             break

@@ -81,7 +81,7 @@ import UIKit
         NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
     }
     
-    func updateColors() {
+    @objc func updateColors() {
         applyBackgroundColorName()
         applyTintColorName()
         updateTextColor()
@@ -93,7 +93,7 @@ import UIKit
     
     func updatePlaceholderTextColor() {
         guard let placeholderText = placeholder, let placeholderColor = UIColor(withName: placeholderTextColorName) else { return }
-        let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSForegroundColorAttributeName: placeholderColor])
+        let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: placeholderColor])
         self.attributedPlaceholder = attributedPlaceholder
     }
 

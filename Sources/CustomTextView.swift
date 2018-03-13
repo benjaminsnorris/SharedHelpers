@@ -81,7 +81,7 @@ import UIKit
         NotificationCenter.default.addObserver(self, selector: #selector(updateColors), name: Notification.Name.AppearanceColorsUpdated, object: nil)
     }
     
-    func updateColors() {
+    @objc func updateColors() {
         applyBackgroundColorName()
         applyTintColorName()
         applyBorderColorName()

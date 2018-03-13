@@ -10,24 +10,24 @@ import Foundation
 public extension NSMutableAttributedString {
     
     public func increaseFontSize(by multiplier: CGFloat) {
-        enumerateAttribute(NSFontAttributeName, in: NSMakeRange(0, length), options: []) { (font, range, stop) in
+        enumerateAttribute(NSAttributedStringKey.font, in: NSMakeRange(0, length), options: []) { (font, range, stop) in
             guard let font = font as? UIFont else { return }
             let newFont = font.withSize(font.pointSize * multiplier)
-            removeAttribute(NSFontAttributeName, range: range)
-            addAttribute(NSFontAttributeName, value: newFont, range: range)
+            removeAttribute(NSAttributedStringKey.font, range: range)
+            addAttribute(NSAttributedStringKey.font, value: newFont, range: range)
         }
     }
     
     public func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
         let textMatches = string.matches(for: stringToHighlight)
         for match in textMatches {
-            addAttribute(NSBackgroundColorAttributeName, value: color, range: match.range)
+            addAttribute(NSAttributedStringKey.backgroundColor, value: color, range: match.range)
         }
     }
     
     public func highlightMatches(with ranges: [CountableClosedRange<Int>], color: UIColor) {
         ranges.map(Range.init).map(NSRange.init).forEach {
-            addAttribute(NSBackgroundColorAttributeName, value: color, range: $0)
+            addAttribute(NSAttributedStringKey.backgroundColor, value: color, range: $0)
         }
     }
     

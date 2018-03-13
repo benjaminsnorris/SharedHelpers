@@ -14,8 +14,8 @@ public extension UIFont {
         var name = fullName
         var size = UIFont.systemFontSize
         if let range = fullName.range(of: "_") {
-            name = fullName.substring(to: range.lowerBound)
-            let sizeString = fullName.substring(from: range.upperBound)
+            name = String(fullName[..<range.lowerBound])
+            let sizeString = String(fullName[range.upperBound...])
             if let sizeInt = Int(sizeString) {
                 size = CGFloat(sizeInt)
             }
