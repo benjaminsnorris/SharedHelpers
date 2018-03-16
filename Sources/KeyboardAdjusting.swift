@@ -89,8 +89,14 @@ public extension KeyboardAdjusting where Self: UIViewController {
             maxY = wrapper.frame.height + statusBarHeight
         }
         maxY = min(maxY, window.frame.maxY)
-        let offset = maxY - keyboardFrame.origin.y
-        return max(offset, 0)
+        let offset = max(maxY - keyboardFrame.origin.y, 0)
+        let adjustedOffset: CGFloat
+        if #available(iOSApplicationExtension 11.0, *) {
+            adjustedOffset = max(offset - view.safeAreaInsets.bottom, 0)
+        } else {
+            adjustedOffset = offset
+        }
+        return adjustedOffset
     }
     
     func adjustedInset(for keyboardFrame: CGRect, statusBarHeight: CGFloat = 0.0) -> CGFloat {
