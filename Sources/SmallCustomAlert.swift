@@ -27,25 +27,22 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
             updateUIStyling()
         }
     }
-    public var config = Config() {
-        didSet {
-            updateUI()
-        }
-    }
     
-    public struct Config {
-        public var alertTitle: String?
-        public var alertMessage: String?
-        public var alertImage: UIImage?
-        public var buttonImage: UIImage?
-        public var buttonTitle: String = ""
-        public var onRightButton: (() -> Void)?
-        public var onDismiss: (() -> Void)?
+    struct Config {
+        let alertTitle: String?
+        let alertMessage: String?
+        let alertImage: UIImage?
+        let backgroundTintName: String?
+        let buttonImage: UIImage?
+        let buttonTitle: String
+        let onRightButton: (() -> Void)?
+        let onDismiss: (() -> Void)?
         
-        public init(alertTitle: String? = nil, alertMessage: String? = nil, alertImage: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = "", onRightButton: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
+        init(alertTitle: String? = nil, alertMessage: String? = nil, alertImage: UIImage? = nil, backgroundTintName: String? = nil, buttonImage: UIImage? = nil, buttonTitle: String = "", onRightButton: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
             self.alertTitle = alertTitle
             self.alertMessage = alertMessage
             self.alertImage = alertImage
+            self.backgroundTintName = backgroundTintName
             self.buttonImage = buttonImage
             self.buttonTitle = buttonTitle
             self.onRightButton = onRightButton
@@ -56,6 +53,11 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - Private properties
     
+    fileprivate var config = Config() {
+        didSet {
+            updateUI()
+        }
+    }
     fileprivate var timer: Timer?
     fileprivate var timerAmount: TimeInterval?
 
@@ -100,9 +102,9 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - Public functions
     
-    public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+    public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, backgroundTintName: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
         timer?.invalidate()
-        let config = Config(alertTitle: title, alertMessage: message, alertImage: image, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
+        let config = Config(alertTitle: title, alertMessage: message, alertImage: image, backgroundTintName: backgroundTintName, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
         timerAmount = duration
         if let duration = duration {
             timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
@@ -131,6 +133,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         messageLabel?.isHidden = config.alertMessage == nil
         titleLabel?.text = config.alertTitle
         titleLabel?.isHidden = config.alertTitle == nil
+        alertBackground?.backgroundColorName = config.backgroundTintName
     }
     
     func updateUIStyling() {

@@ -25,6 +25,11 @@
                                     <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlu-ga-MsV" customClass="CustomView" customModule="SharedHelpers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="619"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="800" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JD8-y3-r4N">
                                         <rect key="frame" x="0.0" y="16" width="0.0" height="587"/>
