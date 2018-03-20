@@ -82,6 +82,8 @@
 		E7DAFD481FEA489F00A13C63 /* UIViewController+TopMost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */; };
 		E7DDC5281F7483C5003327C5 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDC5271F7483C5003327C5 /* String+Helpers.swift */; };
 		E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */; };
+		E7E0477720608EC600326006 /* SmallCustomAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E0477620608EC600326006 /* SmallCustomAlert.storyboard */; };
+		E7E0477920608EDF00326006 /* SmallCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0477820608EDF00326006 /* SmallCustomAlert.swift */; };
 		E7E0B2511F6988EE00D6EC43 /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */; };
 		E7EADD631F45F51F0017C6C3 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EADD621F45F51F0017C6C3 /* CustomCollectionCell.swift */; };
 		E7FEE44B1EFC14AF0027220E /* SlidingContainerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */; };
@@ -166,6 +168,8 @@
 		E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMost.swift"; sourceTree = "<group>"; };
 		E7DDC5271F7483C5003327C5 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBasicTabBar.swift; sourceTree = "<group>"; };
+		E7E0477620608EC600326006 /* SmallCustomAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SmallCustomAlert.storyboard; sourceTree = "<group>"; };
+		E7E0477820608EDF00326006 /* SmallCustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCustomAlert.swift; sourceTree = "<group>"; };
 		E7E0B2501F6988EE00D6EC43 /* UIButton+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
 		E7EADD621F45F51F0017C6C3 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingContainerPresentable.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				7078A8151D7A14C700373574 /* GradientView.swift */,
 				7078A8171D7A14C700373574 /* RotatingViewController.swift */,
 				E74E09961F883D960065986A /* SegmentedLine.swift */,
+				E7E0477620608EC600326006 /* SmallCustomAlert.storyboard */,
+				E7E0477820608EDF00326006 /* SmallCustomAlert.swift */,
 				E7AE91E31EDF634500C8B0A2 /* Swipe Transition */,
 			);
 			name = UI;
@@ -470,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E0477720608EC600326006 /* SmallCustomAlert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +525,7 @@
 				70C3DFDC1E64A884005F884D /* CustomTableView.swift in Sources */,
 				70C3DFCA1E649928005F884D /* TimeZone+CurrentName.swift in Sources */,
 				70C3DFC21E6494FF005F884D /* UISegmentedControl+Height.swift in Sources */,
+				E7E0477920608EDF00326006 /* SmallCustomAlert.swift in Sources */,
 				7078A8221D7A14C700373574 /* Date+Helpers.swift in Sources */,
 				702524E51E60AF8900E50A47 /* UIImage+Color.swift in Sources */,
 				70D13BB81E0AED2700E6BDD0 /* UIView+Helpers.swift in Sources */,

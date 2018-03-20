@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Small Custom Alert-->
+        <scene sceneID="tTb-Wn-K3x">
+            <objects>
+                <viewController storyboardIdentifier="SmallCustomAlert" modalPresentationStyle="overCurrentContext" id="gI6-HX-Tfz" customClass="SmallCustomAlert" customModule="Carrier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmp-ad-GoG" customClass="PassThroughView" customModule="Carrier" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-ND-TKe" customClass="CustomView" customModule="SharedHelpers">
+                                <rect key="frame" x="16" y="28" width="343" height="631"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="800" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JD8-y3-r4N">
+                                        <rect key="frame" x="16" y="8" width="311" height="615"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L1L-jg-M4w" customClass="CustomImageView" customModule="SharedHelpers">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="615"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="tintColorName" value="icon"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cj2-8Y-bOa">
+                                                <rect key="frame" x="-32" y="0.0" width="0.0" height="615"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uug-4b-ho5" customClass="CustomLabel" customModule="SharedHelpers">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorName" value="primaryText"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgD-Ek-q5o" customClass="CustomLabel" customModule="SharedHelpers">
+                                                        <rect key="frame" x="0.0" y="28.5" width="0.0" height="586.5"/>
+                                                        <string key="text">Message text which could be long so I need to make sure that it can wrap properly if needed and won't cause problems when it does</string>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="textColorName" value="primaryText"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qk-fJ-O3q">
+                                                <rect key="frame" x="267" y="0.0" width="44" height="615"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wJ-Tk-xCo" customClass="CustomButton" customModule="SharedHelpers">
+                                                        <rect key="frame" x="0.0" y="285.5" width="44" height="44"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="44" id="Bhn-Wi-uOE"/>
+                                                            <constraint firstAttribute="height" constant="44" id="Q39-Gh-YYW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                        <state key="normal" title="OK"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleColorName" value="icon"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="tintColorName" value="icon"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="shadowColorName" value="shadow"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="rightButtonPressed" destination="gI6-HX-Tfz" eventType="touchUpInside" id="voG-1I-oJ6"/>
+                                                            <action selector="rightButtonTouchBegan" destination="gI6-HX-Tfz" eventType="touchDown" id="nZ0-u0-JmU"/>
+                                                            <action selector="rightButtonTouchEnded" destination="gI6-HX-Tfz" eventType="touchUpInside" id="6WO-JM-3FJ"/>
+                                                            <action selector="rightButtonTouchEnded" destination="gI6-HX-Tfz" eventType="touchDragExit" id="AXK-2Y-Rj0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="9wJ-Tk-xCo" firstAttribute="centerY" secondItem="0qk-fJ-O3q" secondAttribute="centerY" id="HN4-wY-PSN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9wJ-Tk-xCo" secondAttribute="trailing" id="n7p-hE-k1p"/>
+                                                    <constraint firstItem="9wJ-Tk-xCo" firstAttribute="leading" secondItem="0qk-fJ-O3q" secondAttribute="leading" id="wir-QA-eE9"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="5HJ-br-Wxz"/>
+                                    <constraint firstItem="JD8-y3-r4N" firstAttribute="top" secondItem="LJ5-ND-TKe" secondAttribute="topMargin" id="FWT-tE-3Oo"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="JD8-y3-r4N" secondAttribute="bottom" id="Mg0-ty-hCe"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="JD8-y3-r4N" secondAttribute="trailing" constant="8" id="fd1-Uc-7tD"/>
+                                    <constraint firstItem="JD8-y3-r4N" firstAttribute="leading" secondItem="LJ5-ND-TKe" secondAttribute="leadingMargin" constant="8" id="fxg-Sw-m3A"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="backgroundFill"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="shadowColorName" value="shadow"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LJ5-ND-TKe" firstAttribute="leading" secondItem="bmp-ad-GoG" secondAttribute="leadingMargin" priority="800" id="71C-bs-uCS"/>
+                            <constraint firstAttribute="leadingMargin" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="leading" id="C1r-CP-8gS"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="trailing" id="CtA-kc-4oa"/>
+                            <constraint firstItem="LJ5-ND-TKe" firstAttribute="top" secondItem="B0H-ew-FQb" secondAttribute="top" constant="8" id="DxD-RG-0pW"/>
+                            <constraint firstItem="B0H-ew-FQb" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="bottom" constant="8" id="Oa9-yX-bT1"/>
+                            <constraint firstItem="LJ5-ND-TKe" firstAttribute="centerX" secondItem="B0H-ew-FQb" secondAttribute="centerX" id="ZDu-kl-XEv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LJ5-ND-TKe" secondAttribute="trailing" priority="800" id="sEv-qF-ZcL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B0H-ew-FQb"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertBackground" destination="LJ5-ND-TKe" id="z3R-nd-ZuV"/>
+                        <outlet property="image" destination="L1L-jg-M4w" id="bdr-uO-Kdi"/>
+                        <outlet property="rightButton" destination="9wJ-Tk-xCo" id="ixV-94-uJU"/>
+                        <outlet property="titleLabel" destination="uug-4b-ho5" id="Nfx-RY-U4p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mq0-nZ-wcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.4" y="124.58770614692655"/>
+        </scene>
+    </scenes>
+</document>
