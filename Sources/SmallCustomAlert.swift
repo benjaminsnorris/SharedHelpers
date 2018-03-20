@@ -31,9 +31,6 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         }
     }
     
-    
-    // MARK: - Internal properties
-    
     public struct Config {
         public var alertTitle: String?
         public var alertMessage: String?
@@ -53,6 +50,11 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
             self.onDismiss = onDismiss
         }
     }
+    
+    
+    // MARK: - Private properties
+    
+    fileprivate var timer: Timer?
     
     
     // MARK: - Constants
@@ -92,14 +94,22 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - Public functions
     
-    public func present(from viewController: UIViewController, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+    public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+        timer?.invalidate()
         let config = Config(alertTitle: title, alertMessage: message, alertImage: image, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
+        if let duration = duration {
+            timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
+        }
         if viewController.presentedViewController == self {
             reshowAlert(with: config)
         } else {
             self.config = config
             viewController.present(self, animated: false)
         }
+    }
+    
+    public func dismissAlert() {
+        closeAlert()
     }
     
     
@@ -129,6 +139,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func closeAlert() {
+        timer?.invalidate()
         hideAlert {
             self.config.onDismiss?()
             self.dismiss(animated: false)
