@@ -108,6 +108,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="shadowColorName" value="shadow"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="n12-Sd-NyU" appends="YES" id="3fO-Kd-aYg"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -131,6 +134,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mq0-nZ-wcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="n12-Sd-NyU">
+                    <connections>
+                        <action selector="handlePan:" destination="gI6-HX-Tfz" id="8KS-0l-D2B"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10.4" y="124.58770614692655"/>
         </scene>

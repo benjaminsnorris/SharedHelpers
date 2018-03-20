@@ -11,27 +11,48 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - IB properties
     
-    @IBOutlet weak var alertBackground: CustomView!
-    @IBOutlet weak var image: CustomImageView!
-    @IBOutlet weak var titleLabel: CustomLabel!
-    @IBOutlet weak var messageLabel: CustomLabel!
-    @IBOutlet weak var rightButton: CustomButton!
+    @IBOutlet weak var alertBackground: CustomView?
+    @IBOutlet weak var image: CustomImageView?
+    @IBOutlet weak var titleLabel: CustomLabel?
+    @IBOutlet weak var messageLabel: CustomLabel?
+    @IBOutlet weak var rightButton: CustomButton?
     
     
     // MARK: - Public properties
     
-    public static var styling = SmallAlertStyling()
+    public var styling = SmallAlertStyling() {
+        didSet {
+            updateUIStyling()
+        }
+    }
+    public var config = Config() {
+        didSet {
+            updateUI()
+        }
+    }
     
     
     // MARK: - Internal properties
     
-    var alertTitle: String?
-    var alertMessage: String?
-    var alertImage: UIImage?
-    var buttonImage: UIImage?
-    var buttonTitle: String = ""
-    var onRightButton: (() -> Void)?
-    var onDismiss: (() -> Void)?
+    public struct Config {
+        public var alertTitle: String?
+        public var alertMessage: String?
+        public var alertImage: UIImage?
+        public var buttonImage: UIImage?
+        public var buttonTitle: String = ""
+        public var onRightButton: (() -> Void)?
+        public var onDismiss: (() -> Void)?
+        
+        public init(alertTitle: String? = nil, alertMessage: String? = nil, alertImage: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = "", onRightButton: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
+            self.alertTitle = alertTitle
+            self.alertMessage = alertMessage
+            self.alertImage = alertImage
+            self.buttonImage = buttonImage
+            self.buttonTitle = buttonTitle
+            self.onRightButton = onRightButton
+            self.onDismiss = onDismiss
+        }
+    }
     
     
     // MARK: - Constants
@@ -43,34 +64,18 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        alertBackground.layer.shadowOffset = .zero
-        alertBackground.layer.shadowOpacity = 0.4
-        alertBackground.layer.shadowRadius = 6.0
+        alertBackground?.layer.shadowOffset = .zero
+        alertBackground?.layer.shadowOpacity = 0.4
+        alertBackground?.layer.shadowRadius = 6.0
         
-        image.isHidden = true
+        rightButton?.layer.shadowOffset = .zero
+        rightButton?.layer.shadowOpacity = 0.1
+        rightButton?.layer.shadowRadius = 4.0
         
-        rightButton.layer.shadowOffset = .zero
-        rightButton.layer.shadowOpacity = 0.1
-        rightButton.layer.shadowRadius = 4.0
+        alertBackground?.alpha = 0.0
         
-        alertBackground.alpha = 0.0
-        alertBackground.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
-        
-        let styling = SmallCustomAlert.styling
-        alertBackground.backgroundColorName = styling.backgroundColorName
-        alertBackground.shadowColorName = styling.shadowColorName
-        rightButton.backgroundColorName = styling.buttonColorName
-        rightButton.titleColorName = styling.buttonTextColorName
-        rightButton.tintColorName = styling.buttonTintColorName
-        rightButton.shadowColorName = styling.shadowColorName
-        image.tintColorName = styling.imageTintColorName
-        messageLabel.textColorName = styling.messageColorName
-        titleLabel.textColorName = styling.titleColorName
-        
-        rightButton.setTitle(buttonTitle, for: [])
-        rightButton.setImage(buttonImage, for: [])
-        messageLabel.text = alertMessage
-        titleLabel.text = alertTitle
+        updateUI()
+        updateUIStyling()
         
         if let passThrough = view as? PassThroughView {
             passThrough.presentingViewController = presentingViewController
@@ -79,54 +84,74 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [], animations: {
-            self.alertBackground.alpha = 1.0
-            self.alertBackground.transform = .identity
-        }, completion: nil)
+        alertBackground?.alpha = 0.0
+        alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
+        showAlert()
     }
-    
+
     
     // MARK: - Public functions
     
-    public static func present(from viewController: UIViewController, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
-        let alert = SmallCustomAlert.initializeFromStoryboard()
-        alert.alertTitle = title
-        alert.alertMessage = message
-        alert.alertImage = image
-        alert.buttonImage = buttonImage
-        alert.buttonTitle = buttonTitle
-        alert.onRightButton = onRightButton
-        alert.onDismiss = onDismiss
-        viewController.present(alert, animated: false)
+    public func present(from viewController: UIViewController, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+        let config = Config(alertTitle: title, alertMessage: message, alertImage: image, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
+        if viewController.presentedViewController == self {
+            reshowAlert(with: config)
+        } else {
+            self.config = config
+            viewController.present(self, animated: false)
+        }
     }
     
     
     // MARK: - Internal functions
     
+    func updateUI() {
+        image?.image = config.alertImage
+        image?.isHidden = config.alertImage == nil
+        rightButton?.setTitle(config.buttonTitle, for: [])
+        rightButton?.setImage(config.buttonImage, for: [])
+        messageLabel?.text = config.alertMessage
+        messageLabel?.isHidden = config.alertMessage == nil
+        titleLabel?.text = config.alertTitle
+        titleLabel?.isHidden = config.alertTitle == nil
+    }
+    
+    func updateUIStyling() {
+        alertBackground?.backgroundColorName = styling.backgroundColorName
+        alertBackground?.shadowColorName = styling.shadowColorName
+        rightButton?.backgroundColorName = styling.buttonColorName
+        rightButton?.titleColorName = styling.buttonTextColorName
+        rightButton?.tintColorName = styling.buttonTintColorName
+        rightButton?.shadowColorName = styling.shadowColorName
+        image?.tintColorName = styling.imageTintColorName
+        messageLabel?.textColorName = styling.messageColorName
+        titleLabel?.textColorName = styling.titleColorName
+    }
+    
     @IBAction func closeAlert() {
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.alertBackground.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
-            self.alertBackground.alpha = 0.0
-        }) { _ in
-            self.onDismiss?()
+        hideAlert {
+            self.config.onDismiss?()
             self.dismiss(animated: false)
         }
     }
     
     @IBAction func rightButtonPressed() {
-        closeAlert()
-        onRightButton?()
+        if let onRightButton = config.onRightButton {
+            onRightButton()
+        } else {
+            closeAlert()
+        }
     }
     
     @IBAction func rightButtonTouchBegan() {
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.rightButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+            self.rightButton?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         }, completion: nil)
     }
     
     @IBAction func rightButtonTouchEnded() {
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.rightButton.transform = .identity
+            self.rightButton?.transform = .identity
         }, completion: nil)
     }
     
@@ -134,10 +159,10 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         let maxDistance: CGFloat = 100.0
         switch recognizer.state {
         case .began:
-            alertBackground.transform = .identity
+            alertBackground?.transform = .identity
             rightButtonTouchEnded()
         case .cancelled, .failed:
-            alertBackground.transform = .identity
+            alertBackground?.transform = .identity
         case .changed:
             let translation = recognizer.translation(in: view)
             var adjustedY = min(translation.y, maxDistance)
@@ -147,7 +172,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
                 let multiplier = multiplierExtra / maxDistance
                 adjustedY += multiplier * extra
             }
-            alertBackground.transform = CGAffineTransform(translationX: 0.0, y: adjustedY)
+            alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: adjustedY)
         case .ended:
             let translation = recognizer.translation(in: view)
             let velocity = recognizer.velocity(in: view)
@@ -156,11 +181,41 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
                 self.closeAlert()
             } else {
                 UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: (adjustedY / maxDistance) * (maxDistance * 0.4), options: [], animations: {
-                    self.alertBackground.transform = .identity
+                    self.alertBackground?.transform = .identity
                 }, completion: nil)
             }
         case .possible:
             break
+        }
+    }
+    
+}
+
+
+// MARK: - Private functions
+
+private extension SmallCustomAlert {
+    
+    func reshowAlert(with config: Config) {
+        hideAlert {
+            self.config = config
+            self.showAlert()
+        }
+    }
+    
+    func showAlert() {
+        UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [], animations: {
+            self.alertBackground?.alpha = 1.0
+            self.alertBackground?.transform = .identity
+        }, completion: nil)
+    }
+
+    func hideAlert(completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+            self.alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
+            self.alertBackground?.alpha = 0.0
+        }) { _ in
+            completion?()
         }
     }
     
