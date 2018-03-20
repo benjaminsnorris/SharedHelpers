@@ -176,12 +176,15 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
         let maxDistance: CGFloat = 100.0
+        let scale = CGAffineTransform(scaleX: 1.03, y: 1.03)
         switch recognizer.state {
         case .began:
             timer?.invalidate()
-            alertView?.transform = .identity
             rightButtonTouchEnded()
-            handle?.alpha = SmallCustomAlert.handleAlphaActive
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+                self.alertView?.transform = scale
+                self.handle?.alpha = SmallCustomAlert.handleAlphaActive
+            }, completion: nil)
         case .cancelled, .failed:
             alertView?.transform = .identity
             handle?.alpha = SmallCustomAlert.handleAlpha
@@ -194,7 +197,9 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
                 let multiplier = multiplierExtra / maxDistance
                 adjustedY += multiplier * extra
             }
-            alertView?.transform = CGAffineTransform(translationX: 0.0, y: adjustedY)
+            let translate = CGAffineTransform(translationX: 0.0, y: adjustedY)
+            let combined = scale.concatenating(translate)
+            alertView?.transform = combined
         case .ended:
             let translation = recognizer.translation(in: view)
             let velocity = recognizer.velocity(in: view)
