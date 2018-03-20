@@ -11,10 +11,27 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - IB properties
     
-    @IBOutlet weak var alertBackground: UIView!
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var alertBackground: CustomView!
+    @IBOutlet weak var image: CustomImageView!
+    @IBOutlet weak var titleLabel: CustomLabel!
+    @IBOutlet weak var messageLabel: CustomLabel!
+    @IBOutlet weak var rightButton: CustomButton!
+    
+    
+    // MARK: - Public properties
+    
+    public static var styling = SmallAlertStyling()
+    
+    
+    // MARK: - Internal properties
+    
+    var alertTitle: String?
+    var alertMessage: String?
+    var alertImage: UIImage?
+    var buttonImage: UIImage?
+    var buttonTitle: String = ""
+    var onRightButton: (() -> Void)?
+    var onDismiss: (() -> Void)?
     
     
     // MARK: - Constants
@@ -39,6 +56,22 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         alertBackground.alpha = 0.0
         alertBackground.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
         
+        let styling = SmallCustomAlert.styling
+        alertBackground.backgroundColorName = styling.backgroundColorName
+        alertBackground.shadowColorName = styling.shadowColorName
+        rightButton.backgroundColorName = styling.buttonColorName
+        rightButton.titleColorName = styling.buttonTextColorName
+        rightButton.tintColorName = styling.buttonTintColorName
+        rightButton.shadowColorName = styling.shadowColorName
+        image.tintColorName = styling.imageTintColorName
+        messageLabel.textColorName = styling.messageColorName
+        titleLabel.textColorName = styling.titleColorName
+        
+        rightButton.setTitle(buttonTitle, for: [])
+        rightButton.setImage(buttonImage, for: [])
+        messageLabel.text = alertMessage
+        titleLabel.text = alertTitle
+        
         if let passThrough = view as? PassThroughView {
             passThrough.presentingViewController = presentingViewController
         }
@@ -53,6 +86,21 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     
     
+    // MARK: - Public functions
+    
+    public static func present(from viewController: UIViewController, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+        let alert = SmallCustomAlert.initializeFromStoryboard()
+        alert.alertTitle = title
+        alert.alertMessage = message
+        alert.alertImage = image
+        alert.buttonImage = buttonImage
+        alert.buttonTitle = buttonTitle
+        alert.onRightButton = onRightButton
+        alert.onDismiss = onDismiss
+        viewController.present(alert, animated: false)
+    }
+    
+    
     // MARK: - Internal functions
     
     @IBAction func closeAlert() {
@@ -60,12 +108,14 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
             self.alertBackground.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
             self.alertBackground.alpha = 0.0
         }) { _ in
+            self.onDismiss?()
             self.dismiss(animated: false)
         }
     }
     
     @IBAction func rightButtonPressed() {
         closeAlert()
+        onRightButton?()
     }
     
     @IBAction func rightButtonTouchBegan() {
@@ -112,6 +162,31 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         case .possible:
             break
         }
+    }
+    
+}
+
+
+public struct SmallAlertStyling {
+    
+    public let backgroundColorName: String?
+    public let buttonColorName: String?
+    public let buttonTextColorName: String?
+    public let buttonTintColorName: String?
+    public let imageTintColorName: String?
+    public let messageColorName: String?
+    public let shadowColorName: String?
+    public let titleColorName: String?
+    
+    public init(backgroundColorName: String? = nil, buttonColorName: String? = nil, buttonTextColorName: String? = nil, buttonTintColorName: String? = nil, imageTintColorName: String? = nil, messageColorName: String? = nil, shadowColorName: String? = nil, titleColorName: String? = nil) {
+        self.backgroundColorName = backgroundColorName
+        self.buttonColorName = buttonColorName
+        self.buttonTextColorName = buttonTextColorName
+        self.buttonTintColorName = buttonTintColorName
+        self.imageTintColorName = imageTintColorName
+        self.messageColorName = messageColorName
+        self.shadowColorName = shadowColorName
+        self.titleColorName = titleColorName
     }
     
 }

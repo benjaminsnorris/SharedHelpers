@@ -14,8 +14,8 @@
         <!--Small Custom Alert-->
         <scene sceneID="tTb-Wn-K3x">
             <objects>
-                <viewController storyboardIdentifier="SmallCustomAlert" modalPresentationStyle="overCurrentContext" id="gI6-HX-Tfz" customClass="SmallCustomAlert" customModule="Carrier" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bmp-ad-GoG" customClass="PassThroughView" customModule="Carrier" customModuleProvider="target">
+                <viewController storyboardIdentifier="SmallCustomAlert" modalPresentationStyle="overCurrentContext" id="gI6-HX-Tfz" customClass="SmallCustomAlert" customModule="SharedHelpers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmp-ad-GoG" customClass="PassThroughView" customModule="SharedHelpers" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -103,7 +103,6 @@
                                     <constraint firstItem="JD8-y3-r4N" firstAttribute="leading" secondItem="LJ5-ND-TKe" secondAttribute="leadingMargin" constant="8" id="fxg-Sw-m3A"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="backgroundColorName" value="backgroundFill"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
@@ -126,6 +125,7 @@
                     <connections>
                         <outlet property="alertBackground" destination="LJ5-ND-TKe" id="z3R-nd-ZuV"/>
                         <outlet property="image" destination="L1L-jg-M4w" id="bdr-uO-Kdi"/>
+                        <outlet property="messageLabel" destination="ZgD-Ek-q5o" id="j9O-nt-2aN"/>
                         <outlet property="rightButton" destination="9wJ-Tk-xCo" id="ixV-94-uJU"/>
                         <outlet property="titleLabel" destination="uug-4b-ho5" id="Nfx-RY-U4p"/>
                     </connections>
