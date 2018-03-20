@@ -103,11 +103,11 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     // MARK: - Public functions
     
     public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, backgroundTintName: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String? = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
-        timer?.invalidate()
+        cancelTimer()
         let config = Config(alertTitle: title, alertMessage: message, alertImage: image, backgroundTintName: backgroundTintName, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
         timerAmount = duration
         if let duration = duration {
-            timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(timerFired), userInfo: nil, repeats: false)
         }
         if viewController.presentedViewController == self {
             reshowAlert(with: config)
@@ -149,12 +149,21 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         titleLabel?.textColorName = styling.titleColorName
     }
     
-    @IBAction func closeAlert() {
-        timer?.invalidate()
+    func closeAlert() {
+        cancelTimer()
         hideAlert {
             self.config.onDismiss?()
             self.dismiss(animated: false)
         }
+    }
+    
+    func cancelTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func timerFired() {
+        closeAlert()
     }
     
     @IBAction func rightButtonPressed() {
@@ -166,7 +175,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func rightButtonTouchBegan() {
-        timer?.invalidate()
+        cancelTimer()
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
             self.rightButton?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         }, completion: nil)
@@ -174,11 +183,9 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     @IBAction func rightButtonTouchEnded() {
         if let timerAmount = timerAmount {
-            timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(timerFired), userInfo: nil, repeats: false)
         }
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.rightButton?.transform = .identity
-        }, completion: nil)
+        resetRightButton()
     }
     
     @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
@@ -186,8 +193,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         let scale = CGAffineTransform(scaleX: 1.03, y: 1.03)
         switch recognizer.state {
         case .began:
-            rightButtonTouchEnded()
-            timer?.invalidate()
+            resetRightButton()
+            cancelTimer()
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.alertView?.transform = scale
                 self.handle?.alpha = SmallCustomAlert.handleAlphaActive
@@ -219,8 +226,10 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
                     self.alertView?.transform = .identity
                     self.handle?.alpha = SmallCustomAlert.handleAlpha
                 }) { _ in
-                    if let timerAmount = self.timerAmount {
-                        self.timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(self.closeAlert), userInfo: nil, repeats: false)
+                    if let duration = self.timerAmount {
+                        DispatchQueue.main.async {
+                            self.timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(self.timerFired), userInfo: nil, repeats: false)
+                        }
                     }
                 }
             }
@@ -257,6 +266,12 @@ private extension SmallCustomAlert {
         }) { _ in
             completion?()
         }
+    }
+    
+    func resetRightButton() {
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+            self.rightButton?.transform = .identity
+        }, completion: nil)
     }
     
 }
