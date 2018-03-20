@@ -11,11 +11,13 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - IB properties
     
+    @IBOutlet weak var alertView: CustomView?
     @IBOutlet weak var alertBackground: CustomView?
     @IBOutlet weak var image: CustomImageView?
     @IBOutlet weak var titleLabel: CustomLabel?
     @IBOutlet weak var messageLabel: CustomLabel?
     @IBOutlet weak var rightButton: CustomButton?
+    @IBOutlet weak var handle: CustomView?
     
     
     // MARK: - Public properties
@@ -61,21 +63,24 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     // MARK: - Constants
     
     fileprivate static let topOffset: CGFloat = -200.0
-    
+    fileprivate static let handleAlpha: CGFloat = 0.3
+    fileprivate static let handleAlphaActive: CGFloat = 0.8
+
     
     // MARK: - Lifecycle overrides
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        alertBackground?.layer.shadowOffset = .zero
-        alertBackground?.layer.shadowOpacity = 0.4
-        alertBackground?.layer.shadowRadius = 6.0
+        alertView?.layer.shadowOffset = .zero
+        alertView?.layer.shadowOpacity = 0.4
+        alertView?.layer.shadowRadius = 6.0
         
         rightButton?.layer.shadowOffset = .zero
         rightButton?.layer.shadowOpacity = 0.1
         rightButton?.layer.shadowRadius = 4.0
         
-        alertBackground?.alpha = 0.0
+        alertView?.alpha = 0.0
+        handle?.alpha = SmallCustomAlert.handleAlpha
         
         updateUI()
         updateUIStyling()
@@ -87,8 +92,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        alertBackground?.alpha = 0.0
-        alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
+        alertView?.alpha = 0.0
+        alertView?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
         showAlert()
     }
 
@@ -129,12 +134,13 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     
     func updateUIStyling() {
-        alertBackground?.backgroundColorName = styling.backgroundColorName
-        alertBackground?.shadowColorName = styling.shadowColorName
+        alertView?.backgroundColorName = styling.backgroundColorName
+        alertView?.shadowColorName = styling.shadowColorName
         rightButton?.backgroundColorName = styling.buttonColorName
         rightButton?.titleColorName = styling.buttonTextColorName
         rightButton?.tintColorName = styling.buttonTintColorName
         rightButton?.shadowColorName = styling.shadowColorName
+        handle?.backgroundColorName = styling.handleColorName
         image?.tintColorName = styling.imageTintColorName
         messageLabel?.textColorName = styling.messageColorName
         titleLabel?.textColorName = styling.titleColorName
@@ -173,10 +179,12 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         switch recognizer.state {
         case .began:
             timer?.invalidate()
-            alertBackground?.transform = .identity
+            alertView?.transform = .identity
             rightButtonTouchEnded()
+            handle?.alpha = SmallCustomAlert.handleAlphaActive
         case .cancelled, .failed:
-            alertBackground?.transform = .identity
+            alertView?.transform = .identity
+            handle?.alpha = SmallCustomAlert.handleAlpha
         case .changed:
             let translation = recognizer.translation(in: view)
             var adjustedY = min(translation.y, maxDistance)
@@ -186,16 +194,18 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
                 let multiplier = multiplierExtra / maxDistance
                 adjustedY += multiplier * extra
             }
-            alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: adjustedY)
+            alertView?.transform = CGAffineTransform(translationX: 0.0, y: adjustedY)
         case .ended:
             let translation = recognizer.translation(in: view)
             let velocity = recognizer.velocity(in: view)
             let adjustedY = min(translation.y, maxDistance)
             if translation.y < 0 || velocity.y < -200 {
                 self.closeAlert()
+                handle?.alpha = SmallCustomAlert.handleAlpha
             } else {
                 UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: (adjustedY / maxDistance) * (maxDistance * 0.4), options: [], animations: {
-                    self.alertBackground?.transform = .identity
+                    self.alertView?.transform = .identity
+                    self.handle?.alpha = SmallCustomAlert.handleAlpha
                 }) { _ in
                     if let timerAmount = self.timerAmount {
                         self.timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(self.closeAlert), userInfo: nil, repeats: false)
@@ -223,15 +233,15 @@ private extension SmallCustomAlert {
     
     func showAlert() {
         UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [], animations: {
-            self.alertBackground?.alpha = 1.0
-            self.alertBackground?.transform = .identity
+            self.alertView?.alpha = 1.0
+            self.alertView?.transform = .identity
         }, completion: nil)
     }
 
     func hideAlert(completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.alertBackground?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
-            self.alertBackground?.alpha = 0.0
+            self.alertView?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
+            self.alertView?.alpha = 0.0
         }) { _ in
             completion?()
         }
@@ -242,20 +252,22 @@ private extension SmallCustomAlert {
 
 public struct SmallAlertStyling {
     
-    public let backgroundColorName: String?
-    public let buttonColorName: String?
-    public let buttonTextColorName: String?
-    public let buttonTintColorName: String?
-    public let imageTintColorName: String?
-    public let messageColorName: String?
-    public let shadowColorName: String?
-    public let titleColorName: String?
+    let backgroundColorName: String?
+    let buttonColorName: String?
+    let buttonTextColorName: String?
+    let buttonTintColorName: String?
+    let handleColorName: String?
+    let imageTintColorName: String?
+    let messageColorName: String?
+    let shadowColorName: String?
+    let titleColorName: String?
     
-    public init(backgroundColorName: String? = nil, buttonColorName: String? = nil, buttonTextColorName: String? = nil, buttonTintColorName: String? = nil, imageTintColorName: String? = nil, messageColorName: String? = nil, shadowColorName: String? = nil, titleColorName: String? = nil) {
+    public init(backgroundColorName: String? = nil, buttonColorName: String? = nil, buttonTextColorName: String? = nil, buttonTintColorName: String? = nil, handleColorName: String? = nil, imageTintColorName: String? = nil, messageColorName: String? = nil, shadowColorName: String? = nil, titleColorName: String? = nil) {
         self.backgroundColorName = backgroundColorName
         self.buttonColorName = buttonColorName
         self.buttonTextColorName = buttonTextColorName
         self.buttonTintColorName = buttonTintColorName
+        self.handleColorName = handleColorName
         self.imageTintColorName = imageTintColorName
         self.messageColorName = messageColorName
         self.shadowColorName = shadowColorName
