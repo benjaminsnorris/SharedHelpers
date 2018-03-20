@@ -166,12 +166,16 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func rightButtonTouchBegan() {
+        timer?.invalidate()
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
             self.rightButton?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         }, completion: nil)
     }
     
     @IBAction func rightButtonTouchEnded() {
+        if let timerAmount = timerAmount {
+            timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
+        }
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
             self.rightButton?.transform = .identity
         }, completion: nil)
@@ -182,8 +186,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         let scale = CGAffineTransform(scaleX: 1.03, y: 1.03)
         switch recognizer.state {
         case .began:
-            timer?.invalidate()
             rightButtonTouchEnded()
+            timer?.invalidate()
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.alertView?.transform = scale
                 self.handle?.alpha = SmallCustomAlert.handleAlphaActive
