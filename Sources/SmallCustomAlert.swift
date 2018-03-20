@@ -55,7 +55,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     // MARK: - Private properties
     
     fileprivate var timer: Timer?
-    
+    fileprivate var timerAmount: TimeInterval?
+
     
     // MARK: - Constants
     
@@ -97,6 +98,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
         timer?.invalidate()
         let config = Config(alertTitle: title, alertMessage: message, alertImage: image, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
+        timerAmount = duration
         if let duration = duration {
             timer = Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(closeAlert), userInfo: nil, repeats: false)
         }
@@ -170,6 +172,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         let maxDistance: CGFloat = 100.0
         switch recognizer.state {
         case .began:
+            timer?.invalidate()
             alertBackground?.transform = .identity
             rightButtonTouchEnded()
         case .cancelled, .failed:
@@ -193,7 +196,11 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
             } else {
                 UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: (adjustedY / maxDistance) * (maxDistance * 0.4), options: [], animations: {
                     self.alertBackground?.transform = .identity
-                }, completion: nil)
+                }) { _ in
+                    if let timerAmount = self.timerAmount {
+                        self.timer = Timer.scheduledTimer(timeInterval: timerAmount, target: self, selector: #selector(self.closeAlert), userInfo: nil, repeats: false)
+                    }
+                }
             }
         case .possible:
             break
