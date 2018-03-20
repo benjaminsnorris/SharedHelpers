@@ -34,11 +34,11 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         let alertImage: UIImage?
         let backgroundTintName: String?
         let buttonImage: UIImage?
-        let buttonTitle: String
+        let buttonTitle: String?
         let onRightButton: (() -> Void)?
         let onDismiss: (() -> Void)?
         
-        init(alertTitle: String? = nil, alertMessage: String? = nil, alertImage: UIImage? = nil, backgroundTintName: String? = nil, buttonImage: UIImage? = nil, buttonTitle: String = "", onRightButton: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
+        init(alertTitle: String? = nil, alertMessage: String? = nil, alertImage: UIImage? = nil, backgroundTintName: String? = nil, buttonImage: UIImage? = nil, buttonTitle: String? = nil, onRightButton: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
             self.alertTitle = alertTitle
             self.alertMessage = alertMessage
             self.alertImage = alertImage
@@ -102,7 +102,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - Public functions
     
-    public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, backgroundTintName: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
+    public func present(from viewController: UIViewController, for duration: TimeInterval? = nil, title: String? = nil, message: String? = nil, backgroundTintName: String? = nil, image: UIImage? = nil, buttonImage: UIImage? = nil, buttonTitle: String? = NSLocalizedString("OK", comment: "Button title to dismiss alert"), onDismiss: (() -> Void)? = nil, onRightButton: (() -> Void)? = nil) {
         timer?.invalidate()
         let config = Config(alertTitle: title, alertMessage: message, alertImage: image, backgroundTintName: backgroundTintName, buttonImage: buttonImage, buttonTitle: buttonTitle, onRightButton: onRightButton, onDismiss: onDismiss)
         timerAmount = duration
