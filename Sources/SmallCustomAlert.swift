@@ -65,8 +65,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     // MARK: - Constants
     
     fileprivate static let topOffset: CGFloat = -200.0
-    fileprivate static let handleAlpha: CGFloat = 0.3
-    fileprivate static let handleAlphaActive: CGFloat = 0.8
+    fileprivate static let handleAlpha: CGFloat = 0.5
+    fileprivate static let handleAlphaActive: CGFloat = 1.0
 
     
     // MARK: - Lifecycle overrides
