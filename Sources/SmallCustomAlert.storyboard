@@ -155,6 +155,7 @@
                     </view>
                     <connections>
                         <outlet property="alertBackground" destination="Jlu-ga-MsV" id="pCu-O0-ow7"/>
+                        <outlet property="alertTop" destination="DxD-RG-0pW" id="SrT-cs-7jh"/>
                         <outlet property="alertView" destination="LJ5-ND-TKe" id="z3R-nd-ZuV"/>
                         <outlet property="handle" destination="QEs-Lc-YNc" id="FUM-1S-MUH"/>
                         <outlet property="image" destination="L1L-jg-M4w" id="bdr-uO-Kdi"/>

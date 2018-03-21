@@ -11,6 +11,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     
     // MARK: - IB properties
     
+    @IBOutlet weak var alertTop: NSLayoutConstraint!
     @IBOutlet weak var alertView: CustomView?
     @IBOutlet weak var alertBackground: CustomView?
     @IBOutlet weak var image: CustomImageView?
@@ -60,6 +61,7 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     }
     fileprivate var timer: Timer?
     fileprivate var timerAmount: TimeInterval?
+    fileprivate var startingTopConstant: CGFloat = 0.0
 
     
     // MARK: - Constants
@@ -84,6 +86,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
         alertView?.alpha = 0.0
         handle?.alpha = SmallCustomAlert.handleAlpha
         
+        startingTopConstant = alertTop.constant
+        
         updateUI()
         updateUIStyling()
         
@@ -95,7 +99,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         alertView?.alpha = 0.0
-        alertView?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
+        alertTop.constant = SmallCustomAlert.topOffset
+        view.layoutIfNeeded()
         showAlert()
     }
 
@@ -253,16 +258,18 @@ private extension SmallCustomAlert {
     }
     
     func showAlert() {
+        alertTop.constant = startingTopConstant
         UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 1.0, options: [], animations: {
             self.alertView?.alpha = 1.0
-            self.alertView?.transform = .identity
+            self.view.layoutIfNeeded()
         }, completion: nil)
     }
 
     func hideAlert(completion: (() -> Void)? = nil) {
+        alertTop.constant = SmallCustomAlert.topOffset
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
-            self.alertView?.transform = CGAffineTransform(translationX: 0.0, y: SmallCustomAlert.topOffset)
             self.alertView?.alpha = 0.0
+            self.view.layoutIfNeeded()
         }) { _ in
             completion?()
         }
