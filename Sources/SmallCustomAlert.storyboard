@@ -19,11 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-ND-TKe" customClass="CustomView" customModule="SharedHelpers">
-                                <rect key="frame" x="0.0" y="32" width="0.0" height="619"/>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-ND-TKe" customClass="CustomView" customModule="SharedHelpers">
+                                <rect key="frame" x="8" y="32" width="359" height="81"/>
                                 <subviews>
                                     <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlu-ga-MsV" customClass="CustomView" customModule="SharedHelpers" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="619"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="81"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -32,18 +32,18 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="800" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JD8-y3-r4N">
-                                        <rect key="frame" x="0.0" y="16" width="0.0" height="587"/>
+                                        <rect key="frame" x="16" y="16" width="327" height="49"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L1L-jg-M4w" customClass="CustomImageView" customModule="SharedHelpers">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="587"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="tintColorName" value="icon"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cj2-8Y-bOa">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="587"/>
+                                                <rect key="frame" x="-24" y="0.0" width="0.0" height="49"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uug-4b-ho5" customClass="CustomLabel" customModule="SharedHelpers">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="850" verticalCompressionResistancePriority="751" text="Title text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uug-4b-ho5" customClass="CustomLabel" customModule="SharedHelpers">
                                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <nil key="textColor"/>
@@ -52,9 +52,8 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="textColorName" value="primaryText"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgD-Ek-q5o" customClass="CustomLabel" customModule="SharedHelpers">
-                                                        <rect key="frame" x="0.0" y="28.5" width="0.0" height="558.5"/>
-                                                        <string key="text">Message text which could be long so I need to make sure that it can wrap properly if needed and won't cause problems when it does</string>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="800" text="Message text which could be long" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgD-Ek-q5o" customClass="CustomLabel" customModule="SharedHelpers">
+                                                        <rect key="frame" x="0.0" y="28.5" width="0.0" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -65,10 +64,10 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qk-fJ-O3q">
-                                                <rect key="frame" x="0.0" y="0.0" width="44" height="587"/>
+                                                <rect key="frame" x="283" y="0.0" width="44" height="49"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wJ-Tk-xCo" customClass="CustomButton" customModule="SharedHelpers">
-                                                        <rect key="frame" x="0.0" y="271.5" width="44" height="44"/>
+                                                        <rect key="frame" x="0.0" y="2.5" width="44" height="44"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="44" id="Bhn-Wi-uOE"/>
@@ -104,7 +103,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEs-Lc-YNc" customClass="CustomView" customModule="SharedHelpers" customModuleProvider="target">
-                                        <rect key="frame" x="165.5" y="611" width="44" height="4"/>
+                                        <rect key="frame" x="157.5" y="73" width="44" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="BIk-zK-VXs"/>
@@ -143,13 +142,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LJ5-ND-TKe" firstAttribute="leading" secondItem="bmp-ad-GoG" secondAttribute="leadingMargin" priority="800" constant="8" id="71C-bs-uCS"/>
-                            <constraint firstAttribute="leadingMargin" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="leading" constant="8" id="C1r-CP-8gS"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="trailing" constant="8" id="CtA-kc-4oa"/>
                             <constraint firstItem="LJ5-ND-TKe" firstAttribute="top" secondItem="B0H-ew-FQb" secondAttribute="top" constant="12" id="DxD-RG-0pW"/>
-                            <constraint firstItem="B0H-ew-FQb" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="bottom" constant="8" id="Oa9-yX-bT1"/>
+                            <constraint firstItem="B0H-ew-FQb" firstAttribute="trailing" secondItem="LJ5-ND-TKe" secondAttribute="trailing" priority="900" constant="8" id="Em5-MX-aaX"/>
+                            <constraint firstItem="LJ5-ND-TKe" firstAttribute="leading" secondItem="B0H-ew-FQb" secondAttribute="leading" priority="900" constant="8" id="Fya-5U-ofk"/>
                             <constraint firstItem="LJ5-ND-TKe" firstAttribute="centerX" secondItem="B0H-ew-FQb" secondAttribute="centerX" id="ZDu-kl-XEv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LJ5-ND-TKe" secondAttribute="trailing" priority="800" constant="8" id="sEv-qF-ZcL"/>
+                            <constraint firstItem="B0H-ew-FQb" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LJ5-ND-TKe" secondAttribute="bottom" constant="8" id="gPg-PP-Wf2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B0H-ew-FQb"/>
                     </view>
