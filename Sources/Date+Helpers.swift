@@ -173,6 +173,16 @@ public extension Date {
         return nextDay.startOfDay
     }
     
+    public var isInCurrentMonth: Bool {
+        let now = Date()
+        let calendar = Calendar.autoupdatingCurrent
+        let components = calendar.dateComponents([.year, .month], from: now)
+        guard let startOfMonth = calendar.date(from: components),
+            let startOfNextMonth = calendar.date(byAdding: .month, value: 1, to: startOfMonth)
+            else { return false }
+        return self >= startOfMonth && self < startOfNextMonth
+    }
+    
     /// The hour of the date
     var hour: Int {
         return Calendar.current.component(.hour, from: self)
