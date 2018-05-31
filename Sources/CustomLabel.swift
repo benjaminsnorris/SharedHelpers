@@ -23,6 +23,12 @@ import UIKit
         }
     }
     
+    @IBInspectable open var useCapHeight: Bool = false {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     
     // MARK: - Computed properties
     
@@ -56,6 +62,15 @@ import UIKit
         applyFontName()
     }
 
+    override open var alignmentRectInsets: UIEdgeInsets {
+        var insets = UIEdgeInsets.zero
+        if useCapHeight, let scale = window?.screen.scale {
+            insets.top = (ceil(font.lineHeight * scale) - ceil(-font.descender * scale) - round(font.capHeight * scale)) / scale
+            insets.bottom = (ceil(font.lineHeight * scale) - ceil(-font.descender * scale) - round(font.capHeight * scale)) / scale
+        }
+        return insets
+    }
+    
 
     // MARK: - Functions
     
