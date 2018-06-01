@@ -80,4 +80,54 @@ public extension UIView {
         self.bottomAnchor.constraint(equalTo: margins.contains(.bottom) ? superview.layoutMarginsGuide.bottomAnchor : superview.bottomAnchor, constant: -insets.bottom).isActive = true
     }
 
+    public func adjusted(dx: CGFloat = 0, dy: CGFloat = 0, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, withDamping isDamped: Bool = true) -> (CGFloat, CGFloat) {
+        let adjustedX = adjustedSingleValue(delta: dx, max: maxX, min: minX, withDamping: isDamped)
+        let adjustedY = adjustedSingleValue(delta: dy, max: maxY, min: minY, withDamping: isDamped)
+        return (adjustedX, adjustedY)
+    }
+    
+    public func adjustedSingleValue(delta: CGFloat, max: CGFloat, min: CGFloat, withDamping isDamped: Bool = true) -> CGFloat {
+        if delta >= 0 {
+            return adjustedSingleValue(delta: delta, extreme: max, withDamping: isDamped)
+        }
+        return adjustedSingleValue(delta: delta, extreme: min, withDamping: isDamped)
+    }
+    
+    public func adjustedSingleValue(delta: CGFloat, extreme: CGFloat, withDamping isDamped: Bool = true) -> CGFloat {
+        guard extreme != 0 else { return 0 }
+        let adjustedDelta = abs(delta)
+        let extremeHalf = abs(extreme) / 2.0
+        let adjustedExtreme = isDamped ? abs(extremeHalf) : abs(extreme)
+        var adjusted = min(adjustedDelta, adjustedExtreme)
+        if isDamped && adjustedDelta > extremeHalf {
+            let extra = adjustedDelta - extremeHalf
+            let multiplierExtra = extremeHalf - ((extremeHalf / (extremeHalf + extra)) * extra)
+            let multiplier = multiplierExtra / extremeHalf
+            adjusted += multiplier * extra
+        }
+        return delta >= 0 ? adjusted : -adjusted
+    }
+    
+    public func adjust(for recognizer: UIPanGestureRecognizer, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, withDamping isDamped: Bool = true) {
+        switch recognizer.state {
+        case .began:
+            resetAdjustment()
+        case .changed:
+            let (dx, dy) = adjusted(dx: recognizer.translation(in: superview).x, dy: recognizer.translation(in: superview).y, maxX: maxX, minX: minX, maxY: maxY, minY: minY, withDamping: isDamped)
+            transform = CGAffineTransform(translationX: dx, y: dy)
+        case .ended:
+            UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
+                self.resetAdjustment()
+            }, completion: nil)
+        case .cancelled, .failed:
+            resetAdjustment()
+        case .possible:
+            break
+        }
+    }
+    
+    fileprivate func resetAdjustment() {
+        transform = .identity
+    }
+
 }
