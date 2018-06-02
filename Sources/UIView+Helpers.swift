@@ -80,22 +80,57 @@ public extension UIView {
         self.bottomAnchor.constraint(equalTo: margins.contains(.bottom) ? superview.layoutMarginsGuide.bottomAnchor : superview.bottomAnchor, constant: -insets.bottom).isActive = true
     }
 
-    public func adjusted(dx: CGFloat = 0, dy: CGFloat = 0, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, withDamping isDamped: Bool = true) -> (CGFloat, CGFloat) {
-        let adjustedX = adjustedSingleValue(delta: dx, max: maxX, min: minX, withDamping: isDamped)
-        let adjustedY = adjustedSingleValue(delta: dy, max: maxY, min: minY, withDamping: isDamped)
+    /// Helper function to return adjust value for movement, allowing for
+    /// specifying limits in all directions. This is typically not called directly.
+    ///
+    /// - Parameters:
+    ///   - dx: Delta movement in horizontal direction.
+    ///   - dy: Delta movement in vertical direction.
+    ///   - maxX: Maximum allowed movement in positive horizontal direction.
+    ///   - minX: Maximum allowed movement in negative horizontal direction.
+    ///   - maxY: Maximum allowed movement in positive vertical direction.
+    ///   - minY: Maximum allowed movement in negative vertical direction.
+    ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
+    ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
+    /// - Returns: Tuple with adjusted value in both directions that can be used to move view, such as with transform or constraint constant.
+    public func adjusted(dx: CGFloat = 0, dy: CGFloat = 0, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> (CGFloat, CGFloat) {
+        let adjustedX = adjustedSingleValue(delta: dx, max: maxX, min: minX, multiplyDeltaBy: coefficient, withDamping: isDamped)
+        let adjustedY = adjustedSingleValue(delta: dy, max: maxY, min: minY, multiplyDeltaBy: coefficient, withDamping: isDamped)
         return (adjustedX, adjustedY)
     }
     
-    public func adjustedSingleValue(delta: CGFloat, max: CGFloat, min: CGFloat, withDamping isDamped: Bool = true) -> CGFloat {
+    /// Helper function to return adjusted value for movement, allowing for
+    /// passing in upper and lower limit, along with actual delta.
+    ///
+    /// - Note: Use a `min` of `0` to allow only positive movement, or use a
+    /// `max` of `0` to allow only negative movement.
+    ///
+    /// - Parameters:
+    ///   - delta: Actual movement amount, typically from scrolling or panning.
+    ///   - max: Maximum allowed movement in positive direction.
+    ///   - min: Maximum allowed movement in negative direction.
+    ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
+    ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
+    /// - Returns: Adjusted value that can be used to move view, such as with transform or constraint constant.
+    public func adjustedSingleValue(delta: CGFloat, max: CGFloat, min: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
         if delta >= 0 {
-            return adjustedSingleValue(delta: delta, extreme: max, withDamping: isDamped)
+            return adjustedSingleValue(delta: delta, extreme: max, multiplyDeltaBy: coefficient, withDamping: isDamped)
         }
-        return adjustedSingleValue(delta: delta, extreme: min, withDamping: isDamped)
+        return adjustedSingleValue(delta: delta, extreme: min, multiplyDeltaBy: coefficient, withDamping: isDamped)
     }
     
-    public func adjustedSingleValue(delta: CGFloat, extreme: CGFloat, withDamping isDamped: Bool = true) -> CGFloat {
+    /// Function to return adjusted value based on movement as adjusted by
+    /// damping equation. Usually not called directly
+    ///
+    /// - Parameters:
+    ///   - delta: Actual movement amount, typically from scrolling or panning.
+    ///   - extreme: Minimum or maximum allowed movement. Should be a positive value.
+    ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
+    ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
+    /// - Returns: Adjusted value that can be used to move view, such as with transform or constraint constant.
+    public func adjustedSingleValue(delta: CGFloat, extreme: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
         guard extreme != 0 else { return 0 }
-        let adjustedDelta = abs(delta)
+        let adjustedDelta = abs(delta * coefficient)
         let extremeHalf = abs(extreme) / 2.0
         let adjustedExtreme = isDamped ? abs(extremeHalf) : abs(extreme)
         var adjusted = min(adjustedDelta, adjustedExtreme)
@@ -108,12 +143,23 @@ public extension UIView {
         return delta >= 0 ? adjusted : -adjusted
     }
     
-    public func adjust(for recognizer: UIPanGestureRecognizer, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, withDamping isDamped: Bool = true) {
+    /// Use transform to move view based on panning. Can be used for panning to reveal
+    /// or trigger actions.
+    ///
+    /// - Parameters:
+    ///   - recognizer: Pan gesture recognizer triggering the movement
+    ///   - maxX: Upper positive limit of horizontal movement. Defaults to `0`.
+    ///   - minX: Lower negative limit of horizontal movement. Defaults to `0`.
+    ///   - maxY: Upper positive limit of vertical movement. Defaults to `0`.
+    ///   - minY: Lower negative limit of vertical movement. Defaults to `0`.
+    ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
+    ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
+    public func adjust(for recognizer: UIPanGestureRecognizer, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) {
         switch recognizer.state {
         case .began:
             resetAdjustment()
         case .changed:
-            let (dx, dy) = adjusted(dx: recognizer.translation(in: superview).x, dy: recognizer.translation(in: superview).y, maxX: maxX, minX: minX, maxY: maxY, minY: minY, withDamping: isDamped)
+            let (dx, dy) = adjusted(dx: recognizer.translation(in: superview).x, dy: recognizer.translation(in: superview).y, maxX: maxX, minX: minX, maxY: maxY, minY: minY, multiplyDeltaBy: coefficient, withDamping: isDamped)
             transform = CGAffineTransform(translationX: dx, y: dy)
         case .ended:
             UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
