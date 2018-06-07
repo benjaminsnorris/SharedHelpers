@@ -81,10 +81,11 @@ protocol CircularView {
 extension CircularView where Self: UIView {
     
     func applyCircularStyleIfNeeded() {
-        if circular {
-            let minSideSize = min(frame.size.width, frame.size.height)
-            layer.cornerRadius = minSideSize / 2.0
-        }
+        guard circular else { return }
+        let minSideSize = min(frame.size.width, frame.size.height)
+        let newRadius = minSideSize / 2.0
+        guard layer.cornerRadius != newRadius else { return }
+        layer.cornerRadius = newRadius
     }
     
 }
