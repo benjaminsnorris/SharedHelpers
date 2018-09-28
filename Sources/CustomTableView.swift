@@ -22,6 +22,8 @@ import UIKit
             updateSeparatorColor()
         }
     }
+    
+    @IBInspectable open var tapToDeselect: Bool = false
 
     
     // MARK: - Initializers
@@ -39,6 +41,18 @@ import UIKit
     open override func awakeFromNib() {
         super.awakeFromNib()
         updateSeparatorColor()
+    }
+    
+    
+    // MARK: - Lifecycle overrides
+    
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let result = super.hitTest(point, with: event)
+        guard tapToDeselect else { return result }
+        if result == self, let selected = indexPathForSelectedRow {
+            deselectRow(at: selected, animated: true)
+        }
+        return result
     }
     
     
