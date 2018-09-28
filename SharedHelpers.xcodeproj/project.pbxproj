@@ -80,6 +80,7 @@
 		E7BB7A001F704DC200C4C9CA /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */; };
 		E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */; };
 		E7DAFD481FEA489F00A13C63 /* UIViewController+TopMost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */; };
+		E7DDB733215EA2E900C8C960 /* Identicalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDB732215EA2E900C8C960 /* Identicalable.swift */; };
 		E7DDC5281F7483C5003327C5 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDC5271F7483C5003327C5 /* String+Helpers.swift */; };
 		E7DEE78D1F1926CB008CA852 /* CustomBasicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */; };
 		E7E0477720608EC600326006 /* SmallCustomAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E0477620608EC600326006 /* SmallCustomAlert.storyboard */; };
@@ -166,6 +167,7 @@
 		E7BB79FF1F704DC200C4C9CA /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		E7D52A2B1F016A9800873FE3 /* Notification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		E7DAFD471FEA489E00A13C63 /* UIViewController+TopMost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMost.swift"; sourceTree = "<group>"; };
+		E7DDB732215EA2E900C8C960 /* Identicalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identicalable.swift; sourceTree = "<group>"; };
 		E7DDC5271F7483C5003327C5 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		E7DEE78C1F1926CB008CA852 /* CustomBasicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBasicTabBar.swift; sourceTree = "<group>"; };
 		E7E0477620608EC600326006 /* SmallCustomAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SmallCustomAlert.storyboard; sourceTree = "<group>"; };
@@ -275,15 +277,16 @@
 		7078A82A1D7A15FD00373574 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				70C3DFCB1E649C0E005F884D /* StylingProtocols.swift */,
 				7078A8111D7A14C700373574 /* AdjustingScrollView.swift */,
-				70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */,
 				7078A8141D7A14C700373574 /* DateSortable.swift */,
-				7078A8191D7A14C700373574 /* SegueHandling.swift */,
-				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
-				70039E211E37D807005041F1 /* NibLoadable.swift */,
+				E7DDB732215EA2E900C8C960 /* Identicalable.swift */,
+				70CCD5A41DC3E46B005352B8 /* KeyboardAdjusting.swift */,
 				702D5CA81E53831E00E3B796 /* Nameable.swift */,
+				70039E211E37D807005041F1 /* NibLoadable.swift */,
+				7078A8191D7A14C700373574 /* SegueHandling.swift */,
 				E7FEE44A1EFC14AF0027220E /* SlidingContainerPresentable.swift */,
+				7078A81A1D7A14C700373574 /* StoryboardInitializable.swift */,
+				70C3DFCB1E649C0E005F884D /* StylingProtocols.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				E7D52A2C1F016A9800873FE3 /* Notification+Names.swift in Sources */,
 				E74E09971F883D960065986A /* SegmentedLine.swift in Sources */,
 				70C3DFFA1E68D023005F884D /* UINavigationController+Preview.swift in Sources */,
+				E7DDB733215EA2E900C8C960 /* Identicalable.swift in Sources */,
 				E7AE91E21EDF634000C8B0A2 /* SwipeTransitionAnimator.swift in Sources */,
 				7078A8271D7A14C700373574 /* UIColor+Hex.swift in Sources */,
 				70C3DFE01E64A92D005F884D /* CustomSegmentedControl.swift in Sources */,
