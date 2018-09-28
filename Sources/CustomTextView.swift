@@ -77,13 +77,13 @@ import UIKit
     }
 
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        guard passThruTouches else { return self }
+        guard passThruTouches else { return super.hitTest(point, with: event) }
         let characterIndex = layoutManager.characterIndex(for: point, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         guard !text.isEmpty && characterIndex <= text.count else { return nil }
         if textStorage.attribute(NSAttributedStringKey.link, at: characterIndex, effectiveRange: nil) == nil {
             return nil
         }
-        return self
+        return super.hitTest(point, with: event)
     }
 
     
