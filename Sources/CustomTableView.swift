@@ -7,6 +7,10 @@
 
 import UIKit
 
+public protocol CustomTableViewDelegate: class {
+    func didDeselectOnTap(in tableView: CustomTableView)
+}
+
 @IBDesignable open class CustomTableView: UITableView, BackgroundColorNameable {
     
     // MARK: - Inspectable properties
@@ -24,6 +28,11 @@ import UIKit
     }
     
     @IBInspectable open var tapToDeselect: Bool = false
+    
+    
+    // MARK: - Public properties
+    
+    public weak var deselectionDelegate: CustomTableViewDelegate?
 
     
     // MARK: - Initializers
@@ -51,6 +60,7 @@ import UIKit
         guard tapToDeselect else { return result }
         if result == self, let selected = indexPathForSelectedRow {
             deselectRow(at: selected, animated: true)
+            deselectionDelegate?.didDeselectOnTap(in: self)
         }
         return result
     }
