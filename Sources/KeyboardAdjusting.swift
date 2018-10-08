@@ -103,6 +103,13 @@ public extension KeyboardAdjusting where Self: UIViewController {
         return adjustedConstant(for: keyboardFrame, using: scrollViewToAdjust, statusBarHeight: statusBarHeight)
     }
     
+    public func adjustedInset(for notification: Notification, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+        guard let userInfo = notification.userInfo,
+            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
+            else { return 0.0 }
+        return adjustedInset(for: keyboardFrame, statusBarHeight: statusBarHeight)
+    }
+    
     /**
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
