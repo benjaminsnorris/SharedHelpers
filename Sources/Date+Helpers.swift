@@ -11,62 +11,68 @@ public extension Date {
     
     // MARK: - Formatters
     
-    static fileprivate var ISO8601MillisecondFormatter: DateFormatter {
+    static fileprivate var ISO8601MillisecondFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter
-    }
+    }()
     
-    static fileprivate var ISO8601SecondFormatter: DateFormatter {
+    static fileprivate var ISO8601SecondFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return formatter
-    }
+    }()
     
-    static fileprivate var ISO8601YearMonthDayFormatter: DateFormatter {
+    static fileprivate var ISO8601YearMonthDayFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
-    }
+    }()
     
-    static fileprivate var mediumDateFormatter: DateFormatter {
+    static fileprivate var mediumDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         return formatter
-    }
+    }()
     
-    static fileprivate var dateAndTimeFormatter: DateFormatter {
+    static fileprivate var dateAndTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
         return formatter
-    }
+    }()
     
-    static fileprivate var fullDateAndTimeFormatter: DateFormatter {
+    static fileprivate var fullDateAndTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         formatter.timeStyle = .short
         return formatter
-    }
+    }()
     
-    static fileprivate var fullDateFormatter: DateFormatter {
+    static fileprivate var fullDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         return formatter
-    }
+    }()
     
-    static fileprivate var timeFormatter: DateFormatter {
+    static fileprivate var timeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter
-    }
+    }()
     
-    static fileprivate var dayAndMonthFormatter: DateFormatter {
+    static fileprivate var dayAndMonthFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MMM d", options: 0, locale: Locale.current)
         return formatter
-    }
+    }()
     
+    static fileprivate var julianDayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "g"
+        return formatter
+    }()
+
     static fileprivate let parsingFormatters = [ISO8601MillisecondFormatter, ISO8601SecondFormatter, ISO8601YearMonthDayFormatter]
     
     static public func fromISO8601String(_ dateString: String?) -> Date? {
@@ -181,7 +187,12 @@ public extension Date {
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: self)!
         return nextDay.startOfDay
     }
-    
+
+    public var julianDay: Int {
+        let dayString = Date.julianDayFormatter.string(from: self)
+        return Int(dayString) ?? 0
+    }
+
     public var isInCurrentMonth: Bool {
         let now = Date()
         let calendar = Calendar.autoupdatingCurrent
