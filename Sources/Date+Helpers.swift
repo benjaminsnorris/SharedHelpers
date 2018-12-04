@@ -67,6 +67,12 @@ public extension Date {
         return formatter
     }()
     
+    static fileprivate var julianDayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "g"
+        return formatter
+    }()
+
     static fileprivate let parsingFormatters = [ISO8601MillisecondFormatter, ISO8601SecondFormatter, ISO8601YearMonthDayFormatter]
     
     static public func fromISO8601String(_ dateString: String?) -> Date? {
@@ -181,7 +187,12 @@ public extension Date {
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: self)!
         return nextDay.startOfDay
     }
-    
+
+    public var julianDay: Int {
+        let dayString = Date.julianDayFormatter.string(from: self)
+        return Int(dayString) ?? 0
+    }
+
     public var isInCurrentMonth: Bool {
         let now = Date()
         let calendar = Calendar.autoupdatingCurrent
