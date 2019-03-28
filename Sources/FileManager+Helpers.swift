@@ -9,19 +9,19 @@ import Foundation
 
 public extension FileManager {
     
-    public static var documentsDirectory: URL {
+    static var documentsDirectory: URL {
         return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     }
     
-    public static var temporaryDirectory: URL {
+    static var temporaryDirectory: URL {
         return URL(fileURLWithPath: NSTemporaryDirectory())
     }
     
-    public static var cachesDirectory: URL {
+    static var cachesDirectory: URL {
         return try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     }
     
-    public static func copyDefaultItem(named name: String, to destination: URL, forceOverwrite: Bool = false) throws {
+    static func copyDefaultItem(named name: String, to destination: URL, forceOverwrite: Bool = false) throws {
         guard let origin = Bundle.main.url(forResource: name, withExtension: nil) else { throw CocoaError(.fileNoSuchFile) }
         guard !FileManager.default.fileExists(atPath: destination.path) else {
             guard forceOverwrite else { return }
@@ -32,7 +32,7 @@ public extension FileManager {
         try FileManager.default.copyItem(at: origin, to: destination)
     }
     
-    public static func createDefaultDirectory(at destination: URL) throws {
+    static func createDefaultDirectory(at destination: URL) throws {
         var isDirectory: ObjCBool = true
         guard !FileManager.default.fileExists(atPath: destination.path, isDirectory: &isDirectory) else { return }
         try FileManager.default.createDirectory(at: destination, withIntermediateDirectories: true, attributes: nil)

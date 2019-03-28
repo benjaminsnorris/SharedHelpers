@@ -93,7 +93,7 @@ import UIKit
     
     func updatePlaceholderTextColor() {
         guard let placeholderText = placeholder, let placeholderColor = UIColor(withName: placeholderTextColorName) else { return }
-        let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: placeholderColor])
+        let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
         self.attributedPlaceholder = attributedPlaceholder
     }
 

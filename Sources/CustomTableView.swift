@@ -37,7 +37,7 @@ public protocol CustomTableViewDelegate: class {
     
     // MARK: - Initializers
     
-    override public init(frame: CGRect, style: UITableViewStyle) {
+    override public init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         registerForNotifications()
     }

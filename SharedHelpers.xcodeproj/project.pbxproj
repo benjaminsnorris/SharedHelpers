@@ -439,11 +439,11 @@
 				TargetAttributes = {
 					7063F67B1D1C32FC006D8A58 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 					};
 					7063F6851D1C32FC006D8A58 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 					};
 					E7955E261F0D557100B8E7ED = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -454,10 +454,11 @@
 			};
 			buildConfigurationList = 7063F6761D1C32FC006D8A58 /* Build configuration list for PBXProject "SharedHelpers" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7063F6721D1C32FC006D8A58;
 			productRefGroup = 7063F67D1D1C32FC006D8A58 /* Products */;
@@ -737,8 +738,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -760,8 +760,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -772,8 +771,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -784,8 +782,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

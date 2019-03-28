@@ -9,25 +9,25 @@ import Foundation
 
 public extension NSMutableAttributedString {
     
-    public func increaseFontSize(by multiplier: CGFloat) {
-        enumerateAttribute(NSAttributedStringKey.font, in: NSMakeRange(0, length), options: []) { (font, range, stop) in
+    func increaseFontSize(by multiplier: CGFloat) {
+        enumerateAttribute(NSAttributedString.Key.font, in: NSMakeRange(0, length), options: []) { (font, range, stop) in
             guard let font = font as? UIFont else { return }
             let newFont = font.withSize(font.pointSize * multiplier)
-            removeAttribute(NSAttributedStringKey.font, range: range)
-            addAttribute(NSAttributedStringKey.font, value: newFont, range: range)
+            removeAttribute(NSAttributedString.Key.font, range: range)
+            addAttribute(NSAttributedString.Key.font, value: newFont, range: range)
         }
     }
     
-    public func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
+    func highlightStrings(_ stringToHighlight: String?, color: UIColor) {
         let textMatches = string.matches(for: stringToHighlight)
         for match in textMatches {
-            addAttribute(NSAttributedStringKey.backgroundColor, value: color, range: match.range)
+            addAttribute(NSAttributedString.Key.backgroundColor, value: color, range: match.range)
         }
     }
     
-    public func highlightMatches(with ranges: [CountableClosedRange<Int>], color: UIColor) {
+    func highlightMatches(with ranges: [CountableClosedRange<Int>], color: UIColor) {
         ranges.map(Range.init).map(NSRange.init).forEach {
-            addAttribute(NSAttributedStringKey.backgroundColor, value: color, range: $0)
+            addAttribute(NSAttributedString.Key.backgroundColor, value: color, range: $0)
         }
     }
     
@@ -52,8 +52,7 @@ public extension String {
 
 
 public extension NSAttributedString {
-    
-    public func withIncreasedFontSize(by multiplier: CGFloat) -> NSAttributedString {
+    func withIncreasedFontSize(by multiplier: CGFloat) -> NSAttributedString {
         let mutableCopy = NSMutableAttributedString(attributedString: self)
         mutableCopy.increaseFontSize(by: multiplier)
         return mutableCopy

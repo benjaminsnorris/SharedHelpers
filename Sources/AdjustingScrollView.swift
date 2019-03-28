@@ -25,10 +25,10 @@ public extension AdjustingScrollView where Self: UIViewController {
      - Note: This function registers observers for `UIKeyboardDidShowNotification` and
         `UIKeyboardWillHideNotification`
      */
-    public func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     /**
@@ -39,7 +39,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillAppear(_ notification: Notification, in viewController: UIViewController) {
+    func keyboardWillAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
 
@@ -51,7 +51,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing 
         information about the keyboard.
      */
-    public func keyboardDidAppear(_ notification: Notification, in viewController: UIViewController) {
+    func keyboardDidAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
     
@@ -59,7 +59,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      Call this function from `keyboardWillHide` in order to have the scroll view reset
      its content insets back to `UIEdgeInsetsZero`.
      */
-    public func keyboardWillDisappear() {
+    func keyboardWillDisappear() {
         let contentInset = UIEdgeInsets.zero
         scrollViewToAdjust?.contentInset = contentInset
         scrollViewToAdjust?.scrollIndicatorInsets = contentInset
@@ -70,7 +70,7 @@ public extension AdjustingScrollView where Self: UIViewController {
 private extension AdjustingScrollView {
     
     func handleKeyboardNotification(_ notification: Notification, viewController: UIViewController) {
-        guard let userInfo = (notification as NSNotification).userInfo, let keyboardFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue, let scrollView = scrollViewToAdjust else { return }
+        guard let userInfo = (notification as NSNotification).userInfo, let keyboardFrameValue = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue, let scrollView = scrollViewToAdjust else { return }
         let keyboardFrame = keyboardFrameValue.cgRectValue
         let convertedScrollViewFrame = scrollView.convert(scrollView.frame, to: viewController.view)
         let keyboardHeight = keyboardFrame.size.height
@@ -78,7 +78,7 @@ private extension AdjustingScrollView {
         guard adjustedKeyboardFrame.intersects(convertedScrollViewFrame) else { return }
         let heightAdjustment = convertedScrollViewFrame.origin.y + convertedScrollViewFrame.size.height - adjustedKeyboardFrame.origin.y
         
-        let contentInset = UIEdgeInsetsMake(0, 0, heightAdjustment, 0)
+        let contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: heightAdjustment, right: 0)
         scrollView.contentInset = contentInset
         scrollView.scrollIndicatorInsets = contentInset
     }

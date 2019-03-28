@@ -11,7 +11,7 @@ public extension String {
     
     func height(with width: CGFloat, font: UIFont = UIFont.preferredFont(forTextStyle: .body)) -> CGFloat {
         let nsString = self as NSString
-        let rect = nsString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let rect = nsString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)
     }
     

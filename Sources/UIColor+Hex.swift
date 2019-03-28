@@ -9,11 +9,11 @@ import UIKit
 
 public extension UIColor {
     
-    public enum InputError: Error {
+    enum InputError: Error {
         case unableToScanHexValue
     }
     
-    convenience public init(hex: Int, alpha: CGFloat = 1.0) {
+    convenience init(hex: Int, alpha: CGFloat = 1.0) {
         let red = CGFloat((hex >> 16) & 0xFF)/255.0
         let green = CGFloat((hex >> 8) & 0xFF)/255.0
         let blue = CGFloat((hex) & 0xFF)/255.0
@@ -21,7 +21,7 @@ public extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    convenience public init(hexString: String, alpha: CGFloat = 1.0) throws {
+    convenience init(hexString: String, alpha: CGFloat = 1.0) throws {
         var hexValue: UInt32 = 0
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
             self.init() // Must init or we get EXEC_BAD_ACCESS
@@ -30,7 +30,7 @@ public extension UIColor {
         self.init(hex: Int(hexValue), alpha: alpha)
     }
     
-    public var hexString: String {
+    var hexString: String {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         

@@ -24,9 +24,9 @@ public extension KeyboardAdjusting where Self: UIViewController {
      - Note: This function registers observers for `UIKeyboardWillChangeFrameNotification` and
      `UIKeyboardWillHideNotification`
      */
-    public func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     /**
@@ -44,15 +44,15 @@ public extension KeyboardAdjusting where Self: UIViewController {
        - statusBarHeight: The height of the shared application status bar
      (`UIApplication.shared.statusBarFrame.height`). Used for form sheet modals.
      */
-    public func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+    func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
         guard let userInfo = notification.userInfo,
-            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let curveInt = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt,
-            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            let curveInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
             else { return }
         guard keyboardFrame.height > 0 else { setConstant(of: constraint, to: 0, animated: true); return }
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
-        let curve = UIViewAnimationOptions(rawValue: curveInt)
+        let curve = UIView.AnimationOptions(rawValue: curveInt)
         setConstant(of: constraint, to: adjustedConstant, animated: true, duration: duration, curve: curve)
         let adjustedInset = self.adjustedInset(for: keyboardFrame, statusBarHeight: statusBarHeight)
         adjustBottomInsets(to: adjustedInset, animated: true, duration: duration, curve: curve)
@@ -71,7 +71,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
        - statusBarHeight: The height of the shared application status bar
        (`UIApplication.shared.statusBarFrame.height`). Used for form sheet modals.
      */
-    public func adjustConstraint(for keyboardFrame: CGRect, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+    func adjustConstraint(for keyboardFrame: CGRect, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
         guard keyboardFrame.height > 0 else { setConstant(of: constraint, to: 0); return }
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
         setConstant(of: constraint, to: adjustedConstant)
@@ -103,9 +103,9 @@ public extension KeyboardAdjusting where Self: UIViewController {
         return adjustedConstant(for: keyboardFrame, using: scrollViewToAdjust, statusBarHeight: statusBarHeight)
     }
     
-    public func adjustedInset(for notification: Notification, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+    func adjustedInset(for notification: Notification, statusBarHeight: CGFloat = 0.0) -> CGFloat {
         guard let userInfo = notification.userInfo,
-            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
             else { return 0.0 }
         return adjustedInset(for: keyboardFrame, statusBarHeight: statusBarHeight)
     }
@@ -113,12 +113,12 @@ public extension KeyboardAdjusting where Self: UIViewController {
     /**
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
-    public func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
+    func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
         setConstant(of: constraint, to: 0, animated: true)
         adjustBottomInsets(to: 0, animated: true)
     }
     
-    func setConstant(of constraint: NSLayoutConstraint?, to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIViewAnimationOptions? = nil) {
+    func setConstant(of constraint: NSLayoutConstraint?, to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIView.AnimationOptions? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [curve ?? .curveEaseInOut], animations: {
                 self.finishSettingConstant(of: constraint, to: constant)
@@ -137,7 +137,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
         view.layoutIfNeeded()
     }
     
-    func adjustBottomInsets(to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIViewAnimationOptions? = nil) {
+    func adjustBottomInsets(to constant: CGFloat, animated: Bool = false, duration: TimeInterval = 0.3, curve: UIView.AnimationOptions? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [curve ?? .curveEaseInOut], animations: {
                 self.finishAdjustingBottomInsets(to: constant)

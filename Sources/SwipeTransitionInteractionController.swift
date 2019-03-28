@@ -135,6 +135,8 @@ class SwipeTransitionInteractionController: UIPercentDrivenInteractiveTransition
             }
         case .cancelled, .failed:
             cancel()
+        @unknown default:
+            break
         }
     }
     

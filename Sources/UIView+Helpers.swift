@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIView {
     
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -18,7 +18,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -27,7 +27,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         get {
             guard let CGColor = layer.borderColor else { return nil }
             return UIColor(cgColor: CGColor)
@@ -37,7 +37,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var shadowColor: UIColor? {
+    @IBInspectable var shadowColor: UIColor? {
         get {
             guard let CGColor = layer.shadowColor else { return nil }
             return UIColor(cgColor: CGColor)
@@ -50,7 +50,7 @@ public extension UIView {
     
     // MARK: - Constraining full size 
     
-    public struct Margins: OptionSet {
+    struct Margins: OptionSet {
         
         public let rawValue: Int
         
@@ -66,12 +66,12 @@ public extension UIView {
         public static let all: Margins = [.leading, .top, .trailing, .bottom]
     }
     
-    public func constrainFullSize(leading: CGFloat = 0, top: CGFloat = 0, trailing: CGFloat = 0, bottom: CGFloat = 0) {
+    func constrainFullSize(leading: CGFloat = 0, top: CGFloat = 0, trailing: CGFloat = 0, bottom: CGFloat = 0) {
         guard let _ = self.superview else { fatalError("\(self) has no superview") }
         constrainFullSize(insets: UIEdgeInsets(top: top, left: leading, bottom: bottom, right: trailing), margins: [])
     }
     
-    public func constrainFullSize(insets: UIEdgeInsets = .zero, margins: Margins) {
+    func constrainFullSize(insets: UIEdgeInsets = .zero, margins: Margins) {
         guard let superview = self.superview else { fatalError("\(self) has no superview") }
         self.translatesAutoresizingMaskIntoConstraints = false
         self.leadingAnchor.constraint(equalTo: margins.contains(.leading) ? superview.layoutMarginsGuide.leadingAnchor : superview.leadingAnchor, constant: insets.left).isActive = true
@@ -93,7 +93,7 @@ public extension UIView {
     ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
     ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
     /// - Returns: Tuple with adjusted value in both directions that can be used to move view, such as with transform or constraint constant.
-    public func adjusted(dx: CGFloat = 0, dy: CGFloat = 0, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> (CGFloat, CGFloat) {
+    func adjusted(dx: CGFloat = 0, dy: CGFloat = 0, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> (CGFloat, CGFloat) {
         let adjustedX = adjustedSingleValue(delta: dx, max: maxX, min: minX, multiplyDeltaBy: coefficient, withDamping: isDamped)
         let adjustedY = adjustedSingleValue(delta: dy, max: maxY, min: minY, multiplyDeltaBy: coefficient, withDamping: isDamped)
         return (adjustedX, adjustedY)
@@ -112,7 +112,7 @@ public extension UIView {
     ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
     ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
     /// - Returns: Adjusted value that can be used to move view, such as with transform or constraint constant.
-    public func adjustedSingleValue(delta: CGFloat, max: CGFloat, min: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
+    func adjustedSingleValue(delta: CGFloat, max: CGFloat, min: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
         if delta >= 0 {
             return adjustedSingleValue(delta: delta, extreme: max, multiplyDeltaBy: coefficient, withDamping: isDamped)
         }
@@ -128,7 +128,7 @@ public extension UIView {
     ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
     ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
     /// - Returns: Adjusted value that can be used to move view, such as with transform or constraint constant.
-    public func adjustedSingleValue(delta: CGFloat, extreme: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
+    func adjustedSingleValue(delta: CGFloat, extreme: CGFloat, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) -> CGFloat {
         guard extreme != 0 else { return 0 }
         let adjustedDelta = abs(delta * coefficient)
         let extremeHalf = abs(extreme) / 2.0
@@ -154,7 +154,7 @@ public extension UIView {
     ///   - minY: Lower negative limit of vertical movement. Defaults to `0`.
     ///   - coefficient: Multiplier for original delta to decrease speed of movement. Defaults to `0.5`.
     ///   - isDamped: Flag for moving exactly with touch (as modified by coefficient). Defaults to `true`.
-    public func adjust(for recognizer: UIPanGestureRecognizer, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) {
+    func adjust(for recognizer: UIPanGestureRecognizer, maxX: CGFloat = 0, minX: CGFloat = 0, maxY: CGFloat = 0, minY: CGFloat = 0, multiplyDeltaBy coefficient: CGFloat = 0.5, withDamping isDamped: Bool = true) {
         switch recognizer.state {
         case .began:
             resetAdjustment()
@@ -168,6 +168,8 @@ public extension UIView {
         case .cancelled, .failed:
             resetAdjustment()
         case .possible:
+            break
+        default:
             break
         }
     }

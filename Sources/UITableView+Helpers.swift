@@ -12,7 +12,7 @@ public extension UITableView {
     /// Reload table view and reselect any selected index paths
     ///
     /// - Parameter scrollPosition: Default value is `.none`
-    func reloadDataPreservingSelection(at scrollPosition: UITableViewScrollPosition = .none) {
+    func reloadDataPreservingSelection(at scrollPosition: UITableView.ScrollPosition = .none) {
         let selectedIndexPaths = indexPathsForSelectedRows
         reloadData()
         if let selected = selectedIndexPaths {

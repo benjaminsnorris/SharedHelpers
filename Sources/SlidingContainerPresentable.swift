@@ -36,12 +36,12 @@ public protocol SlidingContainerPresentable: class {
 @available(iOSApplicationExtension 10.0, *)
 public extension SlidingContainerPresentable where Self: UIViewController {
     
-    public var blurEffectView: UIVisualEffectView? { return nil }
-    public var blurEffect: UIBlurEffect? { return nil }
-    public var minMargin: CGFloat { return 64.0 }
-    public var maxSize: CGFloat? { return nil }
-    public var cornerRadius: CGFloat { return 12.0 }
-    public var shouldAnimateCornerRadius: Bool { return false }
+    var blurEffectView: UIVisualEffectView? { return nil }
+    var blurEffect: UIBlurEffect? { return nil }
+    var minMargin: CGFloat { return 64.0 }
+    var maxSize: CGFloat? { return nil }
+    var cornerRadius: CGFloat { return 12.0 }
+    var shouldAnimateCornerRadius: Bool { return false }
     
     var targetContainerState: SlidingContainerPresentedState {
         if self.anchorEdge == .top {
@@ -58,7 +58,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
     }
     
 
-    public func animateTransitionIfNeeded(state: SlidingContainerPresentedState, duration: TimeInterval) {
+    func animateTransitionIfNeeded(state: SlidingContainerPresentedState, duration: TimeInterval) {
         guard runningAnimators.isEmpty else { return }
         let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             let viewFrame = self.view.frame
@@ -112,7 +112,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
             self.modalContainer.frame = CGRect(x: x, y: y, width: width, height: height)
         }
         frameAnimator.addCompletion { [weak self] _ in
-            guard let `self` = self, let index = self.runningAnimators.index(of: frameAnimator) else { return }
+            guard let `self` = self, let index = self.runningAnimators.firstIndex(of: frameAnimator) else { return }
             self.runningAnimators.remove(at: index)
         }
         frameAnimator.startAnimation()
@@ -128,7 +128,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
             }
             blurAnimator.addCompletion { [weak self] position in
-                guard let `self` = self, let index = self.runningAnimators.index(of: blurAnimator) else { return }
+                guard let `self` = self, let index = self.runningAnimators.firstIndex(of: blurAnimator) else { return }
                 self.runningAnimators.remove(at: index)
                 let isShowing: Bool
                 switch state {
@@ -160,7 +160,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
             }
             cornerAnimator.addCompletion { [weak self] position in
-                guard let `self` = self, let index = self.runningAnimators.index(of: cornerAnimator) else { return }
+                guard let `self` = self, let index = self.runningAnimators.firstIndex(of: cornerAnimator) else { return }
                 self.runningAnimators.remove(at: index)
             }
             cornerAnimator.startAnimation()
@@ -168,7 +168,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
         }
     }
     
-    public func animateOrReverseRunningTransition(state: SlidingContainerPresentedState? = nil, duration: TimeInterval) {
+    func animateOrReverseRunningTransition(state: SlidingContainerPresentedState? = nil, duration: TimeInterval) {
         let targetState = state ?? targetContainerState
         if runningAnimators.isEmpty {
             animateTransitionIfNeeded(state: targetState, duration: duration)
@@ -203,7 +203,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
         }
     }
     
-    public func handlePan(with recognizer: UIPanGestureRecognizer) {
+    func handlePan(with recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             animateTransitionIfNeeded(state: targetContainerState, duration: 1.0)
@@ -233,6 +233,8 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 animator.continueAnimation(withTimingParameters: timing, durationFactor: 0)
             }
         case .possible, .failed, .cancelled:
+            break
+        @unknown default:
             break
         }
     }

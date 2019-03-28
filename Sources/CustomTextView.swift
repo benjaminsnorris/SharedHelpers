@@ -80,7 +80,7 @@ import UIKit
         guard passThruTouches else { return super.hitTest(point, with: event) }
         let characterIndex = layoutManager.characterIndex(for: point, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         guard !text.isEmpty && characterIndex <= text.count else { return nil }
-        if textStorage.attribute(NSAttributedStringKey.link, at: characterIndex, effectiveRange: nil) == nil {
+        if textStorage.attribute(NSAttributedString.Key.link, at: characterIndex, effectiveRange: nil) == nil {
             return nil
         }
         return super.hitTest(point, with: event)
