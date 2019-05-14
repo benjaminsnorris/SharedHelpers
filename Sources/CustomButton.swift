@@ -80,20 +80,20 @@ import UIKit
     
     @IBInspectable open var title: String? {
         didSet {
-            setTitle(title, for: UIControlState.normal)
+            setTitle(title, for: UIControl.State.normal)
         }
     }
     
     @IBInspectable open var loading: Bool = false {
         didSet {
             if loading {
-                spinner.color = titleColor(for: UIControlState.normal)
+                spinner.color = titleColor(for: UIControl.State.normal)
                 spinner.startAnimating()
-                setTitle(nil, for: UIControlState.normal)
+                setTitle(nil, for: UIControl.State.normal)
                 accessibilityLabel = NSLocalizedString("Loading", comment: "Label for button while loading")
             } else {
                 spinner.stopAnimating()
-                setTitle(title, for: UIControlState.normal)
+                setTitle(title, for: UIControl.State.normal)
                 accessibilityLabel = nil
             }
         }
@@ -116,7 +116,7 @@ import UIKit
     
     // MARK: - Private properties
     
-    fileprivate let spinner = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    fileprivate let spinner = UIActivityIndicatorView(style: .white)
     fileprivate let progressLayer = CAShapeLayer()
 
     

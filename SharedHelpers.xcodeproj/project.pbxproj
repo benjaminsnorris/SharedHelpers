@@ -442,13 +442,13 @@
 				TargetAttributes = {
 					7063F67B1D1C32FC006D8A58 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					7063F6851D1C32FC006D8A58 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = M9Y5WF87VL;
-						LastSwiftMigration = "";
+						LastSwiftMigration = 1010;
 					};
 					E7955E261F0D557100B8E7ED = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -746,8 +746,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -773,8 +772,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -786,8 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -799,8 +796,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = design.bsn.SharedHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
