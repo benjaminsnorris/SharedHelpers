@@ -9,6 +9,6 @@ import Foundation
 
 public extension Notification.Name {
     
-    public static let AppearanceColorsUpdated: Notification.Name = Notification.Name(rawValue: "AppearanceColorsUpdated")
+    static let AppearanceColorsUpdated: Notification.Name = Notification.Name(rawValue: "AppearanceColorsUpdated")
     
 }

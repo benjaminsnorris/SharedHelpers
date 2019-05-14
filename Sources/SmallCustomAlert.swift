@@ -233,6 +233,8 @@ public class SmallCustomAlert: UIViewController, StoryboardInitializable {
             }
         case .possible:
             break
+        @unknown default:
+            break
         }
     }
     

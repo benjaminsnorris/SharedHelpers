@@ -14,7 +14,7 @@ public extension UIAlertAction {
         static let image = "image"
     }
     
-    public class var cancel: UIAlertAction {
+    class var cancel: UIAlertAction {
         return UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button title"), style: .cancel) { _ in
             if #available(iOS 10.0, *) {
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -22,11 +22,11 @@ public extension UIAlertAction {
         }
     }
     
-    public func updateChecked(to isChecked: Bool) {
+    func updateChecked(to isChecked: Bool) {
         setValue(isChecked, forKey: Keys.checked)
     }
     
-    public func updateImage(to image: UIImage) {
+    func updateImage(to image: UIImage) {
         setValue(image, forKey: Keys.image)
     }
 

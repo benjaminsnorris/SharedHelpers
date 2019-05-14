@@ -24,7 +24,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
      - Note: This function registers observers for `UIKeyboardWillChangeFrameNotification` and
      `UIKeyboardWillHideNotification`
      */
-    public func registerForKeyboardNotifications() {
+    func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -44,7 +44,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
        - statusBarHeight: The height of the shared application status bar
      (`UIApplication.shared.statusBarFrame.height`). Used for form sheet modals.
      */
-    public func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+    func keyboardWillChange(_ notification: Notification, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
         guard let userInfo = notification.userInfo,
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
             let curveInt = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
@@ -71,7 +71,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
        - statusBarHeight: The height of the shared application status bar
        (`UIApplication.shared.statusBarFrame.height`). Used for form sheet modals.
      */
-    public func adjustConstraint(for keyboardFrame: CGRect, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
+    func adjustConstraint(for keyboardFrame: CGRect, constraint: NSLayoutConstraint? = nil, statusBarHeight: CGFloat = 0.0) {
         guard keyboardFrame.height > 0 else { setConstant(of: constraint, to: 0); return }
         let adjustedConstant = self.adjustedConstant(for: keyboardFrame, statusBarHeight: statusBarHeight)
         setConstant(of: constraint, to: adjustedConstant)
@@ -103,7 +103,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
         return adjustedConstant(for: keyboardFrame, using: scrollViewToAdjust, statusBarHeight: statusBarHeight)
     }
     
-    public func adjustedInset(for notification: Notification, statusBarHeight: CGFloat = 0.0) -> CGFloat {
+    func adjustedInset(for notification: Notification, statusBarHeight: CGFloat = 0.0) -> CGFloat {
         guard let userInfo = notification.userInfo,
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
             else { return 0.0 }
@@ -113,7 +113,7 @@ public extension KeyboardAdjusting where Self: UIViewController {
     /**
      Call this function from `keyboardWillHide` in order to have the constraint constant reset back to zero.
      */
-    public func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
+    func keyboardWillDisappear(constraint: NSLayoutConstraint? = nil) {
         setConstant(of: constraint, to: 0, animated: true)
         adjustBottomInsets(to: 0, animated: true)
     }

@@ -25,7 +25,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - Note: This function registers observers for `UIKeyboardDidShowNotification` and
         `UIKeyboardWillHideNotification`
      */
-    public func registerForKeyboardNotifications() {
+    func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -39,7 +39,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing
      information about the keyboard.
      */
-    public func keyboardWillAppear(_ notification: Notification, in viewController: UIViewController) {
+    func keyboardWillAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
 
@@ -51,7 +51,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      - parameter notification: The `NSNotification` that is delivered containing 
         information about the keyboard.
      */
-    public func keyboardDidAppear(_ notification: Notification, in viewController: UIViewController) {
+    func keyboardDidAppear(_ notification: Notification, in viewController: UIViewController) {
         handleKeyboardNotification(notification, viewController: viewController)
     }
     
@@ -59,7 +59,7 @@ public extension AdjustingScrollView where Self: UIViewController {
      Call this function from `keyboardWillHide` in order to have the scroll view reset
      its content insets back to `UIEdgeInsetsZero`.
      */
-    public func keyboardWillDisappear() {
+    func keyboardWillDisappear() {
         let contentInset = UIEdgeInsets.zero
         scrollViewToAdjust?.contentInset = contentInset
         scrollViewToAdjust?.scrollIndicatorInsets = contentInset

@@ -35,7 +35,7 @@ extension UIViewController {
 
 public extension UIApplication {
     
-    public var topMostViewController: UIViewController? {
+    var topMostViewController: UIViewController? {
         return keyWindow?.rootViewController?.topMostViewController
     }
     

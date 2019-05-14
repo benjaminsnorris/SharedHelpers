@@ -11,11 +11,11 @@ public protocol Nameable { }
 
 public extension Nameable {
     
-    public static var name: String {
+    static var name: String {
         return String(describing: Self.self)
     }
     
-    public func addAccessibilityIdentifiers() {
+    func addAccessibilityIdentifiers() {
         for (label, object) in Mirror(reflecting: self).children {
             guard let label = label else { continue }
             let accessibleObject: UIAccessibilityIdentification

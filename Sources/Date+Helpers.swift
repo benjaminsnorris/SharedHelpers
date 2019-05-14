@@ -75,7 +75,7 @@ public extension Date {
 
     static fileprivate let parsingFormatters = [ISO8601MillisecondFormatter, ISO8601SecondFormatter, ISO8601YearMonthDayFormatter]
     
-    static public func fromISO8601String(_ dateString: String?) -> Date? {
+    static func fromISO8601String(_ dateString: String?) -> Date? {
         guard let dateString = dateString else { return nil }
         for formatter in parsingFormatters {
             if let date = formatter.date(from: dateString) {
@@ -85,7 +85,7 @@ public extension Date {
         return .none
     }
     
-    static public func fromMillisecondsSince1970(_ milliseconds: Double) -> Date {
+    static func fromMillisecondsSince1970(_ milliseconds: Double) -> Date {
         let dateSeconds = milliseconds / 1000.0
         let dateInterval = TimeInterval(dateSeconds)
         let date = Date(timeIntervalSince1970: dateInterval)
@@ -96,56 +96,56 @@ public extension Date {
     // MARK: - Formatted computed vars
     
     /// E.g. "3:30 PM"
-    public var timeString: String {
+    var timeString: String {
         return Date.timeFormatter.string(from: self)
     }
     
     // E.g. "Nov 23, 1937"
-    public var monthDayYearString: String {
+    var monthDayYearString: String {
         return Date.mediumDateFormatter.string(from: self)
     }
     
     /// E.g. "Nov 23, 1937, 3:30 PM"
-    public var dateAndTimeString: String {
+    var dateAndTimeString: String {
         return Date.dateAndTimeFormatter.string(from: self)
     }
     
     /// E.g. "Tuesday, November 23, 1937 at 3:30 PM"
-    public var fullDateAndTimeString: String {
+    var fullDateAndTimeString: String {
         return Date.fullDateAndTimeFormatter.string(from: self)
     }
     
     /// E.g. "Tuesday, November 23, 1937"
-    public var fullDateString: String {
+    var fullDateString: String {
         return Date.fullDateFormatter.string(from: self)
     }
     
     /// E.g. "1937-11-23T15:30:00-0700"
-    public var iso8601DateAndTimeString: String {
+    var iso8601DateAndTimeString: String {
         return Date.ISO8601SecondFormatter.string(from: self)
     }
     
     /// E.g. "1937-11-23T15:30:00.023-0700"
-    public var iso8601MillisecondString: String {
+    var iso8601MillisecondString: String {
         return Date.ISO8601MillisecondFormatter.string(from: self)
     }
     
     /// E.g. "1937-11-23"
-    public var iso8601DateString: String {
+    var iso8601DateString: String {
         return Date.ISO8601YearMonthDayFormatter.string(from: self)
     }
     
-    public var millisecondsSince1970: TimeInterval {
+    var millisecondsSince1970: TimeInterval {
         return round(self.timeIntervalSince1970 * 1000)
     }
     
     /// E.g. "Nov 23"
-    public var dayAndMonthString: String {
+    var dayAndMonthString: String {
         return Date.dayAndMonthFormatter.string(from: self)
     }
     
     /// `Today`, `Yesterday`, `Tomorrow`, or month and day (e.g. Aug 15)
-    public var relativeDayAndMonthString: String {
+    var relativeDayAndMonthString: String {
         let calendar = Calendar.autoupdatingCurrent
         if calendar.isDateInYesterday(self) {
             return NSLocalizedString("Yesterday", comment: "Relative date string for previous day")
@@ -160,40 +160,40 @@ public extension Date {
     }
     
     /// `Today`, `Yesterday`, `Tomorrow`, or month and day, along with time (e.g. Aug 15, 3:30 PM)
-    public var relativeDayAndTimeString: String {
+    var relativeDayAndTimeString: String {
         return String.localizedStringWithFormat(NSLocalizedString("%@, %@", comment: "Relative date and time string. First parameter is relative date, second is time."), relativeDayAndMonthString, timeString)
     }
     
     
     // MARK: - Helper computed vars
     
-    public var isToday: Bool {
+    var isToday: Bool {
         return Calendar.current.isDateInToday(self)
     }
     
-    public var isYesterday: Bool {
+    var isYesterday: Bool {
         return Calendar.current.isDateInYesterday(self)
     }
     
-    public var isTomorrow: Bool {
+    var isTomorrow: Bool {
         return Calendar.current.isDateInTomorrow(self)
     }
     
-    public var startOfDay: Date {
+    var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
     }
     
-    public var endOfDay: Date {
+    var endOfDay: Date {
         let nextDay = Calendar.current.date(byAdding: .day, value: 1, to: self)!
         return nextDay.startOfDay
     }
 
-    public var julianDay: Int {
+    var julianDay: Int {
         let dayString = Date.julianDayFormatter.string(from: self)
         return Int(dayString) ?? 0
     }
 
-    public var isInCurrentMonth: Bool {
+    var isInCurrentMonth: Bool {
         let now = Date()
         let calendar = Calendar.autoupdatingCurrent
         let components = calendar.dateComponents([.year, .month], from: now)
@@ -230,7 +230,7 @@ public extension Date {
     
     // MARK: - Functions
         
-    public func isSameDay(as date: Date) -> Bool {
+    func isSameDay(as date: Date) -> Bool {
         return Calendar.current.isDate(date, inSameDayAs: self)
     }
     
@@ -241,23 +241,23 @@ public extension Date {
 
 public extension Int {
     
-    public var seconds: TimeInterval {
+    var seconds: TimeInterval {
         return TimeInterval(self)
     }
 
-    public var minutes: TimeInterval {
+    var minutes: TimeInterval {
         return TimeInterval(self * 60)
     }
     
-    public var hours: TimeInterval {
+    var hours: TimeInterval {
         return TimeInterval(minutes * 60)
     }
     
-    public var days: TimeInterval {
+    var days: TimeInterval {
         return TimeInterval(hours * 24)
     }
     
-    public var weeks: TimeInterval {
+    var weeks: TimeInterval {
         return TimeInterval(days * 7)
     }
 

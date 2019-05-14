@@ -16,7 +16,7 @@ public protocol DateSortable {
 
 public extension Collection where Self.Iterator.Element: DateSortable {
     
-    public func sortedByDate(ascending: Bool = true) -> [Self.Iterator.Element] {
+    func sortedByDate(ascending: Bool = true) -> [Self.Iterator.Element] {
         return self.sorted(by: ascending ? sortAscending : sortDescending)
     }
     

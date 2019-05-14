@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIFont {
     
-    public convenience init?(named: String?) {
+    convenience init?(named: String?) {
         guard let fullName = named else { return nil }
         var name = fullName
         var size = UIFont.systemFontSize

@@ -11,11 +11,11 @@ import UIKit
 
 public extension UIAlertController {
     
-    public func addCancel(handler: ((UIAlertAction) -> Void)? = nil) {
+    func addCancel(handler: ((UIAlertAction) -> Void)? = nil) {
         addAction(customAction(with: NSLocalizedString("Cancel", comment: "Cancel button title"), handler: handler))
     }
     
-    public func addOK(handler: ((UIAlertAction) -> Void)? = nil) {
+    func addOK(handler: ((UIAlertAction) -> Void)? = nil) {
         let action = customAction(with: NSLocalizedString("OK", comment: "OK button title"), handler: handler)
         addAction(action)
         preferredAction = action
@@ -33,7 +33,7 @@ public extension UIAlertController {
     
     // MARK: - Text field
     
-    public enum TextInputResult {
+    enum TextInputResult {
         /// The user tapped Cancel.
         case cancel
         /// The user tapped the OK button. The payload is the text they entered in the text field.
@@ -54,7 +54,7 @@ public extension UIAlertController {
     ///   - textFieldConfiguration: Use this to configure the text field (e.g. set placeholder text).
     ///   - onCompletion: Called when the user closes the alert view. The argument tells you whether
     ///     the user tapped the Close or the OK button (in which case this delivers the entered text).
-    public convenience init(title: String, message: String? = nil,
+    convenience init(title: String, message: String? = nil,
                             cancelButtonTitle: String, okButtonTitle: String,
                             validate validationRule: TextValidationRule = .noRestriction,
                             textFieldConfiguration: ((UITextField) -> Void)? = nil,

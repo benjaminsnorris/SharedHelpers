@@ -9,7 +9,7 @@ import UIKit
 
 public extension UISegmentedControl {
     
-    public func recommendedHeight(with padding: CGFloat) -> CGFloat? {
+    func recommendedHeight(with padding: CGFloat) -> CGFloat? {
         var label: UILabel?
         guard let segment = subviews.first else { return nil }
         for subview in segment.subviews {
