@@ -112,7 +112,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
             self.modalContainer.frame = CGRect(x: x, y: y, width: width, height: height)
         }
         frameAnimator.addCompletion { [weak self] _ in
-            guard let `self` = self, let index = self.runningAnimators.index(of: frameAnimator) else { return }
+            guard let `self` = self, let index = self.runningAnimators.firstIndex(of: frameAnimator) else { return }
             self.runningAnimators.remove(at: index)
         }
         frameAnimator.startAnimation()
@@ -128,7 +128,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
             }
             blurAnimator.addCompletion { [weak self] position in
-                guard let `self` = self, let index = self.runningAnimators.index(of: blurAnimator) else { return }
+                guard let `self` = self, let index = self.runningAnimators.firstIndex(of: blurAnimator) else { return }
                 self.runningAnimators.remove(at: index)
                 let isShowing: Bool
                 switch state {
@@ -160,7 +160,7 @@ public extension SlidingContainerPresentable where Self: UIViewController {
                 }
             }
             cornerAnimator.addCompletion { [weak self] position in
-                guard let `self` = self, let index = self.runningAnimators.index(of: cornerAnimator) else { return }
+                guard let `self` = self, let index = self.runningAnimators.firstIndex(of: cornerAnimator) else { return }
                 self.runningAnimators.remove(at: index)
             }
             cornerAnimator.startAnimation()
