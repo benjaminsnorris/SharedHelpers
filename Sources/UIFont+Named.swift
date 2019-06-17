@@ -10,7 +10,12 @@ import UIKit
 public extension UIFont {
     
     convenience init?(named: String?) {
-        guard let fullName = named else { return nil }
+        guard let font = UIFont.with(name: named) else { return nil }
+        self.init(name: font.fontName, size: font.pointSize)
+    }
+    
+    class func with(name: String?) -> UIFont? {
+        guard let fullName = name else { return nil }
         var name = fullName
         var size = UIFont.systemFontSize
         if let range = fullName.range(of: "_") {
@@ -28,7 +33,7 @@ public extension UIFont {
         } else {
             return nil
         }
-        self.init(name: font.fontName, size: font.pointSize)
+        return font
     }
     
 }
