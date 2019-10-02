@@ -21,11 +21,11 @@ public extension Collection where Self.Iterator.Element: DateSortable {
     }
     
     fileprivate func sortAscending(_ first: DateSortable, _ second: DateSortable) -> Bool {
-        return (first.sortDate as NSDate).earlierDate(second.sortDate) == first.sortDate
+        return first.sortDate < second.sortDate
     }
 
     fileprivate func sortDescending(_ first: DateSortable, _ second: DateSortable) -> Bool {
-        return (first.sortDate as NSDate).laterDate(second.sortDate) == first.sortDate
+        return first.sortDate > second.sortDate
     }
 
 }
