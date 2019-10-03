@@ -9,13 +9,8 @@ import UIKit
 
 public extension UIFont {
     
-    convenience init?(named: String?) {
-        guard let font = UIFont.with(name: named) else { return nil }
-        self.init(name: font.fontName, size: font.pointSize)
-    }
-    
-    class func with(name: String?) -> UIFont? {
-        guard let fullName = name else { return nil }
+    class func named(_ named: String?) -> UIFont? {
+        guard let fullName = named else { return nil }
         var name = fullName
         var size = UIFont.systemFontSize
         if let range = fullName.range(of: "_") {
@@ -25,15 +20,12 @@ public extension UIFont {
                 size = CGFloat(sizeInt)
             }
         }
-        var font: UIFont
         if let namedFont = UIFont.value(forKey: name) as? UIFont {
-            font = namedFont
+            return namedFont
         } else if let _font = UIFont(name: name, size: size) {
-            font = _font
-        } else {
-            return nil
+            return _font
         }
-        return font
+        return nil
     }
     
 }

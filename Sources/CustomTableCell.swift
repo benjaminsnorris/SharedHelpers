@@ -43,7 +43,7 @@ import UIKit
     
     @IBInspectable open var detailFontName: String? {
         didSet {
-            detailTextLabel?.font = UIFont(named: detailFontName)
+            detailTextLabel?.font = UIFont.named(detailFontName)
         }
     }
 
