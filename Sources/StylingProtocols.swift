@@ -66,7 +66,7 @@ public extension FontNameable {
     
     func applyFontName() {
         if let fontName = fontName {
-            displayFont = UIFont.named(fontName)
+            displayFont = UIFont.with(name: fontName)
         }
     }
     
