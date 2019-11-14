@@ -11,7 +11,7 @@ import PackageDescription
 let package = Package(
     name: "SharedHelpers",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v11)
     ],
     products: [
         .library(name: "SharedHelpers", targets: ["SharedHelpers"])
