@@ -144,8 +144,8 @@ public extension Date {
         return Date.dayAndMonthFormatter.string(from: self)
     }
     
-    /// `Today`, `Yesterday`, `Tomorrow`, or month and day (e.g. Aug 15)
-    var relativeDayAndMonthString: String {
+    /// `Today`, `Yesterday`, `Tomorrow`, or `nil`
+    var relativeDayString: String? {
         let calendar = Calendar.autoupdatingCurrent
         if calendar.isDateInYesterday(self) {
             return NSLocalizedString("Yesterday", comment: "Relative date string for previous day")
@@ -156,7 +156,23 @@ public extension Date {
         if calendar.isDateInTomorrow(self) {
             return NSLocalizedString("Tomorrow", comment: "Relative date string for next day")
         }
+        return nil
+    }
+    
+    /// `Today`, `Yesterday`, `Tomorrow`, or month and day (e.g. Aug 15)
+    var relativeDayAndMonthString: String {
+        if let relative = relativeDayString {
+            return relative
+        }
         return dayAndMonthString
+    }
+    
+    /// `Today`, `Yesterday`, `Tomorrow`, or month and day and year (e.g. Aug 15, 1927)
+    var relativeMonthDayYearString: String {
+        if let relative = relativeDayString {
+            return relative
+        }
+        return monthDayYearString
     }
     
     /// `Today`, `Yesterday`, `Tomorrow`, or month and day, along with time (e.g. Aug 15, 3:30 PM)
